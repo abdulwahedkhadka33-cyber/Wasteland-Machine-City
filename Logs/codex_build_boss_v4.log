@@ -1,0 +1,57 @@
+Unity Editor version:    2022.3.62f3 (96770f904ca7)
+Branch:                  2022.3/respin/2022.3.62f2-4af31df585-v2
+Build type:              Release
+Batch mode:              YES
+macOS version:           Version 15.7.1 (Build 24G231)
+Darwin version:          24.6.0
+Architecture:            arm64
+Running under Rosetta:   NO
+Available memory:        16384 MB
+[Licensing::Module] Trying to connect to existing licensing client channel...
+[Licensing::IpcConnector] Channel LicenseClient-wyz doesn't exist
+Launching external process: /Applications/Unity/Unity.app/Contents/Frameworks/UnityLicensingClient.app/Contents/MacOS/Unity.Licensing.Client
+[Licensing::Module] Successfully launched the LicensingClient (PId: 25763)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-wyz" at "2026-06-03T15:07:18.153125Z"
+[Licensing::Client] Code 10 while verifying Licensing Client signature (process Id: 25763, path: "/Applications/Unity/Unity.app/Contents/Frameworks/UnityLicensingClient.app/Contents/MacOS/Unity.Licensing.Client")
+[Licensing::Module] LicensingClient has failed validation; ignoring
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.16.2+bdef8f5
+  Session Id:              50ba6b5b746b496dbe38d13075fb1af0
+  Correlation Id:          ead7d8e5c4ed93e028fa03e39a513b2e
+  External correlation Id: 2354741023267709051
+  Machine Id:              MwN75GJr33SGqpPPuIXwgw3HUpE=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-wyz" (connect: 0.89s, validation: 0.03s, handshake: 0.17s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-wyz-notifications" at "2026-06-03T15:07:18.360244Z"
+[Licensing::Module] Connected to LicensingClient (PId: 25763, launch time: 0.00, total connection time: 1.10s)
+[Licensing::Module] Error: Access token is unavailable; failed to update
+[Licensing::Client] Error: Code 500 while processing request (status: Unable to update licenses. Errors: No ULF license found.,Token not found in cache)
+[Licensing::Client] Error: Code 500 while updating license in client (status: Unable to update licenses. Errors: No ULF license found.,Token not found in cache)
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] Serial number assigned to: "1375932613713-UnityPersXXXX"
+Pro License: NO
+[Licensing::Client] Successfully resolved entitlement details
+Launching external process: /Applications/Unity/Unity.app/Contents/Resources/PackageManager/Server/UnityPackageManager
+
+COMMAND LINE ARGUMENTS:
+/Applications/Unity/Unity.app/Contents/MacOS/Unity
+-batchmode
+-quit
+-projectPath
+/Users/wyz/Desktop/废土机械城
+-executeMethod
+TutorialSceneBuilder.BuildTutorialScene
+-logFile
+/Users/wyz/Desktop/废土机械城/Logs/codex_build_boss_v4.log
+Successfully changed project path to: /Users/wyz/Desktop/废土机械城
+/Users/wyz/Desktop/废土机械城
+It looks like another Unity instance is running with this project open.
+
+Multiple Unity instances cannot open the same project.
+
+Project: /Users/wyz/Desktop/废土机械城
+Fatal Error! It looks like another Unity instance is running with this project open.
+
+Multiple Unity instances cannot open the same project.
+
+Project: /Users/wyz/Desktop/废土机械城
+[Package Manager] Server::Kill -- Server was shutdown

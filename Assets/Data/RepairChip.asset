@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f34a9d44c21044226b94219feccd7bf9, type: 3}
+  m_Name: RepairChip
+  m_EditorClassIdentifier: 
+  chipId: repair_chip
+  displayName: "\u4FEE\u590D\u82AF\u7247"
+  description: "\u51FB\u8D25\u654C\u4EBA\u65F6\u6062\u590D 1 \u8010\u4E45\u3002"
+  icon: {fileID: 0}
+  healOnEnemyKill: 1
+  healAmount: 1

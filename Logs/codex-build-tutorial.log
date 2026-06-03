@@ -1,0 +1,52 @@
+Unity Editor version:    2022.3.62f3 (96770f904ca7)
+Branch:                  2022.3/respin/2022.3.62f2-4af31df585-v2
+Build type:              Release
+Batch mode:              YES
+macOS version:           Version 15.7.1 (Build 24G231)
+Darwin version:          24.6.0
+Architecture:            arm64
+Running under Rosetta:   NO
+Available memory:        16384 MB
+[Licensing::Module] Trying to connect to existing licensing client channel...
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-wyz" at "2026-06-02T02:03:44.944721Z"
+[Licensing::Client] Code 10 while verifying Licensing Client signature (process Id: 2745, path: "/Applications/Unity Hub.app/Contents/Frameworks/UnityLicensingClient_V1.app/Contents/MacOS/Unity.Licensing.Client")
+[Licensing::Module] LicensingClient has failed validation; ignoring
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.17.4+4293ba1
+  Session Id:              8a39331cad444bdabe2cdf9d8213f77b
+  Correlation Id:          2e8110af57513b35a26309ed37c2b734
+  External correlation Id: 6178184264924874344
+  Machine Id:              MwN75GJr33SGqpPPuIXwgw3HUpE=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-wyz" (connect: 0.00s, validation: 0.01s, handshake: 0.21s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-wyz-notifications" at "2026-06-02T02:03:45.1663Z"
+[Licensing::Module] Error: Access token is unavailable; failed to update
+[Licensing::Client] Successfully updated license
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] Serial number assigned to: "1375932613713-UnityPersXXXX"
+Pro License: NO
+[Licensing::Client] Successfully resolved entitlement details
+Launching external process: /Applications/Unity/Unity.app/Contents/Resources/PackageManager/Server/UnityPackageManager
+
+COMMAND LINE ARGUMENTS:
+/Applications/Unity/Unity.app/Contents/MacOS/Unity
+-batchmode
+-projectPath
+/Users/wyz/Desktop/废土机械城
+-executeMethod
+TutorialSceneBuilder.BuildTutorialScene
+-quit
+-logFile
+/Users/wyz/Desktop/废土机械城/Logs/codex-build-tutorial.log
+Successfully changed project path to: /Users/wyz/Desktop/废土机械城
+/Users/wyz/Desktop/废土机械城
+It looks like another Unity instance is running with this project open.
+
+Multiple Unity instances cannot open the same project.
+
+Project: /Users/wyz/Desktop/废土机械城
+Fatal Error! It looks like another Unity instance is running with this project open.
+
+Multiple Unity instances cannot open the same project.
+
+Project: /Users/wyz/Desktop/废土机械城
+[Package Manager] Server::Kill -- Server was shutdown

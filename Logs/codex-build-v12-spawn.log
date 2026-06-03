@@ -1,0 +1,1762 @@
+Unity Editor version:    2022.3.62f3 (96770f904ca7)
+Branch:                  2022.3/respin/2022.3.62f2-4af31df585-v2
+Build type:              Release
+Batch mode:              YES
+macOS version:           Version 15.7.1 (Build 24G231)
+Darwin version:          24.6.0
+Architecture:            arm64
+Running under Rosetta:   NO
+Available memory:        16384 MB
+[Licensing::Module] Trying to connect to existing licensing client channel...
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-wyz" at "2026-06-02T05:09:28.991936Z"
+[Licensing::Client] Code 10 while verifying Licensing Client signature (process Id: 1726, path: "/Applications/Unity Hub.app/Contents/Frameworks/UnityLicensingClient_V1.app/Contents/MacOS/Unity.Licensing.Client")
+[Licensing::Module] LicensingClient has failed validation; ignoring
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.17.4+4293ba1
+  Session Id:              b8cb4bb68f774643843d32de946e7a34
+  Correlation Id:          5a5fb9cd6759798f622aa85c58b8ad34
+  External correlation Id: 3722729676567564703
+  Machine Id:              MwN75GJr33SGqpPPuIXwgw3HUpE=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-wyz" (connect: 0.00s, validation: 0.01s, handshake: 0.21s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-wyz-notifications" at "2026-06-02T05:09:29.209416Z"
+[Licensing::Module] Error: Access token is unavailable; failed to update
+[Licensing::Client] Successfully updated license
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] Serial number assigned to: "1375932613713-UnityPersXXXX"
+Pro License: NO
+[Licensing::Client] Successfully resolved entitlement details
+Launching external process: /Applications/Unity/Unity.app/Contents/Resources/PackageManager/Server/UnityPackageManager
+
+COMMAND LINE ARGUMENTS:
+/Applications/Unity/Unity.app/Contents/MacOS/Unity
+-batchmode
+-projectPath
+/Users/wyz/Desktop/废土机械城
+-executeMethod
+TutorialSceneBuilder.BuildTutorialScene
+-quit
+-logFile
+/Users/wyz/Desktop/废土机械城/Logs/codex-build-v12-spawn.log
+Successfully changed project path to: /Users/wyz/Desktop/废土机械城
+/Users/wyz/Desktop/废土机械城
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [8650268992]  Target information:
+
+Player connection [8650268992]  * "[IP] 192.168.1.103 [Port] 55504 [Flags] 2 [Guid] 4008805289 [EditorId] 4008805289 [Version] 1048832 [Id] OSXEditor(0,wyzdeMac-mini-2.local) [Debug] 1 [PackageName] OSXEditor [ProjectName] Editor" 
+
+Player connection [8650268992]  * "[IP] 198.18.0.1 [Port] 55504 [Flags] 2 [Guid] 4008805289 [EditorId] 4008805289 [Version] 1048832 [Id] OSXEditor(0,wyzdeMac-mini-2.local) [Debug] 1 [PackageName] OSXEditor [ProjectName] Editor" 
+
+Player connection [8650268992] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [8650268992] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Input System module state changed to: Initialized.
+[PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+[Package Manager] UpmClient::Connect -- Connected to IPC stream "Upm-9247" after 0.3 seconds.
+[Package Manager] Restoring resolved packages state from cache
+[Licensing::Client] Successfully resolved entitlement details
+[Package Manager] Registered 32 packages:
+  Built-in packages:
+    com.unity.modules.ai@1.0.0 (location: /Users/wyz/Desktop/废土机械城/Library/PackageCache/com.unity.modules.ai@1.0.0)
+    com.unity.modules.androidjni@1.0.0 (location: /Users/wyz/Desktop/废土机械城/Library/PackageCache/com.unity.modules.androidjni@1.0.0)
+    com.unity.modules.animation@1.0.0 (location: /Users/wyz/Desktop/废土机械城/Library/PackageCache/com.unity.modules.animation@1.0.0)
+    com.unity.modules.assetbundle@1.0.0 (location: /Users/wyz/Desktop/废土机械城/Library/PackageCache/com.unity.modules.assetbundle@1.0.0)
+    com.unity.modules.audio@1.0.0 (location: /Users/wyz/Desktop/废土机械城/Library/PackageCache/com.unity.modules.audio@1.0.0)
+    com.unity.modules.cloth@1.0.0 (location: /Users/wyz/Desktop/废土机械城/Library/PackageCache/com.unity.modules.cloth@1.0.0)
+    com.unity.modules.director@1.0.0 (location: /Users/wyz/Desktop/废土机械城/Library/PackageCache/com.unity.modules.director@1.0.0)
+    com.unity.modules.imageconversion@1.0.0 (location: /Users/wyz/Desktop/废土机械城/Library/PackageCache/com.unity.modules.imageconversion@1.0.0)
+    com.unity.modules.imgui@1.0.0 (location: /Users/wyz/Desktop/废土机械城/Library/PackageCache/com.unity.modules.imgui@1.0.0)
+    com.unity.modules.jsonserialize@1.0.0 (location: /Users/wyz/Desktop/废土机械城/Library/PackageCache/com.unity.modules.jsonserialize@1.0.0)
+    com.unity.modules.particlesystem@1.0.0 (location: /Users/wyz/Desktop/废土机械城/Library/PackageCache/com.unity.modules.particlesystem@1.0.0)
+    com.unity.modules.physics@1.0.0 (location: /Users/wyz/Desktop/废土机械城/Library/PackageCache/com.unity.modules.physics@1.0.0)
+    com.unity.modules.physics2d@1.0.0 (location: /Users/wyz/Desktop/废土机械城/Library/PackageCache/com.unity.modules.physics2d@1.0.0)
+    com.unity.modules.screencapture@1.0.0 (location: /Users/wyz/Desktop/废土机械城/Library/PackageCache/com.unity.modules.screencapture@1.0.0)
+    com.unity.modules.terrain@1.0.0 (location: /Users/wyz/Desktop/废土机械城/Library/PackageCache/com.unity.modules.terrain@1.0.0)
+    com.unity.modules.terrainphysics@1.0.0 (location: /Users/wyz/Desktop/废土机械城/Library/PackageCache/com.unity.modules.terrainphysics@1.0.0)
+    com.unity.modules.tilemap@1.0.0 (location: /Users/wyz/Desktop/废土机械城/Library/PackageCache/com.unity.modules.tilemap@1.0.0)
+    com.unity.modules.ui@1.0.0 (location: /Users/wyz/Desktop/废土机械城/Library/PackageCache/com.unity.modules.ui@1.0.0)
+    com.unity.modules.uielements@1.0.0 (location: /Users/wyz/Desktop/废土机械城/Library/PackageCache/com.unity.modules.uielements@1.0.0)
+    com.unity.modules.umbra@1.0.0 (location: /Users/wyz/Desktop/废土机械城/Library/PackageCache/com.unity.modules.umbra@1.0.0)
+    com.unity.modules.unityanalytics@1.0.0 (location: /Users/wyz/Desktop/废土机械城/Library/PackageCache/com.unity.modules.unityanalytics@1.0.0)
+    com.unity.modules.unitywebrequest@1.0.0 (location: /Users/wyz/Desktop/废土机械城/Library/PackageCache/com.unity.modules.unitywebrequest@1.0.0)
+    com.unity.modules.unitywebrequestassetbundle@1.0.0 (location: /Users/wyz/Desktop/废土机械城/Library/PackageCache/com.unity.modules.unitywebrequestassetbundle@1.0.0)
+    com.unity.modules.unitywebrequestaudio@1.0.0 (location: /Users/wyz/Desktop/废土机械城/Library/PackageCache/com.unity.modules.unitywebrequestaudio@1.0.0)
+    com.unity.modules.unitywebrequesttexture@1.0.0 (location: /Users/wyz/Desktop/废土机械城/Library/PackageCache/com.unity.modules.unitywebrequesttexture@1.0.0)
+    com.unity.modules.unitywebrequestwww@1.0.0 (location: /Users/wyz/Desktop/废土机械城/Library/PackageCache/com.unity.modules.unitywebrequestwww@1.0.0)
+    com.unity.modules.vehicles@1.0.0 (location: /Users/wyz/Desktop/废土机械城/Library/PackageCache/com.unity.modules.vehicles@1.0.0)
+    com.unity.modules.video@1.0.0 (location: /Users/wyz/Desktop/废土机械城/Library/PackageCache/com.unity.modules.video@1.0.0)
+    com.unity.modules.vr@1.0.0 (location: /Users/wyz/Desktop/废土机械城/Library/PackageCache/com.unity.modules.vr@1.0.0)
+    com.unity.modules.wind@1.0.0 (location: /Users/wyz/Desktop/废土机械城/Library/PackageCache/com.unity.modules.wind@1.0.0)
+    com.unity.modules.xr@1.0.0 (location: /Users/wyz/Desktop/废土机械城/Library/PackageCache/com.unity.modules.xr@1.0.0)
+    com.unity.modules.subsystems@1.0.0 (location: /Users/wyz/Desktop/废土机械城/Library/PackageCache/com.unity.modules.subsystems@1.0.0)
+[Subsystems] No new subsystems found in resolved package list.
+Package Manager log level set to [2]
+[Package Manager] Done registering packages in 0.09 seconds
+Artifact Garbage Collection - Removed 1 unused hashed content files
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2022.3.62f3 (96770f904ca7)
+[Subsystems] Discovering subsystems at path /Applications/Unity/Unity.app/Contents/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path /Users/wyz/Desktop/废土机械城/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+ preferred device: Apple M4 (high power)
+Metal devices available: 1
+0: Apple M4 (high power)
+Using device Apple M4 (high power)
+Initializing Metal device caps: Apple M4
+[Licensing::Client] Successfully resolved entitlement details
+Initialize mono
+Mono path[0] = '/Applications/Unity/Unity.app/Contents/Managed'
+Mono path[1] = '/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit-macos'
+Mono config path = '/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56247
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+ImportWorker Server TCP listen port: 0
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /Applications/Unity/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Registered in 0.001356 seconds.
+- Loaded All Assemblies, in  0.166 seconds
+Native extension for OSXStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.100 seconds
+Domain Reload Profiling: 265ms
+	BeginReloadAssembly (64ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (0ms)
+	RebuildCommonClasses (15ms)
+	RebuildNativeTypeToScriptingClass (5ms)
+	initialDomainReloadingComplete (20ms)
+	LoadAllAssembliesAndSetupDomain (62ms)
+		LoadAssemblies (64ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (61ms)
+			TypeCache.Refresh (60ms)
+				TypeCache.ScanAssembly (55ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (100ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (80ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (4ms)
+			SetLoadedEditorAssemblies (3ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (1ms)
+			ProcessInitializeOnLoadAttributes (56ms)
+			ProcessInitializeOnLoadMethodAttributes (17ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+[Licensing::Client] Successfully resolved entitlement details
+Application.AssetDatabase Initial Refresh Start
+[ScriptCompilation] Requested script compilation because: Assetdatabase observed changes in script compilation related files
+[40m[32minfo[39m[22m[49m: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://unix:/tmp/ilpp.sock-0ba6e7e87f492e974795634e0159c9d8
+[40m[32minfo[39m[22m[49m: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+[40m[32minfo[39m[22m[49m: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Production
+[40m[32minfo[39m[22m[49m: Microsoft.Hosting.Lifetime[0]
+      Content root path: /Users/wyz/Desktop/废土机械城/
+[40m[32minfo[39m[22m[49m: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/Ping application/grpc -
+[40m[32minfo[39m[22m[49m: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/Ping'
+[40m[32minfo[39m[22m[49m: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/Ping'
+[40m[32minfo[39m[22m[49m: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/Ping application/grpc - - 200 - application/grpc 19.0239ms
+Starting: /Applications/Unity/Unity.app/Contents/bee_backend --ipc --defer-dag-verification --dagfile="Library/Bee/200b0aE.dag" --continue-on-failure --profile="Library/Bee/backend1.traceevents" ScriptAssemblies
+WorkingDir: /Users/wyz/Desktop/废土机械城
+DisplayProgressbar: Compiling Scripts
+ExitCode: 4 Duration: 1s41ms
+Rebuilding DAG because FileSignature timestamp changed: Library/Bee/200b0aE-inputdata.json
+[101/104    1s] Csc Library/Bee/artifacts/200b0aE.dag/Assembly-CSharp-Editor.dll (+2 others)
+*** Tundra requires additional run (1.03 seconds), 1 items updated, 100 evaluated
+Starting: /Applications/Unity/Unity.app/Contents/Tools/netcorerun/netcorerun "/Applications/Unity/Unity.app/Contents/Tools/BuildPipeline/ScriptCompilationBuildProgram.exe" "Library/Bee/200b0aE.dag.json" "Library/Bee/200b0aE-inputdata.json" "Library/Bee/buildprogram0.traceevents"
+WorkingDir: /Users/wyz/Desktop/废土机械城
+ExitCode: 0 Duration: 0s243ms
+Starting: /Applications/Unity/Unity.app/Contents/bee_backend --ipc --defer-dag-verification --dagfile="Library/Bee/200b0aE.dag" --continue-on-failure --dagfilejson="Library/Bee/200b0aE.dag.json" --profile="Library/Bee/backend2.traceevents" ScriptAssemblies
+WorkingDir: /Users/wyz/Desktop/废土机械城
+ExitCode: 0 Duration: 0s15ms
+Finished compiling graph: 107 nodes, 396 flattened edges (386 ToBuild, 4 ToUse), maximum node priority 18
+[102/104    0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp-Editor.pdb
+[103/104    0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
+*** Tundra build success (0.01 seconds), 2 items updated, 104 evaluated
+Total cache size 0
+Total cache size after purge 0
+AssetDatabase: script compilation time: 1.642863s
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.089 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Start importing Assets/Scripts/Editor/TutorialSceneValidator.cs using Guid(aab98e62ab35245f8952654e0ab35efa) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'd7f8b910a2984bdbfdad0061ec08552c') in 0.005974 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Native extension for OSXStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.111 seconds
+Domain Reload Profiling: 200ms
+	BeginReloadAssembly (55ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (2ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (15ms)
+	RebuildCommonClasses (15ms)
+	RebuildNativeTypeToScriptingClass (5ms)
+	initialDomainReloadingComplete (8ms)
+	LoadAllAssembliesAndSetupDomain (5ms)
+		LoadAssemblies (24ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (4ms)
+			TypeCache.Refresh (3ms)
+				TypeCache.ScanAssembly (1ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (111ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (68ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (3ms)
+			SetLoadedEditorAssemblies (3ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (7ms)
+			ProcessInitializeOnLoadAttributes (48ms)
+			ProcessInitializeOnLoadMethodAttributes (6ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (1ms)
+Start importing Assets/Docs/Tutorial_01_Readme.md using Guid(478ba70325725476c8134fe28dd44d17) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '9c7f6f54439d61bbc906b0f18e9860f5') in 0.000661 seconds
+Start importing Assets/Docs/Tutorial_01_LevelDesign.md using Guid(096fe7f90ef11485699eed77b618c1a1) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '10447e37cdf11a7aa273da9db4553fe9') in 0.000405 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=deae77124c6ac4fd9ac03e3b8d6cbc89): Total: 1.925 seconds - Initiated by InitialRefreshV2(ForceSynchronousImport)
+	Summary:
+		Imports: total=3 (actual=3, local cache=0, cache server=0)
+		Asset DB Process Time: managed=1 ms, native=60 ms
+		Asset DB Callback time: managed=17 ms, native=0 ms
+		Scripting: domain reloads=1, domain reload time=200 ms, compile time=1644 ms, other=0 ms
+		Project Asset Count: scripts=171, non-scripts=287
+		Asset File Changes: new=0, changed=3, moved=0, deleted=0
+		Scan Filter Count: 1
+	InvokeBeforeRefreshCallbacks: 0.122ms
+	ApplyChangesToAssetFolders: 0.016ms
+	Scan: 14.905ms
+	OnSourceAssetsModified: 1.151ms
+	GetAllGuidsForCategorization: 0.014ms
+	CategorizeAssets: 2.051ms
+	ImportOutOfDateAssets: 120.567ms (-1532.337ms without children)
+		ImportManagerImport: 9.048ms (1.720ms without children)
+			ImportInProcess: 7.314ms
+			UpdateCategorizedAssets: 0.015ms
+		CompileScripts: 1643.611ms
+		ReloadNativeAssets: 0.000ms
+		UnloadImportedAssets: 0.094ms
+		ReloadImportedAssets: 0.052ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.043ms
+		InitializingProgressBar: 0.002ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 0.000ms
+		OnDemandSchedulerStart: 0.053ms
+	PostProcessAllAssets: 16.849ms
+	Hotreload: 0.262ms
+	GatherAllCurrentPrimaryArtifactRevisions: 0.000ms
+	UnloadStreamsBegin: 0.066ms
+	PersistCurrentRevisions: 0.036ms
+	UnloadStreamsEnd: 0.000ms
+	GenerateScriptTypeHashes: 0.000ms
+	Untracked: 1769.082ms
+Application.AssetDatabase Initial Refresh End
+Launching external process: /Applications/Unity/Unity.app/Contents/Tools/UnityShaderCompiler
+Launched and connected shader compiler UnityShaderCompiler after 0.02 seconds
+Scanning for USB devices : 0.182ms
+Initializing Unity extensions:
+[Licensing::Client] Successfully resolved entitlement details
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+[MODES] Loading mode Default (0) for mode-current-id-废土机械城
+[PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ProgressiveSceneManager::Cancel()
+-- Listing OpenCL platforms(s) --
+ * OpenCL platform 0
+	PROFILE = FULL_PROFILE
+	VERSION = OpenCL 1.2 (Jul 20 2025 19:29:12)
+	NAME = Apple
+	VENDOR = Apple
+-- Listing OpenCL device(s) --
+ * OpenCL platform 0, device 0 
+	DEVICE_TYPE = 4
+	DEVICE_NAME = Apple M4
+	DEVICE_VENDOR = Apple
+	DEVICE_VERSION = OpenCL 1.2 
+	DRIVER_VERSION = 1.2 1.0
+	DEVICE_MAX_COMPUTE_UNITS = 10
+	DEVICE_MAX_CLOCK_FREQUENCY = 1000
+	CL_DEVICE_MAX_CONSTANT_BUFFER_SIZE = 1073741824
+	CL_DEVICE_HOST_UNIFIED_MEMORY = true
+	CL_DEVICE_MAX_MEM_ALLOC_SIZE = 2147483648
+	DEVICE_GLOBAL_MEM_SIZE = 11453251584
+-- GPU Progressive lightmapper will use OpenCL device 'Apple M4' from 'Apple'--
+   use -OpenCL-PlatformAndDeviceIndices <platformIdx> <deviceIdx> as command line arguments if you want to select a specific adapter for OpenCL.
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 14 unused Assets / (370.8 KB). Loaded Objects now: 566.
+Memory consumption went from 83.3 MB to 82.9 MB.
+Total: 1.492209 ms (FindLiveObjects: 0.019917 ms CreateObjectMapping: 0.002291 ms MarkObjects: 1.368375 ms  DeleteObjects: 0.101458 ms)
+
+Asset Pipeline Refresh (id=8199f026269f54fcd9aeb7b60f83be9f): Total: 0.011 seconds - Initiated by RefreshV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Reference/RobotReference.png using Guid(35658ee98749c46cea8c7220eb7a6698) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '4a0ecdd79bfe2c73abf4633f1dee92db') in 0.132851 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=d3880898df0e14337b5be67647f6a6ca): Total: 0.140 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Backgrounds/V15/BackgroundPanorama_RustRepairStation_v15_01.png using Guid(dfd3c72d7a35f49349e445ef2012cd05) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'a459943bad71cb4aae45791098acba97') in 0.233705 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=f27da704608f14b4fafcf556ee5c4804): Total: 0.243 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Backgrounds/V15/BackgroundPanorama_RustRepairStation_v15_02.png using Guid(15263f84b4aee4d209986a8ec58347a7) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'f453660c8b0c243acc6a3ceba2efdcdb') in 0.233535 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=4b0ef234dd4b54f989fd5c674dce1af0): Total: 0.243 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Backgrounds/V15/BackgroundPanorama_RustRepairStation_v15_03.png using Guid(f896de66e34184119a0b5e54ba04cbfc) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '70462e5a2fac424982564af2d0921a83') in 0.235424 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=d5cce126d03e741eab53320865d21e91): Total: 0.244 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Backgrounds/V15/BackgroundPanorama_RustRepairStation_v15_04.png using Guid(1670ee57709e7471b9a6245c1058928a) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '94ce04fe81cb2ea40c0117da2501fedf') in 0.231377 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=8f8b1ef628d5e44108b68847bae9191f): Total: 0.239 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Backgrounds/V15/BackgroundPanorama_RustRepairStation_v15_05.png using Guid(8a4a42f3d3fb44778a48bbe05b492a04) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '0ef7496554a29154b36ddebbd4f95f90') in 0.232671 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=a52abe658ce964e7cadfb71dcde0e95a): Total: 0.241 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V1/env_platform_panel.png using Guid(f8dd9f671b1cb4286bcc9ab533f8b611) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'd0d6555d222caa3e7343431ab25cf695') in 0.008515 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=654d3171f9c934e2eb9d8829fd4dbfde): Total: 0.018 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V1/env_platform_rust_edge.png using Guid(d515d3836ea0b4cc3801054db18f6760) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '70961772a26d7e378f86a1211e45ce5d') in 0.003039 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=caefb30f0af3546f489bbdf46c11ec9e): Total: 0.011 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V1/env_platform_underbeam.png using Guid(f500bc3c38ac444209e3cf549b0d87a9) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'f228b6b1ee5a3779925b37df70409e85') in 0.003721 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=2c4acac428ca348c29edd1036ae794a7): Total: 0.012 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V1/env_platform_grate.png using Guid(026ba5cb925a746828d480bc9adbacb3) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '0fdde04d5a4618ebedbf1162ec4a05bb') in 0.002633 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=75cb42be52fae4ea5a94a974a2ab8926): Total: 0.011 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V1/env_rivet.png using Guid(7a3ab0dde400f4190ada35e309d47137) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '03237adadf4400ad30998decbd773433') in 0.002052 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=ea457bb42289848788798cc51b48e24d): Total: 0.007 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V1/env_crack.png using Guid(b67c15df5cd5f4bd0beada5e2fb0992b) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'ce2223a2c882f62115c890da04f903d1') in 0.001525 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=404ea9df14e4f4e54b1c94e9bbdd7356): Total: 0.006 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V1/env_oil_stain.png using Guid(4e6a395d588764fa099903dd06491d7e) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '4c1f62a29cc1456676e36056b9a0d859') in 0.001378 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=7e4a6d2b4e65a4073b0c56942f298cdd): Total: 0.006 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V1/env_pipe_straight.png using Guid(a7b6d3be4cad54a0a9f4c2e521fec37c) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'c0b8089cbe7c75f3dbd5f1e1d66a2941') in 0.002568 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=7222df585196648c9877fcad4db2aa2f): Total: 0.007 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V1/env_pipe_flange.png using Guid(42563e2bfa136415195d8fafa3575410) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'e745aebf666ae0cb96129fae1e3b41d9') in 0.001203 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=5e696ba45078c44078e5bcf075bf708c): Total: 0.006 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V1/env_pipe_clamp.png using Guid(2e1665d9878b542948c4c03d1effd6e2) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '8360b230188d35e11ecb9d1d7c573feb') in 0.001039 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=3c5ca40408479488d9f1060ec2663ffa): Total: 0.006 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V1/env_valve_wheel.png using Guid(c839ed7b9393f46a7a17af3291c8e741) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '5e51176314cda59879951d7bc6ffdcf9') in 0.001637 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=f3eef946091dc4c2783a2e54b7adec6e): Total: 0.006 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V1/env_cable_bundle.png using Guid(19e2cc225dba44b149154bd19c3a0744) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '3fe3e3a6b847a3da42e2e0cdab0abd40') in 0.002120 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=c0f62c7fbc9fa40c58fdf110771509d4): Total: 0.007 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V1/env_steam_vent.png using Guid(86c2f6a57585348f7853879112b8a606) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '779e9c369bbe52109de6ee010fac4cc9') in 0.001407 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=92f20e1fdb364448fadff24fe0bcf3a3): Total: 0.006 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V1/env_spark.png using Guid(4c729280ce1a84579926e959ca2729d5) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '34c054c8808d2c35e274d1fa6a6ecb4e') in 0.001088 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=b2ce5488592be46a9a6c208c4697f0fb): Total: 0.006 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V1/env_dust_puff.png using Guid(5e9c1ce95b32d4d9f9203c42f8001669) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'db411a9e966d2613d107d3e800515964') in 0.001556 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=60974bbef377642e0942b59d59247a18): Total: 0.006 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Provided/Environment/V1/decor_amber_tube_light.png using Guid(c63f93eab4bd740eebd1c7fd1d7da85e) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '308efc572dc3d33a60762a0c7ec47a7c') in 0.008158 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=1645175a0d78d41e7abc8fc1954717c2): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Provided/Environment/V1/decor_valve_pipe.png using Guid(ce669383cce9d4ea98c946c465646cdb) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '6409b854a96ada531342cad4a01ba961') in 0.012448 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=e8a89915e5b664adba9659b262149d1b): Total: 0.018 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Provided/Environment/V1/decor_hanging_chain.png using Guid(1fbbd6bfef93741b1b477ff9e4e6cf5d) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'ef86d5cddff79d1caa41486c9075f271') in 0.004964 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=560c188c026e84f478d431f5bbb80f11): Total: 0.010 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Provided/Environment/V1/decor_pipe_straight.png using Guid(ea25059a273f64d779658350d2c7273f) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '845dbea0d8a729d9fc4ec0639d2d1c58') in 0.010059 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=e576dc42c14bc4364b4fa2d6073dfe3d): Total: 0.015 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Provided/Environment/V1/decor_pipe_elbow.png using Guid(3ad13be2daea24092a8387fa5dfe4ffe) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '1664903aba6052d365039def93d0a63b') in 0.008322 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=ebfbfa81a990f45bc90888573379cf55): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Provided/Environment/V1/decor_lamp_post.png using Guid(a6481c838634f46dcab405f780bac92c) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '2999585647580228eb14a701ab581fda') in 0.005473 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=aa822e37702c645fd83e12a9e79ceec7): Total: 0.010 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Provided/Environment/V1/decor_hanging_lantern.png using Guid(c01a499ec798746ca8fa11f3b2f31596) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'c63e90d3341e734c3c4221c7cc78b6d9') in 0.003188 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=091e54ef4f35e448dbe01e361bdbf475): Total: 0.008 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Provided/Environment/V1/decor_hook_chain.png using Guid(b226f7fbe41804e3d9833a72504a8ea4) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '902377593f33690a220ed0708dd23d83') in 0.005167 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=d58bfa26f63804926b725c7500072eef): Total: 0.010 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Provided/Environment/V1/decor_storage_crate.png using Guid(212d9a7459c964dbcbed78cf9dc4564c) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '3c69cf953077721512c5eef473b35146') in 0.007100 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=868573c7243064096b06dc449e165f8e): Total: 0.012 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Provided/Environment/V2/provided_v2_chain_long.png using Guid(a3b2dc4ddb69f4bd0be28f19bbcc3174) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '0db338ce0cfc61361a966b3a88ec909e') in 0.003252 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=107190da3b43a42a6a4aae4ef8d6007a): Total: 0.008 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Provided/Environment/V2/provided_v2_storage_crate.png using Guid(98797a96d72a34ac88eb766796475411) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '4162b33d736de1d498453093b5f10bc9') in 0.007513 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=5a75aa608a53d4d2998b1101db29d038): Total: 0.012 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Provided/Environment/V2/provided_v2_pipe_horizontal.png using Guid(90508af3d4ffa4f5fad0f159967fde9c) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '307c752df55e1ad214006c85c5b0489b') in 0.005026 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=d323120687142407ca226c9244fd14c9): Total: 0.010 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Provided/Environment/V2/provided_v2_truss_support.png using Guid(fba7481a307da4038a1d5993b9a5ee07) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '756003469402b4361ba6eec99f33bc65') in 0.005025 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=e801e5c8e564b4ce18872c3c89279b45): Total: 0.010 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Provided/Environment/V2/provided_v2_pipe_vertical.png using Guid(c89896ca5dc7643acb11dd4d63ae1ca1) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'a7856e10b739812b631010c25bf2c40c') in 0.005989 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=ba201a736243c411b9b36d0ebd1a6d77): Total: 0.011 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Provided/Environment/V2/provided_v2_hanging_lamp.png using Guid(8c094e8f8f77443d1b6e46876b0a30c4) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '0d33268589eebd103113d44d31e20ba1') in 0.008963 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=a277afdceedae44ea8440d6eba5bd8e9): Total: 0.014 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Provided/Environment/V3/provided_v3_double_door.png using Guid(28033f9004d624e1297e7510796e50c5) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '7495593bbcda6991c88789d518e3e5f1') in 0.006221 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=4794332d7a73742d3b7c064c5a78c076): Total: 0.012 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Provided/Environment/V3/provided_v3_chain_fence.png using Guid(2a4dd7f52b4c04df0a87648313370533) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '131ebf9daea0289a7f93426047993f11') in 0.007248 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=2343aa7dc6d24444b954871a5e106376): Total: 0.012 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Provided/Environment/V3/provided_v3_electric_box.png using Guid(30a3a78181cc245c8a0a7b7e520d8c1f) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '8f31f2a0a32ee0dd041ec57583644f1f') in 0.004234 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=1062f562f3f6144eba6d525faf3815b9): Total: 0.009 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Provided/Environment/V3/provided_v3_vent_grate.png using Guid(a103df40a147242ccb5c730eb743d70d) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '7df48d2393dbfd0743150c0a843cbdf6') in 0.002907 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=1c3a3e6a041cc43cdb19998a142225cd): Total: 0.008 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Provided/Environment/V3/provided_v3_catwalk_grate.png using Guid(072a0951142ec4768827801721b9d1e8) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '753a2c593ce78858b79fa415782dfb86') in 0.003893 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=7e07e313d563f4e44b2b0f19d0c3f07d): Total: 0.009 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Provided/Environment/V3/provided_v3_broken_window.png using Guid(e5128d17049b2405cbafd1a927de19b1) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'f180bb084f9e13b7a980d53b8887afc2') in 0.003579 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=ad1123953cc634cfe8eb900b76e13f47): Total: 0.008 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Provided/Environment/V3/provided_v3_red_beacon.png using Guid(49e113acc88234874a3dc8f6a4157766) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '938188c401104c79058499a28283a708') in 0.002546 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=7815bc37d84a942fa8b34d3b69bdd0b0): Total: 0.007 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Provided/Environment/V3/provided_v3_vent_fan.png using Guid(e39dd8ed6553d48288a3a6cf6235d040) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '645a3acd81d6f12c7e076ffdad17ed43') in 0.004153 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=ba5ef559cc2e840ad91f6e2e0a69ec75): Total: 0.009 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Provided/Environment/V3/provided_v3_oil_barrel.png using Guid(1b61e208c05cd4ee1a5af4a5a3c3ee5b) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '2638b057042adc6fd7e49e7753fd8835') in 0.002658 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=b9c3b103fd7a340a3bd6ef70361180d4): Total: 0.007 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Provided/Environment/V3/provided_v3_tire.png using Guid(dcc90a337de84409a91223ad246a7c3e) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '40e25ab5f72ff3fe95dc3b21fbf2876a') in 0.003487 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=511568e8201c34ba69650a39167e3b77): Total: 0.008 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Provided/Environment/V3/provided_v3_scrap_heap.png using Guid(b3b2905dc29834ab992936af05f8b7ba) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'cb19e531427f6fe0bfcefd6e59c6f2c7') in 0.004108 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=fec5fc829c93b4c52aaae25f05f2fa13): Total: 0.009 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Provided/Environment/V3/provided_v3_broken_robot_arm.png using Guid(80a66ea3e22f643a5a1059571531610f) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'ab73ad1b04062ff0e8844fb5f1dd1f64') in 0.003756 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=861b24dd00700453cbf6c8586730e853): Total: 0.008 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Provided/Environment/V3/provided_v3_generator.png using Guid(580e98de2ba4143a6a7033aa7ea6e7e9) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '21c26ff81a36bc1675b1bfd26393573d') in 0.003403 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=0c245cccc8a394e00aea0fdf6e89de23): Total: 0.008 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Provided/Environment/V3/provided_v3_burning_barrel.png using Guid(c7b11dc9b63734a20985f53273a477c8) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '37bfb23b2d7c00c6ffd30bc7d67dd571') in 0.002934 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=2cebcac9fe91f4f7aa52141fc0fd0471): Total: 0.007 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Provided/Environment/V3/provided_v3_torn_flag.png using Guid(5c6ad98bf81ad420ea8cca024e9eb80b) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '7b887371a341ad8b8c750885de55be58') in 0.003180 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=6843b88d62e8d44caa616d805a1de390): Total: 0.008 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Provided/Environment/V3/provided_v3_toolbox.png using Guid(588a8c766b46f419399cc0c78a12f670) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '6e2f256ccb463c6accf341c00f956a1c') in 0.002805 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=85cdf86c50c934974bb437c7ac6f8242): Total: 0.008 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Provided/Environment/V3/provided_v3_tool_pile.png using Guid(120cc23e138834ce981809016b47f314) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '13505d0d9df55374231287190e66d5e3') in 0.003465 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=caca70c7a258241ceaa5fd44388d949c): Total: 0.008 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Provided/Environment/V3/provided_v3_robot_wreck.png using Guid(4155d411c13eb44159c36d6e75948e8c) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'cfd48d61355e4bff586a4213d11e8429') in 0.005765 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=d01d9da0d9254471494070b2a5d7e161): Total: 0.011 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Provided/Environment/V4/large_machine_frame_v4.png using Guid(fe911f7d6a03b4ba8a31b6f460a5a27a) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '4ee8853c10ba27f985ed245252cc4cb5') in 0.063023 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=0f4a1a645f8d8451980faf85927f0c06): Total: 0.074 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Provided/Environment/V4/large_crane_hook_v4.png using Guid(728f15a5682b34982a9b999ac2229b86) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '2212b14672bb6d469af7b2aec916879a') in 0.025469 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=00879a8c1a7c74cc891cb8d59b560d9d): Total: 0.034 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Provided/Environment/V4/large_wall_fan_v4.png using Guid(5aa9eb6c280ff45ddbe8a1dc932f4a12) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '684b8b18f3e64096f13a81ad77357b82') in 0.058466 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=34fdc574b628b461e9d2baec308a7ea4): Total: 0.064 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Provided/Environment/V4/large_overhead_crane_rail_v4.png using Guid(00ca90c2d6337403181477d634e0d8fe) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '9124c918dd1d0665cbeb57bc2bb6d93c') in 0.030589 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=01946d2945b314ee8b4aba32991356c3): Total: 0.040 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Provided/Environment/V4/large_gear_wall_v4.png using Guid(446a62600cf3e478ca880062053cf3f4) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'f3dc63d929c686d55261b2f235547012') in 0.065212 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=b6bad3dbf5c0b41f09e910e92e4b5dca): Total: 0.071 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Provided/Environment/V4/large_boiler_tank_v4.png using Guid(592619d75e8aa46b4a7a25a402727e89) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '5992c0c1c156508ab7cc67e0e722cf0b') in 0.047859 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=be10e5ab836ca40af880c428f7867a79): Total: 0.058 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Provided/Environment/V4/large_conveyor_back_v4.png using Guid(e56db5d3b708242f6a0960901118f5f6) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'e9ab84219ae0ab2364afb2e9ec2c0a73') in 0.065526 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=ffb438dfb72c4449abfffe44326f3c19): Total: 0.074 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V2/envv2_pipe_straight_hd.png using Guid(9e167e15be1de4703b906ad4fd9d266f) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'f945acbfa179f425bcd58b5bdee6fe8d') in 0.034014 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=a11b16b5c94ac4b489126ebe1442d099): Total: 0.043 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V2/envv2_tube_light_hd.png using Guid(4040329ef548746dba2eac1fa354b2f5) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '51d7703fccee8666f7a686e9918aa9fe') in 0.025140 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=cf287dd69001547f5a8b895148225483): Total: 0.031 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V2/envv2_valve_pipe_hd.png using Guid(a234ff2fd8d2840bba4838dba4192f45) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'b53dedd093c2422bc0e990aeb9479a8e') in 0.027947 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=d95841e79b1e74e5287f2fb9895222a5): Total: 0.036 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V2/envv2_pipe_elbow_hd.png using Guid(f4ec11deb00154b78a69d1b25e42c3c2) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '01f8441c1764b6244d8ad0a54576c765') in 0.022787 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=930d0000852e842a1abd65a7904e0264): Total: 0.028 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V2/envv2_hanging_chain_hd.png using Guid(03d459eb53a4841369e0cb0585b696d9) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'c5b36d13b6f0a6ae9b91c160fd4a7c9d') in 0.018339 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=8d5a7df4ab28d425fb8a5e81b856c689): Total: 0.025 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V2/envv2_hanging_lantern_hd.png using Guid(9c5fce26680d74c81aaf4b038b43203f) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '7836f4c42dc764f91a8a1d75c420932c') in 0.013886 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=8c8f735395efc49b0909cd97dd4b3013): Total: 0.019 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V2/envv2_storage_crate_hd.png using Guid(73e9424a7940648d89f77c981b415ae8) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '184218f4e04c886c9a3cafdeb2bbbed6') in 0.024521 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=90e68446fe769456c979d30e28c5324d): Total: 0.031 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V2/envv2_cable_bundle_hd.png using Guid(6917ce93060dd4928900517a904440fa) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '7b0b65abaab3504074d75b2d2be32fe5') in 0.014031 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=23577f0dfec3c46479cbcbe395b94649): Total: 0.020 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V3/envv3_soft_glow_round_amber.png using Guid(6701af9f35b6b46f28e28fa726137d28) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '11e9b3c8917d8ef1d92654ed7cc58765') in 0.014976 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=6e2dd5a4aef924f389c85b8414222c7e): Total: 0.020 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V3/envv3_tube_glow_amber.png using Guid(3862ef8ec351d4412b19b18504428082) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '72fb918cfe2b8db07c49581225e3e988') in 0.056911 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=852656f8ea97f49a5af8116d839935ba): Total: 0.062 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V3/envv3_indicator_pill_amber.png using Guid(dd0dfd420d68c4f55a8165244d0d4e0c) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '1873085509be5ecf6f2bd05da9b8f54e') in 0.008359 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=3586554f0d1e644e89e82562827da3da): Total: 0.016 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V3/envv3_status_lamp_round.png using Guid(a825ba5cf48694f48a8646852904959f) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '468f771b5b199e596f3bf1ef3dc50b4f') in 0.007027 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=b226e48924cc64ba49c68c62e34f9e66): Total: 0.012 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V3/envv3_electric_arc_01.png using Guid(6cb6e4101ac534f47960515d7291f91c) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '326b6c6792b42b809b8dd5a15f557d44') in 0.005316 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=7c1742c0454ad4c08a36d04ba331b91a): Total: 0.010 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V3/envv3_electric_arc_02.png using Guid(4717249f32a0340fda31ef6d328a8aaa) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '4f64b3f8b14c561859102772359fd834') in 0.005508 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=672413de4968648fb8065aa7b9011df0): Total: 0.010 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V3/envv3_electric_arc_03.png using Guid(cf2b544bf21614138806154d5c98da94) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '5e312b26df8420dc4943116e1442614d') in 0.006267 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=4414b5b056f214426a4bd8accffb86bd): Total: 0.011 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V3/envv3_dust_wisp_wide.png using Guid(6f5bd289314024931a5aaf433048cb4c) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '9417ccc24e95c6e0e7aeb42e28b9fbf4') in 0.067534 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=05a090f60367f4b17b9c4d5c328bdf33): Total: 0.072 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V3/envv3_scan_beam_amber.png using Guid(2d38c2e65e3d14fd7837327a571cd390) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '043cb266d3c1448dc3d5ae225cc675e0') in 0.025766 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=0626d9394c5cb4e12b189af4bb1688bb): Total: 0.031 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V3/envv3_backwall_panel_clean.png using Guid(7215301a35c3b49aab324c6fdf5d6a1a) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '447489b6dcd2044fd9e0d653ea096271') in 0.022785 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=8763a54ec1baa42b490fc439a7230873): Total: 0.028 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V3/envv3_pulley_wheel.png using Guid(43d01ad8146614d619032f3887c76843) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'e01c85780c763cd2fb7c8cde566ff01c') in 0.014412 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=7ca3161fadb354fa59a699fee2ec34f7): Total: 0.020 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V3/envv3_repair_chip_pickup.png using Guid(47b8b030001614e188a9aa9f011ebe2b) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '8555532b6e2aa6c34bf276708664c9ff') in 0.007599 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=cdeaf55612bc8434f907c259565bc65b): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V4/warning_lamp_red.png using Guid(c23cc3a66afaa48019b041508e40d24c) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'b8b1142cf10eb60d1fc3accfed02652c') in 0.007526 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=a3c0a3163ace1410b84585081aadc34a): Total: 0.012 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V4/status_lamp_red_wall.png using Guid(3a7ccf8d581e44b5d8d1fd2d5104b216) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '171b22615dbe990cf008f9dae5cf87aa') in 0.013331 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=1a62ccdae273147b2a6be974c757eed7): Total: 0.018 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V4/repair_bed_rusty.png using Guid(222f942762e7a4a018b10ed7b66f1ad2) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '24de9b6ec8dc14387bba8dc8b7010be7') in 0.036089 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=a1eee7a7705be42719857ce1990968ab): Total: 0.041 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V4/repair_mechanical_arm.png using Guid(c422aded61c684103b9e2849621648d9) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'd86d7c1e4ad5234adae4021df4947c27') in 0.020459 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=e12518fb8e80a42cf8deeaeef75eb0cc): Total: 0.028 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V4/charging_station_green.png using Guid(363e352698e69430599237f1e4ed967e) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'fafd18a75ecb5b3f6caa3a26d5f67e90') in 0.030057 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=0c25ec951086c4bc891af8934d93cb12): Total: 0.036 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V4/electric_floor_panel_blue.png using Guid(4c237b9be3a4c4f9e8d34069a15f6df2) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '738b202f16ca0ca2229068ae3c5875c0') in 0.021799 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=23e568711199b463fb17c992c160cf1f): Total: 0.029 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V4/compressor_plate_hazard.png using Guid(dcf6988308ad8473da6ca2a06b4612b8) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'db43b8d6a12ddbaeae1b34b71db6a069') in 0.036640 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=0fd4de06666ea4581b2a7ffc5c785cfc): Total: 0.044 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V4/boss_gate_repair_hall.png using Guid(86425869112fc454f8ee2b63f84fc8ba) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '9ac8f7ba0339560282ccc52fc0fa4c1b') in 0.041790 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=8f1b86408cb9c448798c93ed8fd29dd7): Total: 0.051 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V4/mech_city_exit_gate.png using Guid(c821aa8aa26f74f3ba68817759782cda) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'b64445c753d616a4c829587a305ed055') in 0.040792 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=2d0427a424713496794b2ab0c8927332): Total: 0.050 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V4/robot_corpse_small.png using Guid(8c7a4bccc655e4d2a91259e242e55b25) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '91c2a010ed9da1a95d321aba7a4331b9') in 0.012658 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=cb0b0e4afa499432bad3094ae8ea05a6): Total: 0.021 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V5/envv5_broken_floor_panel.png using Guid(b9c1e930885454d2f8ebc28eaee79412) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '10262c2b57f5fd5b40b37434e5838811') in 0.010651 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=3be11b1b994034fe4a5f8f5e9613dd0a): Total: 0.016 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V5/envv5_platform_edge_rusted.png using Guid(62ba7cb6beeeb434c8921fe240fd2c5b) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '232b5916b2c9abb59adb84ad63b3dff9') in 0.008518 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=36d1724394f3243868e3516e544acca9): Total: 0.017 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V5/envv5_railing_segment.png using Guid(7ced5614d138f4b2a9dded7e8e8b2992) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '94b919f57eaf4318dc18afe99b396018') in 0.016005 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=a02b2f2c1d44d4127bc1083af0acee72): Total: 0.022 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V5/envv5_pipe_support_bracket.png using Guid(93430f404bfee4c1cab579c67c1a6328) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '4165179b7fd98fb46a2563e2fa34aac2') in 0.010355 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=c2d1662c20c0540e9ad8f40e8948648d): Total: 0.015 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V5/envv5_hanging_chain_detailed.png using Guid(0ba5549603fa749f69c7caab57debce7) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'cab8c9a15e4fd9a2bb1da88ad9a5af5c') in 0.013602 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=941a3279aaefc4964a73c95e33aae945): Total: 0.019 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V5/envv5_cable_socket.png using Guid(4cd21219ecccc4d148af6e6a366e1a93) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '29349d49fc4d6c6df26da8eef27786c3') in 0.009834 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=eca2f2bff979149f6bf1145a0e814824): Total: 0.015 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V5/envv5_oil_pool_surface.png using Guid(e132f8cef9c704f40945679634be048c) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'ab79eec6e4b867aebb9b1f1a8979e3cf') in 0.008324 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=17b6e483a6a7c48eb9802f783f34caec): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V5/envv5_scrap_pile.png using Guid(25d717c69df4d4a25b667b368ba6eb5e) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '66011383fa9982b59843d765ee41d5f5') in 0.023752 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=7d777b4c4d0cf4a748048724ab035fce): Total: 0.029 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V5/envv5_crate_detailed.png using Guid(418bbf83ceed3477592d16e83c947019) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '82ff71618fbdc9d9e35b8e9936085fd9') in 0.010558 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=131a22aff10bd4445b5acb86e7b19f3e): Total: 0.016 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V5/envv5_mechanical_door_slab.png using Guid(5b45c8e59903c43b59fb5448371bc8cd) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '77a5ba9f46bff2594b3911c6cf91d891') in 0.019694 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=a69bc4b5d208b4378a67b4d57e056143): Total: 0.025 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V5/envv5_terminal_console.png using Guid(ebe02c11fb8694c9eb3440af9b3b711a) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'ab6c79466bf6d1c2308a3a90d7a30188') in 0.009441 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=21aeecb0b3b314e51a4287e2b6590bbc): Total: 0.015 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V5/envv5_boss_sweep_arm.png using Guid(f3075092e991e4b91b129e72dffe4728) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '0f0c20f7fc5a1cebc29e25676fd19eee') in 0.010797 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=d501d3ffa955946a7bd46a7b40164b01): Total: 0.016 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V5/envv5_warning_sign.png using Guid(af6d260c3fc774e00a759cae64d7a846) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '2afaf841165739b882295e8b069deacf') in 0.008161 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=c52b021f519804045a7417b2d06deb30): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V5/envv5_gear_cluster.png using Guid(df5d65a23f9534b44a7699d1af910ab9) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '0b8abd5b59e579641287e0269faaecd7') in 0.011653 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=824d6fb8bb6e14ffb9c897d6c2dec47a): Total: 0.016 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V5/envv5_hanging_cable_bundle.png using Guid(96f9e7a8105254eb68d7f9c611ad7e51) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '36a2cc47567f40e2f73a7ffd58c82c55') in 0.006593 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=f7c8051c653b5479ebc79707166cdd5e): Total: 0.011 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V7/envv7_main_floor_module.png using Guid(c42e1d19e9bf147c88c39ba9bf65d282) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '535659b88180ea9469281451cc683d0f') in 0.016392 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=60a6ae94a2b6941fa8cc4f14808bd89f): Total: 0.021 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V7/envv7_platform_edge.png using Guid(30b5071cb901849f6aaf704019f8f5da) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '11826aa6320b8f743a4fed1ab04eb090') in 0.021539 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=44135a027f77941ba8f5b25889eda407): Total: 0.027 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V7/envv7_broken_platform.png using Guid(44d0b6e9a21d84321a3f3a7aec0b9676) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '20c4cfe306608fdb7d9224657e6f2332') in 0.012177 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=31c31a1d91eec4c34b9f4857f540aa28): Total: 0.017 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V7/envv7_maintenance_bench.png using Guid(be5e17b5e44454eb6aa053b33bc86786) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '90fcbe9d7ccae00ff938c314222b8fa4') in 0.013388 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=7b9de671a52684a53a84bd7636240528): Total: 0.018 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V7/envv7_repair_arm.png using Guid(0b6f1dd6b14ed4cd3938badc58f8a821) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'eccc32299d7ef59e74d9a3fdd0e51171') in 0.014503 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=08afaea310e314e1795d88631c16b339): Total: 0.020 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V7/envv7_pipe_cluster_top.png using Guid(2ec87c426cf924bf5bb0ddd96b28cd9a) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'f585aaf369ce21129497a2b694306fe2') in 0.032997 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=1ce6e82d7bfd142f7b15059f359bab02): Total: 0.038 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V7/envv7_hanging_chain.png using Guid(228ea772422e74b68a2e5b09a3b4e5a6) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '6ff60ac1630dc910ce260b5ade6b7d9a') in 0.007853 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=82b94a0cb74244c9eaae6583087fecb5): Total: 0.017 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V7/envv7_cable_bundle.png using Guid(9fd35ab79640e4b05b09e1f869f721d9) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '4454f46884d920b4bdfa374a66ff8167') in 0.017487 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=fda808258f8dc4ec284f0d8e0ec190d7): Total: 0.023 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V7/envv7_gear_wall.png using Guid(815ac5acf4df04f719eb8f00c858822d) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '9974ef8d08738ec48669f3e2bdb192f3') in 0.020177 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=c484457e7646a4d78b527f2904e2dcc7): Total: 0.026 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V7/envv7_warning_lamp.png using Guid(de45a61dd2bc04cc9867995d09da6aab) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'a93379ac8557e6439ced5fc8bc99d1de') in 0.004527 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=5a6d6586cac9c48b19b181deaa57dc92): Total: 0.010 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V7/envv7_indicator_lamp_amber.png using Guid(7b919b90772be4922bd235fd759b2366) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '1d3fe009f2f8d201084fbd6ef95fbbd8') in 0.004580 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=7e4e5f970815c45aaa836525453e3362): Total: 0.009 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V7/envv7_hanging_lamp.png using Guid(71962aa8da9f9415981c76a2254318c6) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '4580dbcacf399707d0debb702f0e05cd') in 0.007721 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=3866ded4f96eb454580db991c2363edc): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V7/envv7_crate.png using Guid(db588160d1ca54096ab26b18c3e0278b) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '87548f7cb7e819b94440d001f7df7c67') in 0.011355 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=d28d6ac2ce2354c91975957c7e4fb4c3): Total: 0.016 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V7/envv7_compressor_shell.png using Guid(6d4640cb0a9a14c6a9ac4e7fcdae529d) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '5fa746182b5da832fa3aa314463f0707') in 0.028167 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=d068200d1c0e542f4ab068f86fdd9d0e): Total: 0.033 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V7/envv7_charging_station.png using Guid(15a98ce3c94c94c1fa6cc731a39d888e) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'f1e88fcaad65ae28c5bc120218e985e9') in 0.020049 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=8e2937639f50a4d229df139b7bcfd0cf): Total: 0.029 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V7/envv7_boss_door.png using Guid(7a1b8ca0d3d1744efbc64990f0f7fcf9) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '8fbab24b760997e37a009a8119d532b0') in 0.031894 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=a9898b01154254eb59377b9e009d6609): Total: 0.040 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V7/envv7_exit_door.png using Guid(056c66f7f23754124adc18b8b613486f) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '3e23dabe7ed6815903af6b8b1be069da') in 0.031317 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=0ee99c32891c04d0f8af46e94a99cd44): Total: 0.038 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V7/envv7_service_panel.png using Guid(0d342f116470b466dab360fac014a036) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'e290953cad7dc4c9c27c3855a1ab7ea2') in 0.011167 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=18b33b54571f142339670250ae183eba): Total: 0.019 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V7/envv7_robot_debris.png using Guid(60e9ace577e4f467cb5218ea2d966809) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '69e9051387ee696d5f094c8030c0c815') in 0.006591 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=e573bce1b8c7b4ea1bf16291ac91f5df): Total: 0.012 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V7/envv7_mechanical_arm.png using Guid(4651938fcf56c4844b9fc017389591d6) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'aa6508e12ecfefa01c63ecf01beedcb5') in 0.014835 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=9197a1794c5cc417ea8e212c35bf643c): Total: 0.020 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V7/envv7_sign_arrow.png using Guid(e343d525413f74dedbe635cff1028499) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '718757cd784dc738124355db62efd834') in 0.006344 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=de960afb46a4d40b481d779ee835a4f4): Total: 0.011 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V7/envv7_scrap_pile.png using Guid(6f5fc445bcc8443d0ac3a6f3f946d9c7) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '8cb6930469878eba744b7899a3d1d227') in 0.012232 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=d10f5ecd207de41049fdcf2e5785fdae): Total: 0.017 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V7/envv7_transition_truss.png using Guid(6f57b22f11b844b56a776114c8afb420) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '50ad40541a70ce18ac51297d89b78083') in 0.017690 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=af17aa47c6c154fe2b78f53f697c05d1): Total: 0.023 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V7/envv7_far_tower_cluster.png using Guid(5c4e6251697e2452da8e23697b90286a) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '7396884376e7d10a28b587dee4070771') in 0.028282 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=33b6c604b1f0d45c297ad0560c189e47): Total: 0.034 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V7/envv7_fan_blade_cluster.png using Guid(6258d6cf6bcd54539bc4fe10e4d25865) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '0feaf7659e27e10053a5e5d364a2747e') in 0.015113 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=403dde0b53ea5412e8fc4e54a3484b42): Total: 0.020 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V7/envv7_oil_pool.png using Guid(b3b047413abc94326bc8261a95df0d09) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'd20991bce55a57125e2f72fb5c11cb41') in 0.012566 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=3a7a1342468374f7dbed01bcbac0e2a9): Total: 0.018 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V7/envv7_terminal_console.png using Guid(773f50d2ab4eb4c1897ce2855a837ff0) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '9ff6e3686ea255595cb313c8861a76e8') in 0.010627 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=06fe6ea57a55a43519b763e063fc3100): Total: 0.016 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V7/envv7_boss_hall_pipe.png using Guid(9c4c407e83c5148eb989370cc9a26979) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'b4694844d771612a475b03e2c7e73080') in 0.033527 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=3a79e305755ce4409bdb679aeaa11cf2): Total: 0.039 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V7/envv7_trap_machine_frame.png using Guid(b9d0924200e3e48f59c305aabbbb063f) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'bd965d7ccae11e88c062bf82fd9829fc') in 0.022019 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=4dc5991a600fa4f0cac0fd0937be6d08): Total: 0.027 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V7/envv7_bridge_truss.png using Guid(214213c19cc8943dca25843af0ea5318) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'aae9217d4b74081e3b438d26c87a9b69') in 0.022003 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=ec6e6f8bdea3b431f9af728412a25c4f): Total: 0.027 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V8/envv8_road_dark_steel_module.png using Guid(4a0342a0f6f3e4e98a8b771c054fa6d8) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'e2a32495f077287a49318e01a4fa2fbd') in 0.022080 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=854398fac5fa2476487a365e26fd5208): Total: 0.028 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V8/envv8_road_amber_top_lip.png using Guid(120b15cb220544204a8a26d240477b5a) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '904c351c1bfbd7c0e1c3a855100eaa67') in 0.008471 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=2a03cae901b944a73a4011c2e0a2e1c7): Total: 0.015 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V8/envv8_road_front_shadow.png using Guid(07c243ad990c84c9fa0331577c1b5c8f) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '82a67dcf65b01ecb51a4dc8b6dca7147') in 0.022717 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=1fbc5a39d56c84ffabf0b9d62b17fa1b): Total: 0.028 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V8/envv8_road_under_truss_subtle.png using Guid(3c3da72abc6cb480e8e0097a07a21e7a) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'e28f4e05f03cf3cebc84f4b451882a3e') in 0.040760 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=dcb7c254fe2984ecdb9d2918b9cee684): Total: 0.046 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V8/envv8_platform_end_cap_left.png using Guid(1f12ab8a279ad41bb8d1d1624db2796e) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '79fe8149d9403a1e29b816ca9368bdbf') in 0.009352 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=ba7feb9ffd11d4dbe957a45695737d92): Total: 0.028 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V8/envv8_platform_end_cap_right.png using Guid(6da7c9834bd3a4cb59269e79eacde5e1) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '9f1f0b227d8d4935e900906118e2c29b') in 0.008867 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=0cce2033a9bf64174801640c2d1b4564): Total: 0.015 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V8/envv8_broken_platform_marks.png using Guid(7b10a6a3576dd4c99ac45cac2b9f2b0a) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '4e206611e38c9da6dad4bd99565393c7') in 0.011511 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=39d699850b446479784930d7e64add7c): Total: 0.021 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V8/envv8_oil_pool_readable.png using Guid(79e451feafd4a4cbcb74edc2f9f03473) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '5be127fa79020b12046675a33e669431') in 0.016610 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=ad5422b36d35e4c3d82e2b24c4aa4f6c): Total: 0.022 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V8/envv8_top_pipe_soft.png using Guid(347d5b3f9fc2344d1a3b626daaa6156c) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '873cde4c922083f4335c4f699fb1a13c') in 0.017044 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=9a74bd0cc363540bc885c54185feda83): Total: 0.026 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V8/envv8_service_panel_dim.png using Guid(6fa7ac21b24ea49778084a07eacb2b49) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'ed7a7bb236f76b66fb2c4cf6d9f48d55') in 0.013145 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=58c5fd0fcb69d42688e6de1a3acbdccb): Total: 0.018 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V8/envv8_far_gear_soft.png using Guid(68cdc4cd97aed4bdc913b4923eb6ebf5) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '9dbc411f5982e8e8def4a2dad8684f2f') in 0.024612 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=5e05d197c08b64eceb713a8be8b65371): Total: 0.030 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V8/envv8_hanging_lamp_soft.png using Guid(66ed89d4ce1d943bcb36e263ef860487) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '0cec5e200a7968a2c77046e9f2cfe7c4') in 0.008682 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=d9bcb41d27421402693131aa338278fc): Total: 0.018 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V9/envv9_wall_support_bracket.png using Guid(4d6e86f6dec4b4e1193d175a18226171) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '87424afbec9d396dfe99553737b2f42b') in 0.006256 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=149ac31040bc944e2a282ee9fa182080): Total: 0.011 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V9/envv9_service_panel_lit.png using Guid(5a87723f05fab408694af60eae1fbae1) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'a1a1bea025926c4bd8b5191426dd9c46') in 0.005358 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=a87379ec317df4677a98cc4d64a3ed9b): Total: 0.010 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V9/envv9_valve_pipe_cluster.png using Guid(442ce8d615fe54011891bcbcc5ce750c) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '56d25c26abbeccc01ed484f565a854ed') in 0.007804 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=7be587ff947be4b59b8aaddd4061223d): Total: 0.012 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V9/envv9_hanging_cable_bundle.png using Guid(e24bca00a5bb744f1afc3cda2d919ab8) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'ce28effc5b40d6d894caf7d608962346') in 0.010730 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=38571019b026346bfb01510227c464b3): Total: 0.016 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V9/envv9_hanging_lamp_detailed.png using Guid(d313d76d41a0b49f68ec0b5218323e66) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '879651592dee476685c5352f39e5cd6e') in 0.003466 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=0ccde2c1d60914d66890f11dea74b884): Total: 0.009 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V9/envv9_ventilation_fan.png using Guid(491d1aa96d2eb4041b259b694177f4e8) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '59525ed3fb8329cb30c7db51af8de0f3') in 0.004567 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=59a0f79249fc642bb8369c2864cd6bbd): Total: 0.010 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V9/envv9_far_mechanical_arm.png using Guid(2b4608036acc64cfea840f5393c0d369) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '5fb5c0a4f0a44bca460ca066ff8a8200') in 0.008635 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=2076e27d34fb9482a92701cfb08ef8f7): Total: 0.014 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V9/envv9_old_gauge_cluster.png using Guid(dc72f4ed9479a49c8ab22f16902ba2fa) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '0cc88dff271aa5c0dfab361a0387f4e7') in 0.004620 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=b0682dff9a9d04fcca90c83ec65f2c24): Total: 0.010 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V9/envv9_warning_lamp_shell.png using Guid(1975f9718de9b4e0ca740a627a51f89d) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'efbd9a1b557e9f0c28b3c765af5d9dc7') in 0.005363 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=0b36084883d6841c9b3daf39645245d0): Total: 0.014 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V9/envv9_far_crane_hook.png using Guid(d6355e961005747d4ae61cf416b23ea9) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'e390c590ec3292d2f199a43aff0744c7') in 0.004282 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=640a9aac0f4634553a242751aae6bc46): Total: 0.009 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V9/envv9_door_frame_pipe.png using Guid(9bfc1abcd0a614051ad9fad7aff1d5cd) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '5da9c4cea2ab3407a9bf5d53ae89b12f') in 0.022641 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=78d2ecd73b40c456c8c8a62ab11595eb): Total: 0.028 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V10/envv10_metal_seam_strip.png using Guid(bec83d834aab943a88d7c2d0988a5ca0) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '0d17b20485f86a48c7a3021b319d7595') in 0.008419 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=19454f5b33bec4a22a52152dadccb13c): Total: 0.015 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V10/envv10_rivet_strip.png using Guid(f40a7b5856369418bbbc6972d7229a96) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '738d63fee4fc8c6a8d35197f7ca745a7') in 0.001342 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=da95a61415fb14b5dab059a355904442): Total: 0.006 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V10/envv10_scratch_plate_overlay.png using Guid(7e7bdcdd560134329bf4121ac6cd5044) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '8f2c95490918086550be52ee91d58b41') in 0.002554 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=35d406e974f344687b7ba7fe42647b49): Total: 0.008 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V10/envv10_oil_stain_overlay.png using Guid(f1a7e7ad4ff724f099e5be92c0a84896) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '793a82e6c20c168e0df0899b60605fd6') in 0.003295 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=02bdd9a3224844f738f71d8d409e0f27): Total: 0.008 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V10/envv10_cracked_metal_overlay.png using Guid(e5572beadcd8d463d8ce1eb76a702332) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '63903e0dd4f46e376749ff038887fba0') in 0.002712 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=794e058256e6748e68708e4c563658f2): Total: 0.008 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V10/envv10_amber_edge_scuff.png using Guid(ef76dfad1dba54346a754f799c62e4a2) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'e8984380dd5dbcef9cb87d87eca3f0a8') in 0.002505 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=20bf9879e773e4855b0fc960d02c2fda): Total: 0.007 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V10/envv10_raised_step_shell.png using Guid(ae41448740d3f4b268c0a527b3c8fd6b) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '50a6d098da7ec74185de7310e27f9c8c') in 0.002379 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=387e9830dabb54859834867a2f571124): Total: 0.007 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V10/envv10_low_obstacle_shell.png using Guid(a61c6693afe3949a090447895c941425) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'ea6856230aa36abb81613e1045eb3879') in 0.003012 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=3dd933ce83e464e9eb06314d58b837e7): Total: 0.008 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V10/envv10_floating_platform_underbeam.png using Guid(699073f30dc384532bb086801d49408e) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '255917331be0c58f673f74fafd877af7') in 0.006346 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=78175716c45d6407386b293f22eb30fb): Total: 0.011 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V10/envv10_broken_corner_cap.png using Guid(37f7700df1d584fc8bd5be948c39aa0c) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '8ebc0e64385bb62da71345ae3fa5808e') in 0.002666 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=cbabe01bb05754d898b8ca9844c4a21d): Total: 0.007 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V10/envv10_side_cap_short.png using Guid(66c8d763df57d4e678471bf4574ccb5b) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'ba4f7f47b437e81176c9eaf0c3aeea0a') in 0.001775 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=3e66aef5cd74f4070acff032027f6c87): Total: 0.006 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V10/envv10_shallow_front_shadow.png using Guid(3020aca3e7fbd4ab5a716de9207a6394) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'e8f734f1b9f2517c23d5f275c267d91e') in 0.002598 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=4c89b904d7b5e434483aa196ab6243ac): Total: 0.007 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V11/envv11_hanging_lamp.png using Guid(3f31516fc933f43349bc853d903fe49c) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '3a5c6a4ef336c59b60a710a2f353508b') in 0.003090 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=237fcf50f0833478a8c54cbc104efad5): Total: 0.008 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V11/envv11_street_lamp.png using Guid(494cfb9ecc8824da49f3179cf0e1278d) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'a5ac25d8f69589bd30a1f0c6448e8269') in 0.003303 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=60599d914950549cd8ea0cae96ff4918): Total: 0.008 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V11/envv11_chain_hook.png using Guid(2fde785203d5d4fe59d75009f7f5d041) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '9068e06c23e3c5ffe40ce223ca3aebac') in 0.002437 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=98b930452175c4abaa969da067a2aa42): Total: 0.008 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V11/envv11_far_crate_stack.png using Guid(35969258a49664e0490d185176376c06) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'f300ebaf5ab9edf6cb46798f987b885e') in 0.004414 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=2030f5dcbdab647e1b3e76f5e5e95e51): Total: 0.009 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V11/envv11_far_conveyor.png using Guid(bf9d978f653e340548439a589fa67650) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '80e7e136f14b9f2bffa6bf4bcc3a6750') in 0.003154 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=baafc15e887d146589c7c83865866d72): Total: 0.008 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V11/envv11_service_panel.png using Guid(588ef1e4505e5422aaed5a45e99c0161) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '0251295184d0e8a12ed3bee819de3ce9') in 0.003055 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=b347f5319f6cf400897e140a332ca538): Total: 0.008 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V11/envv11_broken_cable_bundle.png using Guid(02d6870c2b70449b18ec816f3ceeb2e4) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '3f4b1338ee25daeeff3a5bf9efef08a7') in 0.003121 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=1105e313321564f5f98f85495dde5f4f): Total: 0.008 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V11/envv11_repair_wall_plate.png using Guid(49d6f1531b5ab4bd7bbd972db01c5cca) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '9494e2be505e63928653c066128112b2') in 0.003473 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=c4ba72c6e4e0b470690aceddb6a6f8d4): Total: 0.008 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Environment/V12/spawn_repair_bed_refined.png using Guid(b7551b6b44a8e493cb5ff93ac2c56b80) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'ec3ac589649bddb014bc03a66e1095dc') in 0.049984 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=a63992ded216f461bb7048a0c4af7a98): Total: 0.059 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Effects/V1/fx_attack_slash_01.png using Guid(ed216149df8814944a3f0e40ceed0363) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '424b7af0a0c841fb514d96f7ab3c68c2') in 0.016916 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=d74f5bfa661b14d82a6ae06603911641): Total: 0.026 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Effects/V1/fx_attack_slash_02.png using Guid(6f1e6e8ebf93449b8be9df7e6629a0fd) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '66cc4739997c841cc42fdfa3518ae228') in 0.016314 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=5f666625385764b41b1b9728ec2a2df6): Total: 0.024 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Effects/V1/fx_attack_slash_03.png using Guid(eb0f7a44b7eda4cf0b6796e8fad07c54) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'f47359af5599b7fb48ac7ba8e593faef') in 0.015752 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=f5a5b24690395464682091950945cf57): Total: 0.022 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Effects/V1/fx_hit_sparks.png using Guid(72f32b37fcefc41dd9d3772bfb78b2ae) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '0638bca889bcad434051a38998fc2ba7') in 0.016928 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=debabd806a8064f48b30c137779832c7): Total: 0.023 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Effects/V1/fx_run_dust.png using Guid(7e0f4e87176084d27a0788798da74156) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '8ba6d1a78ab4d70170d9716aa8fc3fdc') in 0.005336 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=b0c774b069c0846cc85eef6c9460f92d): Total: 0.011 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Effects/V1/fx_jump_sparks.png using Guid(352c3b56f992f4492a731dd692f403b3) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '9be3e23cc4443cc805f1dd0ae2b57773') in 0.009117 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=8c883020d41b74e31800e825451be537): Total: 0.014 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Effects/V1/fx_land_dust.png using Guid(46eb79409bb9b4eb99c5fb3f669e49b1) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'cc9dc7cf4a52c1d3fcfb736e348b370f') in 0.006606 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=c35da0ccdcd874e0483bbb425e33a8c5): Total: 0.012 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Effects/V1/fx_electric_zap.png using Guid(6864e5de5e8ee4df1afafdabccea73f5) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'f2ab5d40d0a6dfecebfc073e27df09b7') in 0.005941 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=ac1a10b36d0e845408e464447a530952): Total: 0.014 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Effects/V1/fx_smash_warning_ring.png using Guid(ed0032eb5d3254fce8c409693d125983) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '87f4ad9a152ff584afbc83c10be6a31f') in 0.008982 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=2c599a5db026142d8aa2d39586b6fe37): Total: 0.015 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Effects/V1/fx_smoke_puff.png using Guid(4cee4524e65564f29970666a87b976c1) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'aafc47d80c6361a59a9f4f6b28763cc1') in 0.006712 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=acafe9317b88a4ea69d3b4e50da3ac76): Total: 0.012 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Effects/V2/fxv2_electric_floor_01.png using Guid(c924b8de27b6544f7bcdd6f601b4ee7f) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '3530e64af08f99ab062f0f866ba522cd') in 0.018178 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=2a24fdd43790040f2828d9f29cf89e05): Total: 0.024 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Effects/V2/fxv2_electric_floor_02.png using Guid(4fd9bb74683c143f1bbcd03a741e8d17) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '90c7b546707109db43c72a5444436054') in 0.017011 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=4a5de40725fb549608e3b4c6eb7f2acd): Total: 0.025 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Effects/V2/fxv2_electric_floor_03.png using Guid(668bc5a03e5c64a74a960276b2f79a98) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '4839368b0a673309de0599435d87cddf') in 0.017223 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=be1aacbd7d6024c0cb9968175f1866f6): Total: 0.022 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Effects/V2/fxv2_steam_puff.png using Guid(8653a83be217947b9b07c02a73347b94) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '2cc7e571817df98d0c69c61527c31f3f') in 0.012529 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=1ec2d9f6d7f494aae94f76d54b064391): Total: 0.018 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Effects/V2/fxv2_spark_shower.png using Guid(31c309121d4514fe4aa9ff8b6899793c) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '7dc4ef9347a75cb70d371868808a92e9') in 0.010951 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=f37c3628f1b9e48bc90aa44b578bbbca): Total: 0.016 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Effects/V2/fxv2_lamp_halo_amber.png using Guid(940e3cc8027a847238a90171c1d777fd) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '51752fcd89dfb42c014ad59b3cfa60d1') in 0.013576 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=5b813dadb97034353b71598bac9793e7): Total: 0.021 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Effects/V2/fxv2_lamp_halo_red.png using Guid(b4501f585919048739b33584b57ecc2a) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'f330ccd44cd432976df32d732a5c407f') in 0.013404 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=c3d5593dff1ea4e55a53464c949fac08): Total: 0.019 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Effects/V2/fxv2_dust_veil.png using Guid(f9ff197a01a8f4ab2900e2403fd8b59e) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '30587cf2c0638c0bf7141a8e3a479239') in 0.017066 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=af80085ec445a4ab584ba155a4222160): Total: 0.022 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Effects/V2/fxv2_boss_smash_dust.png using Guid(4260314fa1ef7487d9b4b7a791ec6f3d) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '97dd0d5cd3d89941204bb3f6cc908320') in 0.015847 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=4432d01dcb775474683f6454573bb8ab): Total: 0.021 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Effects/V2/fxv2_oil_drip.png using Guid(c3d6525629b8e4be597ea88525fa2fcc) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'ed992cff4a828181dbe6bc6d048001ec') in 0.002910 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=baa5334c90a6445f79d2bcb32c189e63): Total: 0.008 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Effects/V2/fxv2_scan_beam.png using Guid(168db6b7c8186445d89cb626b13d766b) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'f7f456908a9a62b30dc952b9270d1f6f') in 0.005118 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=eede2bd4ff0294c9bb6e86179e8d9aa2): Total: 0.010 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Effects/V3/fxv3_electric_arc_small.png using Guid(31e776dbbcb9b4364b6182e3cbdd47d6) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '419f316cdfbdf3cd3fb47133f199e5a0') in 0.006698 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=c451068d2d7eb43218d6750fe619db67): Total: 0.012 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Effects/V3/fxv3_lamp_halo_soft.png using Guid(0486b12c0abe947b99f7c24472e69379) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '433159ac83e7b95ec782ac8aa644656a') in 0.010194 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=5d446c46fff29448994849ad2a4f5ec3): Total: 0.015 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Effects/V3/fxv3_thin_steam.png using Guid(711f8908c3b4c44d69d05d47010c95d3) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '3e46d379d0beba39c980dab9219f924f') in 0.009987 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=5127f779a4b2c4948ba92f711e64c1a4): Total: 0.015 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Effects/V3/fxv3_dust_motes.png using Guid(b5f55b10ce9c345519e9b79fe786fc02) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '00616d01ea12e1cf23db6c306709401c') in 0.013052 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=0945e26bc84a247bd917aefad075e41e): Total: 0.018 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Effects/V3/fxv3_oil_haze.png using Guid(8b7cd47a98a3a4f4da3075f4b2bda438) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'bf56199c43f9fa3407c5c32a398ede95') in 0.010075 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=4b333cbfb04054312abefebffba2fff8): Total: 0.015 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Effects/V3/fxv3_fan_shadow.png using Guid(b29fbeedbe4ae4697b60da439f2aac7c) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '3e226eee45b00e7b48929c6c4fe6f6aa') in 0.007430 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=f949e401f40364912bfafa1d89271e92): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Effects/V3/fxv3_green_charge_pulse.png using Guid(64496cb7a93944afc81592351f678955) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '43537d6d90a9f48a68ef8784a3be06e9') in 0.009853 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=8a6a37102856d4ce8b790156891ce045): Total: 0.015 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Effects/V4/fxv4_thin_steam_wisp.png using Guid(4b039adc2768144eaba95dbf4150489c) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'a79594f7cc21546809cee9918e6dfd6f') in 0.001989 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=6cc8f9b653059405ebef29e81efd8dfd): Total: 0.007 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Effects/V4/fxv4_dust_veil.png using Guid(15be38943e88f467c9a24d8ec67a2871) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'b7c3f9a8e42766f19acecb8219d60131') in 0.001641 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=8a735f44375f341a09686f3449fbf41a): Total: 0.006 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Effects/V4/fxv4_lamp_halo_amber.png using Guid(1d94115d837054d6181c05625b9cfa68) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '158e62aaebafba41cae3d7f954e916c2') in 0.001721 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=ea73d47c17d87405e837d24f1438e015): Total: 0.006 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Effects/V4/fxv4_electric_arc_frame.png using Guid(4ff30694c7f4e44fc89e5e88fc075215) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'a98a441099f9841cf043ba717465ff20') in 0.002155 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=6f65951e88f3f44f9ae3c83e65e483e7): Total: 0.007 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Effects/V4/fxv4_fan_shadow.png using Guid(787d97b4c487449e88da3177b80d3553) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '0e0a797e5cb449edd01e02c4dd94d6c9') in 0.002379 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=588d40b46800142ce84bcaca87b4f9ea): Total: 0.007 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Effects/V4/fxv4_oil_haze.png using Guid(3abff792d2cc442b5b8ad812b187132c) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'c5c1589c059b75e8c9b5eb3df5842b6a') in 0.001571 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=f1342564aa8154b0597b25344b4c3ac4): Total: 0.006 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Effects/V4/fxv4_warning_blink_red.png using Guid(9a7bce2a5dc5945548542f7ea7750136) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '2391cff56e969bd71129afc2c4a4fc19') in 0.002181 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=4624acf463dfc44a1a60c6b60d4f41e8): Total: 0.007 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Effects/V5/fxv5_falling_dust_curtain.png using Guid(da0a2a2770bbe495892d2e15036c91a7) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '22f58bbebe20ca49e40bf8eadf7f9f73') in 0.003968 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=1461b92e8b36643119c90565725d2c31): Total: 0.008 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Effects/V5/fxv5_fine_dust_motes.png using Guid(625ffd04e30c74b54aef6ea62b8733a3) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '3ced9b3be89a4137a05394070fc1c83b') in 0.007111 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=08723152e014e470c8d6c351396048f1): Total: 0.012 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Effects/V5/fxv5_lamp_halo_amber.png using Guid(4ccc578279a894659a22ea69ae92ec5a) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'c6fee776d54157253754f1b78fb14f57') in 0.007542 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=a09ad294902f04343acb885d3ce216c4): Total: 0.012 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Effects/V5/fxv5_electric_spark_frame.png using Guid(224a47475c68846bfb981b61709fa8f7) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '7de3aad27dbb32865a48136f46df6521') in 0.003823 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=c022096cb802841e98a352ec3d3e46c9): Total: 0.009 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Effects/V5/fxv5_fall_fog_plume.png using Guid(2b23234d9b27b463d8227d6a54e91b8f) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'aa74a5e823303e1867e2aa8a928330c9') in 0.002434 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=9d43c0af5ccfe43e0962d97175addc31): Total: 0.007 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Effects/V5/fxv5_long_falling_dust_veil.png using Guid(351397e311aa74abb9877b2b21525f6e) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '4cb28045ca846507f9f347259f90f07d') in 0.029031 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=240eaeb4535d74c1a8ed6a30bd34321e): Total: 0.034 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Effects/V7/attack_combo_01_arc.png using Guid(9fdf91be0e6754c518abe0ff2d98009a) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'e395b4b7ff3dc67bff74b7f781695f87') in 0.003591 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=4a07119d71bd646f1a5d86ca81dcf5e1): Total: 0.009 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Effects/V7/attack_combo_02_arc.png using Guid(500ed8d1a8fc9458f94aca377810ebce) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '96caf51063070302f218326ef31b8bf0') in 0.003767 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=5b1a3759a094c443a81f4296c798a563): Total: 0.008 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Effects/V7/attack_combo_03_arc.png using Guid(f62fed213be59485a8e68b94a2324092) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '4042829ff397b828a81fbfc4b0706d41') in 0.003672 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=c4c8b5628cdf142b6902bc2d4f6971c0): Total: 0.008 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Effects/V7/attack_air_slash_arc.png using Guid(83a99fa3d760f4c91afbfb9b18d1b897) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '6b9c3429aaa8024889963d60c92fcc77') in 0.003703 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=0f4c4aba27d82428891faa3ba2fd2e63): Total: 0.008 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Effects/V7/attack_hit_spark_heavy.png using Guid(a7d664db1a0264e2f9e5709a8d1321ae) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '6431affa9dc0763bbdb370bb38cae59e') in 0.003663 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=996897f4442dd4049b16b9c39ddac289): Total: 0.009 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Effects/V7/attack_charge_flash.png using Guid(f0f7c64c4d25d45e18c61a5c31831aeb) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'a8f1308f7986a2a978d98b8ffb6c1020') in 0.003474 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=b519455f9d4284478afcc94811ad0310): Total: 0.008 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Enemies/V2/enemyv2_patrol_repair_bot.png using Guid(c9da03e739b9741c188107f9edf434bb) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'df8f8345433e8d5711d9d9d59a3ab1d5') in 0.015938 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=6c0a6f6da58694394a40e8ffa3edabff): Total: 0.023 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Enemies/V2/enemyv2_patrol_repair_bot_eye.png using Guid(9bbf5da2f036a4d4083e9e57055652fb) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '0a9e326cf22e59f7d02004bcdf9bcdf1') in 0.002428 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=71176fa08598a4e219caf396c69f5035): Total: 0.007 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Enemies/V2/enemyv2_repair_bot_wreck.png using Guid(97b64675e7f464bb9a514a62e6cdd332) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'fe8ef3ae3eba910b39f8b274bfef727b') in 0.014471 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=5c9fff6d4e55141d6a23f9d9b9e4fe73): Total: 0.019 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Enemies/V2/bossv2_guardian_body.png using Guid(5d4ab01b73732479fbd15b1594c5b680) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '702a2a323caa56ddd71c2dd91afe5d10') in 0.040285 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=c96a6fc826bfe4ac983fca0834993610): Total: 0.045 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Enemies/V2/bossv2_guardian_eye.png using Guid(7a352c68eafbb46aba43b9b89e5eda58) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '8feb3a6b1cb6e213aa1a9f3b7615d0e9') in 0.002407 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=96bbd8dfcce3f49219e56693ecf310e8): Total: 0.010 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Characters/PlayerRobot/V3/boxbot_full_reference_v3.png using Guid(743549fbdcfb54f09aa13b017397042a) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'e36eae64e2971162e14eff81e0f13e0a') in 0.011209 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=933c9c0950cd64a4798cfa787ec9fb20): Total: 0.016 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Characters/PlayerRobot/V3/boxbot_back_arm.png using Guid(e484909b1325e4688a0bef3ccb4cac83) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '43d0eb8429b7a9aaaf6b0ca7a62903f4') in 0.002526 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=0c1b2bfb3166743debae559f8f674ddc): Total: 0.007 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Characters/PlayerRobot/V3/boxbot_back_leg.png using Guid(21ad4131902244bad8745567bbea930b) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '3a05b240810ea28352adaf990506bc12') in 0.001975 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=bb5392a018351460e8c5fad48977cb83): Total: 0.007 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Characters/PlayerRobot/V3/boxbot_body.png using Guid(d0c42fa8d8c694dd9845939b51e8e412) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'fb4ba0ba13a8a13af0ef92725f7dd433') in 0.004255 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=93fa007d8423b4c369b511d2dc791664): Total: 0.009 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Characters/PlayerRobot/V3/boxbot_cable_tail.png using Guid(c46443c29157a45a1af27e622fd939de) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '0c6a9180e3ace1f820330158071c4975') in 0.002089 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=49575cb3cd5c34deaa5bc1e08e25402c): Total: 0.007 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Characters/PlayerRobot/V3/boxbot_eyes.png using Guid(56f70f3ff4d574c3b9f57ee077619e56) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'a1aa6fbbc5f05534b9650fd73721a7c5') in 0.001202 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=7dd581da718814ad0b5fdf57142f84cc): Total: 0.006 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Characters/PlayerRobot/V3/boxbot_front_arm.png using Guid(d3935dd96109248daae0c24a63c8df9a) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'af8760bfc70f38989d899b250808d66f') in 0.002207 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=37c737f32d7284cfdbd8fb257beff84b): Total: 0.007 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/Characters/PlayerRobot/V3/boxbot_front_leg.png using Guid(391f561ac7ff14627a65879a65b38557) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'd2b4b47e96a1be82fedb280d8473ebaa') in 0.001720 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=cbdff1489a85449cc8af33f8367e5ee7): Total: 0.007 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Generated/white_pixel.png using Guid(06d54d829079c4901bca7f3fbc75e522) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'fef74c8f6b31e1184eec718d43c6d7e6') in 0.000507 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=856a3cc67b2a1491787eaf0e21e6e5fa): Total: 0.005 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+[PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 242 unused Assets / (173.8 KB). Loaded Objects now: 568.
+Memory consumption went from 72.8 MB to 72.6 MB.
+Total: 1.440333 ms (FindLiveObjects: 0.019500 ms CreateObjectMapping: 0.005208 ms MarkObjects: 1.333333 ms  DeleteObjects: 0.082125 ms)
+
+Start importing ProjectSettings/GraphicsSettings.asset using Guid(00000000000000006100000000000000) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '1a6efcc7357d78aec34b1ea3df512eae') in 0.000678 seconds
+Start importing Assets/Data/RepairChip.asset using Guid(72e7e1aaff8f64565a553e0f5238fc43) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: '251d536bc5f7cc586acd365b16ff1f64') in 0.000510 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=90fcd80f968334671823e45473756be4): Total: 0.020 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Scenes/Tutorial_01_AwakeningCorridor.unity using Guid(d34bd66a1de994334ad1e3a5930267ed) Importer(-1,00000000000000000000000000000000) [PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+ -> (artifact id: 'b764d5a3b4b53a24d24eca379855467a') in 0.000712 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=269e17750330a448ca6917bd258bef6a): Total: 0.007 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=efa8ecfb3fc6345d490d0f511bdbc1c7): Total: 0.007 seconds - Initiated by RefreshV2(NoUpdateAssetOptions)
+Built playable tutorial scene at Assets/Scenes/Tutorial_01_AwakeningCorridor.unity
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:37)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+TutorialSceneBuilder:BuildTutorialScene () (at Assets/Scripts/Editor/TutorialSceneBuilder.cs:643)
+
+(Filename: Assets/Scripts/Editor/TutorialSceneBuilder.cs Line: 643)
+
+Batchmode quit successfully invoked - shutting down!
+Curl error 42: Callback aborted
+Thread 0x17fa97000 may have been prematurely finalized
+[PhysX] Initialized MultithreadedTaskDispatcher with 10 workers.
+Input System module state changed to: ShutdownInProgress.
+Input System polling thread exited.
+Input System module state changed to: Shutdown.
+[Licensing::IpcConnector] LicenseClient-wyz-notifications channel disconnected successfully.
+[Licensing::IpcConnector] LicenseClient-wyz channel disconnected successfully.
+Thread 0x17c353000 may have been prematurely finalized
+[40m[32minfo[39m[22m[49m: Microsoft.Hosting.Lifetime[0]
+      Application is shutting down...
+Cleanup mono
+debugger-agent: Unable to listen on 48
+[Performance] Application.InitializeProject                                                                                  :        1 samples, Peak.  2.82 s (1.0x), Avg.  2.82 s, Total. 2.818 s (22.6%)
+[Performance] Application.PackageManager.StartServer                                                                         :        1 samples, Peak.   829 us (1.0x), Avg.   829 us, Total. 829.1 us (0.0%)
+[Performance] Application.AcquireProjectLock                                                                                 :        1 samples, Peak.  1.16 ms (1.0x), Avg.  1.16 ms, Total. 1.163 ms (0.0%)
+[Performance] Application.InitializeEngineNoGraphics                                                                         :        1 samples, Peak.  19.5 ms (1.0x), Avg.  19.5 ms, Total. 19.51 ms (0.2%)
+[Performance] Application.PackageManager.Initialize                                                                          :        1 samples, Peak.   290 ms (1.0x), Avg.   290 ms, Total. 290.1 ms (2.3%)
+[Performance] Connecting to Package Manager                                                                                  :       30 samples, Peak.  29.5 us (25.8x), Avg.  1.15 us, Total. 34.38 us (0.0%)
+[Performance] Application.EngineGraphics.Initialize                                                                          :        1 samples, Peak.  19.2 ms (1.0x), Avg.  19.2 ms, Total. 19.21 ms (0.2%)
+[Performance] Application.GI.Initialize                                                                                      :        1 samples, Peak.   368 us (1.0x), Avg.   368 us, Total. 367.8 us (0.0%)
+[Performance] Application.LoadAllDefaultResourcesFromEditor                                                                  :        1 samples, Peak.   719 us (1.0x), Avg.   719 us, Total. 718.9 us (0.0%)
+[Performance] Application.LoadMonoAssemblies                                                                                 :        1 samples, Peak.   270 ms (1.0x), Avg.   270 ms, Total. 270.1 ms (2.2%)
+[Performance] RestoreManagedReferences                                                                                       :        2 samples, Peak.  20.6 ms (2.0x), Avg.  10.3 ms, Total. 20.63 ms (0.2%)
+[Performance] InitializeOnLoad DrivenRectTransformUndo                                                                       :        2 samples, Peak.   165 us (1.1x), Avg.   152 us, Total. 304.3 us (0.0%)
+[Performance] InitializeOnLoad SceneSearch                                                                                   :        2 samples, Peak.  51.3 us (1.1x), Avg.  46.1 us, Total. 92.13 us (0.0%)
+[Performance] InitializeOnLoad CloudBuild                                                                                    :        2 samples, Peak.  1.88 us (1.3x), Avg.  1.50 us, Total. 3.000 us (0.0%)
+[Performance] InitializeOnLoad NativeFormatImporterUtility                                                                   :        2 samples, Peak.  1.14 ms (1.1x), Avg.  1.01 ms, Total. 2.026 ms (0.0%)
+[Performance] InitializeOnLoad SearchService                                                                                 :        2 samples, Peak.  43.3 us (1.0x), Avg.  43.1 us, Total. 86.17 us (0.0%)
+[Performance] InitializeOnLoad SettingsService                                                                               :        2 samples, Peak.  4.50 us (1.2x), Avg.  3.90 us, Total. 7.792 us (0.0%)
+[Performance] InitializeOnLoad WindowLayout                                                                                  :        2 samples, Peak.   320 us (1.1x), Avg.   281 us, Total. 562.3 us (0.0%)
+[Performance] InitializeOnLoad AssetStoreContext                                                                             :        2 samples, Peak.  10.2 ms (1.1x), Avg.  9.60 ms, Total. 19.21 ms (0.2%)
+[Performance] InitializeOnLoad PoolManager                                                                                   :        2 samples, Peak.   313 us (1.2x), Avg.   263 us, Total. 525.9 us (0.0%)
+[Performance] InitializeOnLoad MixerEffectDefinitionReloader                                                                 :        2 samples, Peak.   958 us (1.2x), Avg.   801 us, Total. 1.603 ms (0.0%)
+[Performance] InitializeOnLoad ProjectSearch                                                                                 :        2 samples, Peak.  24.5 us (1.1x), Avg.  22.9 us, Total. 45.79 us (0.0%)
+[Performance] InitializeOnLoad UISystemProfilerRenderService                                                                 :        2 samples, Peak.  4.75 us (1.1x), Avg.  4.15 us, Total. 8.292 us (0.0%)
+[Performance] InitializeOnLoad EditMode                                                                                      :        2 samples, Peak.   159 us (1.1x), Avg.   142 us, Total. 284.1 us (0.0%)
+[Performance] InitializeOnLoad UnityConnect                                                                                  :        2 samples, Peak.  17.9 us (1.0x), Avg.  17.4 us, Total. 34.79 us (0.0%)
+[Performance] InitializeOnLoad ManagedDebugger                                                                               :        2 samples, Peak.   222 us (1.0x), Avg.   215 us, Total. 430.7 us (0.0%)
+[Performance] InitializeOnLoad ShortcutIntegration                                                                           :        2 samples, Peak.  20.5 us (1.1x), Avg.  19.5 us, Total. 39.00 us (0.0%)
+[Performance] InitializeOnLoad AddComponentWindow                                                                            :        2 samples, Peak.  38.7 us (1.0x), Avg.  37.7 us, Total. 75.42 us (0.0%)
+[Performance] InitializeOnLoad ManagedDebuggerWindow                                                                         :        2 samples, Peak.  42.7 us (1.0x), Avg.  42.0 us, Total. 83.96 us (0.0%)
+[Performance] InitializeOnLoad CacheServerWindow                                                                             :        2 samples, Peak.  5.00 us (1.4x), Avg.  3.67 us, Total. 7.333 us (0.0%)
+[Performance] InitializeOnLoad PlayModeDownload                                                                              :        2 samples, Peak.  1.74 ms (1.9x), Avg.   907 us, Total. 1.815 ms (0.0%)
+[Performance] InitializeOnLoad MenuItems                                                                                     :        2 samples, Peak.  33.6 us (1.1x), Avg.  31.9 us, Total. 63.83 us (0.0%)
+[Performance] InitializeOnLoad PrefabInstanceChangedListener                                                                 :        2 samples, Peak.  49.5 us (1.1x), Avg.  46.4 us, Total. 92.79 us (0.0%)
+[Performance] InitializeOnLoad ObjectSelectorSearch                                                                          :        2 samples, Peak.  14.8 us (1.2x), Avg.  12.8 us, Total. 25.67 us (0.0%)
+[Performance] InitializeOnLoad EditorMonitor                                                                                 :        2 samples, Peak.   290 us (1.3x), Avg.   220 us, Total. 440.7 us (0.0%)
+[Performance] InitializeOnLoad RetainedMode                                                                                  :        2 samples, Peak.   893 us (1.0x), Avg.   869 us, Total. 1.738 ms (0.0%)
+[Performance] InitializeOnLoad EditorShaderLoader                                                                            :        2 samples, Peak.   245 us (1.1x), Avg.   230 us, Total. 460.3 us (0.0%)
+[Performance] InitializeOnLoad EditorDelegateRegistration                                                                    :        2 samples, Peak.   209 us (1.1x), Avg.   197 us, Total. 393.3 us (0.0%)
+[Performance] InitializeOnLoad UIDocumentHierarchyWatcher                                                                    :        2 samples, Peak.  23.4 us (1.0x), Avg.  23.3 us, Total. 46.67 us (0.0%)
+[Performance] InitializeOnLoad LiveReloadTrackerCreator                                                                      :        2 samples, Peak.   107 us (1.3x), Avg.  80.9 us, Total. 161.8 us (0.0%)
+[Performance] InitializeOnLoad UxmlObjectEditorFactories                                                                     :        2 samples, Peak.   211 us (1.1x), Avg.   185 us, Total. 370.3 us (0.0%)
+[Performance] InitializeOnLoad UXMLEditorFactories                                                                           :        2 samples, Peak.  25.0 ms (1.1x), Avg.  23.5 ms, Total. 47.05 ms (0.4%)
+[Performance] InitializeOnLoad PurchasingService                                                                             :        2 samples, Peak.  2.72 ms (1.0x), Avg.  2.64 ms, Total. 5.282 ms (0.0%)
+[Performance] InitializeOnLoad CloudBuildPoller                                                                              :        2 samples, Peak.  37.5 us (1.0x), Avg.  35.8 us, Total. 71.67 us (0.0%)
+[Performance] InitializeOnLoad EditorGameServicesAnalytics                                                                   :        2 samples, Peak.   534 us (1.1x), Avg.   488 us, Total. 975.6 us (0.0%)
+[Performance] InitializeOnLoad AnalyticsService                                                                              :        2 samples, Peak.  66.1 us (1.0x), Avg.  66.0 us, Total. 132.1 us (0.0%)
+[Performance] InitializeOnLoad BuildService                                                                                  :        2 samples, Peak.  60.1 us (1.0x), Avg.  57.9 us, Total. 115.8 us (0.0%)
+[Performance] InitializeOnLoad AdsService                                                                                    :        2 samples, Peak.   155 us (1.0x), Avg.   151 us, Total. 303.0 us (0.0%)
+[Performance] InitializeOnLoad UDPService                                                                                    :        2 samples, Peak.  56.9 us (1.0x), Avg.  55.2 us, Total. 110.5 us (0.0%)
+[Performance] InitializeOnLoad CrashService                                                                                  :        2 samples, Peak.  58.2 us (1.1x), Avg.  55.2 us, Total. 110.5 us (0.0%)
+[Performance] InitializeOnLoad ServicesRepository                                                                            :        2 samples, Peak.   125 ns (1.0x), Avg.   125 ns, Total. 250.0 ns (0.0%)
+[Performance] InitializeOnLoad SearchWindow                                                                                  :        2 samples, Peak.  49.3 us (1.1x), Avg.  43.4 us, Total. 86.75 us (0.0%)
+[Performance] InitializeOnLoad CustomIndexers                                                                                :        2 samples, Peak.  7.31 ms (1.1x), Avg.  6.71 ms, Total. 13.42 ms (0.1%)
+[Performance] InitializeOnLoad SearchMonitor                                                                                 :        2 samples, Peak.   386 us (1.1x), Avg.   344 us, Total. 688.1 us (0.0%)
+[Performance] InitializeOnLoad ParameterControllerEditor                                                                     :        2 samples, Peak.  8.29 us (1.0x), Avg.  8.17 us, Total. 16.33 us (0.0%)
+[Performance] InitializeOnLoad LayerSettingsWindow                                                                           :        2 samples, Peak.  11.0 us (1.7x), Avg.  6.42 us, Total. 12.83 us (0.0%)
+[Performance] InitializeOnLoad PackageManagerHookGUIDConverter.RegisterPackagesEventHandler                                  :        2 samples, Peak.   292 us (1.7x), Avg.   174 us, Total. 347.2 us (0.0%)
+[Performance] InitializeOnLoad EditorDragAndDrop.RegisterEditorClient                                                        :        2 samples, Peak.  84.6 us (1.1x), Avg.  80.5 us, Total. 161.0 us (0.0%)
+[Performance] InitializeOnLoad EditorEventCallbacks.InitializeFontAssetResourceChangeCallBacks                               :        2 samples, Peak.   452 us (1.0x), Avg.   441 us, Total. 881.5 us (0.0%)
+[Performance] InitializeOnLoad SceneTemplateService.Init                                                                     :        2 samples, Peak.   500 us (1.1x), Avg.   475 us, Total. 950.8 us (0.0%)
+[Performance] InitializeOnLoad DiagnosticSwitchesConsoleMessage.Init                                                         :        2 samples, Peak.  1.26 ms (1.5x), Avg.   824 us, Total. 1.648 ms (0.0%)
+[Performance] InitializeOnLoad PackageManagerWindow.EditorInitializedInSafeMode                                              :        2 samples, Peak.  10.1 ms (2.0x), Avg.  5.09 ms, Total. 10.18 ms (0.1%)
+[Performance] InitializeOnLoad ToolShortcutContext.Init                                                                      :        2 samples, Peak.  46.4 us (1.0x), Avg.  44.3 us, Total. 88.58 us (0.0%)
+[Performance] InitializeOnLoad MemoryProfilerCompilationGuard.InjectCompileGuard                                             :        2 samples, Peak.  59.3 us (1.0x), Avg.  58.3 us, Total. 116.6 us (0.0%)
+[Performance] InitializeOnLoad AssetPostprocessingInternal.RefreshCustomDependencies                                         :        2 samples, Peak.  1.22 ms (1.5x), Avg.   833 us, Total. 1.666 ms (0.0%)
+[Performance] InitializeOnLoad SysrootManager.Initialize                                                                     :        2 samples, Peak.   173 us (1.0x), Avg.   172 us, Total. 344.4 us (0.0%)
+[Performance] InitializeOnLoad ScopedRegistryAddedPopup.SubscribeToRegistriesAdded                                           :        2 samples, Peak.  3.28 ms (2.0x), Avg.  1.66 ms, Total. 3.315 ms (0.0%)
+[Performance] InitializeOnLoad SceneVisibilityManager.Initialize                                                             :        2 samples, Peak.  2.03 ms (1.7x), Avg.  1.16 ms, Total. 2.327 ms (0.0%)
+[Performance] InitializeOnLoad EditorWindow.Initialize                                                                       :        2 samples, Peak.  81.4 us (1.0x), Avg.  78.9 us, Total. 157.8 us (0.0%)
+[Performance] AssemblyReloadEvents.afterAssemblyReload: UnityEditor.SceneTemplate.SceneTemplateService.AfterAssemblyReload   :        2 samples, Peak.  1.47 ms (1.9x), Avg.   789 us, Total. 1.579 ms (0.0%)
+[Performance] ProcessService.EditorAfterLoadAllAssemblies                                                                    :        2 samples, Peak.   115 us (1.1x), Avg.   107 us, Total. 214.5 us (0.0%)
+[Performance] Application.ReadLicenseInfo                                                                                    :        1 samples, Peak.  12.4 ms (1.0x), Avg.  12.4 ms, Total. 12.37 ms (0.1%)
+[Performance] Application.InitialRefresh                                                                                     :        1 samples, Peak.  1.93 s (1.0x), Avg.  1.93 s, Total. 1.925 s (15.4%)
+[Performance] ShaderImporter.SourceAssetModified                                                                             :        4 samples, Peak.   417 ns (1.3x), Avg.   312 ns, Total. 1.249 us (0.0%)
+[Performance] ShaderIncludeImporter.SourceAssetModified                                                                      :        4 samples, Peak.   500 ns (1.0x), Avg.   479 ns, Total. 1.917 us (0.0%)
+[Performance] Compiling Scripts                                                                                              :        1 samples, Peak.  1.64 s (1.0x), Avg.  1.64 s, Total. 1.643 s (13.2%)
+[Performance] AssemblyReloadEvents.beforeAssemblyReload: UnityEditor.SceneTemplate.SceneTemplateService.BeforeAssemblyReload :        1 samples, Peak.   212 us (1.0x), Avg.   212 us, Total. 212.0 us (0.0%)
+[Performance] PresetManagerPostProcessor.OnPreprocessAsset                                                                   :      247 samples, Peak.   510 us (85.3x), Avg.  5.99 us, Total. 1.478 ms (0.0%)
+[Performance] CancelSplashScreenOnAssetChange.OnPreprocessAsset                                                              :      247 samples, Peak.  53.1 us (48.4x), Avg.  1.10 us, Total. 271.1 us (0.0%)
+[Performance] InitializeOnLoad TutorialSceneAutoBuilder                                                                      :        1 samples, Peak.  53.7 us (1.0x), Avg.  53.7 us, Total. 53.71 us (0.0%)
+[Performance] InitializeOnLoad TutorialSceneStartup                                                                          :        1 samples, Peak.  81.6 us (1.0x), Avg.  81.6 us, Total. 81.58 us (0.0%)
+[Performance] DidReloadScriptsAdvancedDropdownWindow.OnScriptReload                                                          :        1 samples, Peak.  78.4 us (1.0x), Avg.  78.4 us, Total. 78.38 us (0.0%)
+[Performance] AssetDatabase.ImportAssets                                                                                     :      250 samples, Peak.  20.0 ms (249.5x), Avg.  80.2 us, Total. 20.05 ms (0.2%)
+[Performance] VersionControl.Task.Wait                                                                                       :        1 samples, Peak.  7.58 us (1.0x), Avg.  7.58 us, Total. 7.584 us (0.0%)
+[Performance] BuilderAssetPostprocessor.OnPostprocessAllAssets                                                               :      488 samples, Peak.  1.47 ms (64.9x), Avg.  22.7 us, Total. 11.07 ms (0.1%)
+[Performance] ArtifactBrowserPostProcessor.OnPostprocessAllAssets                                                            :      488 samples, Peak.   224 us (94.1x), Avg.  2.38 us, Total. 1.162 ms (0.0%)
+[Performance] AssetEvents.OnPostprocessAllAssets                                                                             :      976 samples, Peak.  74.2 us (61.2x), Avg.  1.21 us, Total. 1.183 ms (0.0%)
+[Performance] AudioMixerPostprocessor.OnPostprocessAllAssets                                                                 :      488 samples, Peak.   109 us (70.9x), Avg.  1.54 us, Total. 751.5 us (0.0%)
+[Performance] StyleCatalogPostProcessor.OnPostprocessAllAssets                                                               :      488 samples, Peak.  7.67 ms (217.0x), Avg.  35.4 us, Total. 17.26 ms (0.1%)
+[Performance] BuildCatalog                                                                                                   :        1 samples, Peak.  7.24 ms (1.0x), Avg.  7.24 ms, Total. 7.244 ms (0.1%)
+[Performance] ModelImporterPostProcessor.OnPostprocessAllAssets                                                              :      488 samples, Peak.   397 us (48.2x), Avg.  8.23 us, Total. 4.016 ms (0.0%)
+[Performance] RetainedModeAssetPostprocessor.OnPostprocessAllAssets                                                          :      488 samples, Peak.   815 us (78.0x), Avg.  10.4 us, Total. 5.099 ms (0.0%)
+[Performance] AssetChangedListener.OnPostprocessAllAssets                                                                    :      488 samples, Peak.   698 us (68.4x), Avg.  10.2 us, Total. 4.976 ms (0.0%)
+[Performance] SpeedTreePostProcessor.OnPostprocessAllAssets                                                                  :      488 samples, Peak.  83.9 us (20.8x), Avg.  4.04 us, Total. 1.971 ms (0.0%)
+[Performance] TextAssetPostProcessor.OnPostprocessAllAssets                                                                  :      488 samples, Peak.   907 us (118.0x), Avg.  7.69 us, Total. 3.754 ms (0.0%)
+[Performance] SyncVS.PostprocessSyncProject                                                                                  :      244 samples, Peak.   844 us (156.1x), Avg.  5.41 us, Total. 1.319 ms (0.0%)
+[Performance] Application.ImportPackagesAndSetTemplateWhenCreatingProject                                                    :        1 samples, Peak.  10.4 ms (1.0x), Avg.  10.4 ms, Total. 10.35 ms (0.1%)
+[Performance] Application.SyncCurrentColorSpace                                                                              :        1 samples, Peak.  36.6 ms (1.0x), Avg.  36.6 ms, Total. 36.64 ms (0.3%)
+[Performance] Application.OnUsbDevicesChanged                                                                                :        1 samples, Peak.   193 us (1.0x), Avg.   193 us, Total. 192.7 us (0.0%)
+[Performance] Application.AssetInstanceCacheUpdate                                                                           :        1 samples, Peak.  41.0 ns (1.0x), Avg.  41.0 ns, Total. 41.00 ns (0.0%)
+[Performance] Application.UnityExtensions.Initialize                                                                         :        1 samples, Peak.   188 us (1.0x), Avg.   188 us, Total. 187.5 us (0.0%)
+[Performance] CodeEditorProjectSync.SyncEditorProject                                                                        :        1 samples, Peak.  24.1 us (1.0x), Avg.  24.1 us, Total. 24.08 us (0.0%)
+[Performance] Application.ExecuteStartups                                                                                    :        1 samples, Peak.  29.6 ms (1.0x), Avg.  29.6 ms, Total. 29.63 ms (0.2%)
+[Performance] Menu.RegisterMenuInterface                                                                                     :       26 samples, Peak.   208 ns (4.1x), Avg.  51.2 ns, Total. 1.332 us (0.0%)
+[Performance] Gizmo.RebuildRenderers                                                                                         :        1 samples, Peak.  29.5 ms (1.0x), Avg.  29.5 ms, Total. 29.52 ms (0.2%)
+[Performance] Gizmo.AddGizmoRenderers                                                                                        :       21 samples, Peak.   744 us (15.1x), Avg.  49.4 us, Total. 1.037 ms (0.0%)
+[Performance] Application.editorInitializingProject                                                                          :        1 samples, Peak.  11.9 ms (1.0x), Avg.  11.9 ms, Total. 11.91 ms (0.1%)
+[Performance] Application.InitializeMenu                                                                                     :        1 samples, Peak.  20.5 ms (1.0x), Avg.  20.5 ms, Total. 20.54 ms (0.2%)
+[Performance] Menu.RebuildAll                                                                                                :        1 samples, Peak.  20.5 ms (1.0x), Avg.  20.5 ms, Total. 20.53 ms (0.2%)
+[Performance] Menu.BuildRegisteredMenuInterfaces                                                                             :        1 samples, Peak.  19.3 ms (1.0x), Avg.  19.3 ms, Total. 19.26 ms (0.2%)
+[Performance] Menu.FilterMenuItem                                                                                            :      482 samples, Peak.  4.53 ms (476.1x), Avg.  9.52 us, Total. 4.589 ms (0.0%)
+[Performance] UpdateAllMenus                                                                                                 :        1 samples, Peak.   235 us (1.0x), Avg.   235 us, Total. 234.5 us (0.0%)
+[Performance] EditorSceneManager.sceneClosing: UnityEditor.SceneVisibilityManager.EditorSceneManagerOnSceneClosing           :        2 samples, Peak.  98.6 us (2.0x), Avg.  50.3 us, Total. 100.5 us (0.0%)
+[Performance] GUIView.RepaintAll.PlayerLoopController                                                                        :        2 samples, Peak.   583 ns (1.3x), Avg.   458 ns, Total. 916.0 ns (0.0%)
+[Performance] EditorSceneManager.newSceneCreated: UnityEditor.SceneTemplate.SceneTemplateService.OnNewSceneCreated           :        2 samples, Peak.   107 us (2.0x), Avg.  53.6 us, Total. 107.2 us (0.0%)
+[Performance] EditorSceneManager.newSceneCreated: UnityEditor.SceneVisibilityManager.EditorSceneManagerOnNewSceneCreated     :        2 samples, Peak.  71.7 us (1.9x), Avg.  36.9 us, Total. 73.79 us (0.0%)
+[Performance] EditorSceneManager.newSceneCreated: UnityEditor.SceneManagement.StageNavigationManager.OnNewSceneCreated       :        2 samples, Peak.  24.9 us (1.9x), Avg.  12.8 us, Total. 25.58 us (0.0%)
+[Performance] Application.InvokeFinishedLoadingProject                                                                       :        1 samples, Peak.   561 us (1.0x), Avg.   561 us, Total. 560.9 us (0.0%)
+[Performance] ProcessService.OnProjectLoaded                                                                                 :        1 samples, Peak.  24.6 us (1.0x), Avg.  24.6 us, Total. 24.58 us (0.0%)
+[Performance] AssetDatabase.Refresh                                                                                          :        2 samples, Peak.  11.5 ms (1.2x), Avg.  9.36 ms, Total. 18.71 ms (0.2%)
+[Performance] AssetDatabase.ImportAsset                                                                                      :      242 samples, Peak.   244 ms (10.6x), Avg.  22.9 ms, Total. 5.538 s (44.4%)
+[Performance] TextureImporter.Import                                                                                         :      241 samples, Peak.   227 ms (14.2x), Avg.  16.1 ms, Total. 3.870 s (31.0%)
+[Performance] BuilderAssetModificationProcessor.OnWillSaveAssets                                                             :        5 samples, Peak.   159 us (4.1x), Avg.  38.5 us, Total. 192.4 us (0.0%)
+[Performance] TerrainModificationProcessor.OnWillSaveAssets                                                                  :        5 samples, Peak.   254 us (4.9x), Avg.  52.0 us, Total. 259.9 us (0.0%)
+[Performance] EditorApplication.projectChanged: UnityEditor.Audio.MixerEffectDefinitionReloader.OnProjectChanged             :        1 samples, Peak.   671 us (1.0x), Avg.   671 us, Total. 670.6 us (0.0%)
+[Performance] SceneDataContainer.TransformHierarchyChangedSetParentCallback                                                  :     2739 samples, Peak.  5.37 us (23.9x), Avg.   225 ns, Total. 615.0 us (0.0%)
+[Performance] SceneVisibilityState.IsFlagSetInParents                                                                        :     9366 samples, Peak.   625 ns (7.4x), Avg.  84.7 ns, Total. 792.9 us (0.0%)
+[Performance] Inspector.InitOrRebuild                                                                                        :        1 samples, Peak.  9.34 ms (1.0x), Avg.  9.34 ms, Total. 9.341 ms (0.1%)
+[Performance] Selection.selectionChanged: UnityEditor.PackageManager.UI.Internal.SelectionProxy.OnSelectionChanged           :        1 samples, Peak.   228 us (1.0x), Avg.   228 us, Total. 227.5 us (0.0%)
+[Performance] Selection.selectionChanged: UnityEditorInternal.EditMode.OnSelectionChange                                     :        1 samples, Peak.   102 us (1.0x), Avg.   102 us, Total. 101.9 us (0.0%)
+[Performance] EditorSceneManager.sceneSaving: UnityEditor.SceneTemplate.SceneTemplateService.OnSceneSaving                   :        1 samples, Peak.  88.5 us (1.0x), Avg.  88.5 us, Total. 88.54 us (0.0%)
+[Performance] EditorSceneManager.sceneSaving: UnityEditor.SceneVisibilityManager.EditorSceneManagerOnSceneSaving             :        1 samples, Peak.  40.7 us (1.0x), Avg.  40.7 us, Total. 40.71 us (0.0%)
+[Performance] BuilderAssetModificationProcessor.OnWillCreateAsset                                                            :        1 samples, Peak.  94.2 us (1.0x), Avg.  94.2 us, Total. 94.17 us (0.0%)
+[Performance] EditorSceneManager.sceneSaved: UnityEditor.SceneTemplate.SceneTemplateService.OnSceneSaved                     :        1 samples, Peak.  5.38 ms (1.0x), Avg.  5.38 ms, Total. 5.384 ms (0.0%)
+[Performance] EditorSceneManager.sceneSaved: UnityEditor.SceneVisibilityManager.EditorSceneManagerOnSceneSaved               :        1 samples, Peak.  41.8 us (1.0x), Avg.  41.8 us, Total. 41.75 us (0.0%)
+[Performance] EditorApplication.quitting: callback in UnityEditor.TextCore.Text.EditorEventCallbacks                         :        1 samples, Peak.  6.86 ms (1.0x), Avg.  6.86 ms, Total. 6.858 ms (0.1%)
+[Performance] Application.Shutdown.PauseProfilerSession                                                                      :        1 samples, Peak.  77.5 us (1.0x), Avg.  77.5 us, Total. 77.46 us (0.0%)
+[Performance] Application.Shutdown.PauseAssetImportWorkers                                                                   :        1 samples, Peak.  92.5 us (1.0x), Avg.  92.5 us, Total. 92.50 us (0.0%)
+[Performance] Application.Shutdown.SaveAssets                                                                                :        1 samples, Peak.  1.97 ms (1.0x), Avg.  1.97 ms, Total. 1.968 ms (0.0%)
+[Performance] Application.Shutdown.CleanupRenderPipeline                                                                     :        1 samples, Peak.  3.87 us (1.0x), Avg.  3.87 us, Total. 3.875 us (0.0%)
+[Performance] Application.Shutdown.StopPreloadManager                                                                        :        1 samples, Peak.  10.5 ms (1.0x), Avg.  10.5 ms, Total. 10.52 ms (0.1%)
+[Performance] Application.Shutdown.DestroyWorld                                                                              :        1 samples, Peak.  6.17 ms (1.0x), Avg.  6.17 ms, Total. 6.165 ms (0.0%)
+[Performance] Application.Shutdown.CleanupAfterLoad                                                                          :        1 samples, Peak.  3.21 ms (1.0x), Avg.  3.21 ms, Total. 3.207 ms (0.0%)
+[Performance] Application.Shutdown.Progress                                                                                  :        1 samples, Peak.  10.6 us (1.0x), Avg.  10.6 us, Total. 10.62 us (0.0%)
+[Performance] Application.Shutdown.GICleanupManagers                                                                         :        1 samples, Peak.   802 us (1.0x), Avg.   802 us, Total. 801.8 us (0.0%)
+[Performance] Application.Shutdown.MenuCleanupClass                                                                          :        1 samples, Peak.   116 us (1.0x), Avg.   116 us, Total. 116.2 us (0.0%)
+[Performance] Application.Shutdown.ADBSaveStateBeforeShutdown                                                                :        1 samples, Peak.  9.67 us (1.0x), Avg.  9.67 us, Total. 9.667 us (0.0%)
+[Performance] Application.Shutdown.RemoteShutdown                                                                            :        1 samples, Peak.  1.71 us (1.0x), Avg.  1.71 us, Total. 1.708 us (0.0%)
+[Performance] Application.Shutdown.CleanupVCProvider                                                                         :        1 samples, Peak.  15.3 us (1.0x), Avg.  15.3 us, Total. 15.33 us (0.0%)
+[Performance] Application.Shutdown.InputShutdown                                                                             :        1 samples, Peak.   251 us (1.0x), Avg.   251 us, Total. 251.3 us (0.0%)
+[Performance] Application.Shutdown.GizmoManagerDestroy                                                                       :        1 samples, Peak.   704 us (1.0x), Avg.   704 us, Total. 704.5 us (0.0%)
+[Performance] Application.Shutdown.ProfilerSession                                                                           :        1 samples, Peak.   193 us (1.0x), Avg.   193 us, Total. 192.9 us (0.0%)
+[Performance] Application.Shutdown.ReleaseGfxWindowOnAllGUIViews                                                             :        1 samples, Peak.   542 ns (1.0x), Avg.   542 ns, Total. 542.0 ns (0.0%)
+[Performance] Application.Shutdown.CleanupEngine                                                                             :        1 samples, Peak.   185 ms (1.0x), Avg.   185 ms, Total. 184.8 ms (1.5%)
+[Performance] Application.Shutdown.CleanupAssetDatabase                                                                      :        1 samples, Peak.  17.6 ms (1.0x), Avg.  17.6 ms, Total. 17.63 ms (0.1%)
+[Performance] Application.Shutdown.ScriptCompilationCleanUp                                                                  :        1 samples, Peak.  14.5 us (1.0x), Avg.  14.5 us, Total. 14.50 us (0.0%)
+[Performance] Application.Shutdown.DestroyJobSystem                                                                          :        1 samples, Peak.   202 us (1.0x), Avg.   202 us, Total. 201.6 us (0.0%)
+[Performance] Application.Shutdown.CleanupPersistentManager                                                                  :        1 samples, Peak.  1.12 ms (1.0x), Avg.  1.12 ms, Total. 1.118 ms (0.0%)
+[Performance] Application.Shutdown.CleanupAsyncReadManager                                                                   :        1 samples, Peak.   101 us (1.0x), Avg.   101 us, Total. 101.0 us (0.0%)
+[Performance] Application.Shutdown.CleanupMono                                                                               :        1 samples, Peak.  30.9 ms (1.0x), Avg.  30.9 ms, Total. 30.87 ms (0.2%)
+[Performance] Application.Shutdown.CleanupStdConverters                                                                      :        1 samples, Peak.  10.1 us (1.0x), Avg.  10.1 us, Total. 10.12 us (0.0%)
+[Performance] Application.Shutdown.UnloadAllPlatformSupportModuleNativeDlls                                                  :        1 samples, Peak.   333 ns (1.0x), Avg.   333 ns, Total. 333.0 ns (0.0%)
+[Performance] Application.Shutdown.UnloadAllPlatformSupportNativeLibraries                                                   :        1 samples, Peak.   125 ns (1.0x), Avg.   125 ns, Total. 125.0 ns (0.0%)
+[Performance] Application.Shutdown.CleanupAutoDocumentation                                                                  :        1 samples, Peak.   150 us (1.0x), Avg.   150 us, Total. 150.1 us (0.0%)
+[Performance] Application.Shutdown.ShaderNameManagerDestroy                                                                  :        1 samples, Peak.  25.3 us (1.0x), Avg.  25.3 us, Total. 25.29 us (0.0%)
+[Performance] Application.Shutdown.CleanupCacheServer                                                                        :        1 samples, Peak.   125 ns (1.0x), Avg.   125 ns, Total. 125.0 ns (0.0%)
+[Performance] Application.Shutdown.Virtualization_Shutdown                                                                   :        1 samples, Peak.   250 ns (1.0x), Avg.   250 ns, Total. 250.0 ns (0.0%)
+[Performance] Application.Shutdown.DevConnections                                                                            :        1 samples, Peak.  63.4 us (1.0x), Avg.  63.4 us, Total. 63.37 us (0.0%)
+Exiting batchmode successfully now!
+[Package Manager] Server::Kill -- Server was shutdown
