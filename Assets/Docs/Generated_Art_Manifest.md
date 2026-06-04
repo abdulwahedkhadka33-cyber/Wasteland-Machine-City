@@ -36,7 +36,7 @@
 | `BG_SystemPolish_HazardAndInteract` | 电流、压缩机、电闸、终端和补给箱的低侵入色彩提示 |
 | `BG_SystemPolish_AtmosphereControl` | 顶部落尘、陷阱冷雾、Boss 热雾、蒸汽和顶部电弧 |
 
-Boss 遭遇新增的入口锁和过载电弧都不新增资源：`BossArena_EntryLock` 复用 V7 Boss 门、V7 警示灯和 Effects/V2 红色 halo；`Boss_RepairStationGuardian_ArcBurstWarning` / `Boss_RepairStationGuardian_ArcBurstVisual` 复用 Effects/V5 电弧框和 Effects/V2 电流地板图，运行时由 Boss 状态机锁定位置、预警并启闭伤害。当前 Boss 本体额外使用 Enemy/V3 精细覆盖件、Enemy/V4 暴走覆盖件和 Enemy/V5 多部件覆盖件；液压冲锤与磁钳夹击预警复用 Effects/V5 电弧框，冲锤火花、核心光束、顶部落雷、终段核心脉冲和死亡破碎仍复用 Effects/V2/V5 与 Environment/V7/V10。
+Boss 遭遇新增的入口锁和过载电弧都不新增资源：`BossArena_EntryLock` 复用 V7 Boss 门、V7 警示灯和 Effects/V2 红色 halo；`Boss_RepairStationGuardian_ArcBurstWarning` / `Boss_RepairStationGuardian_ArcBurstVisual` 复用 Effects/V5 电弧框和 Effects/V2 电流地板图，运行时由 Boss 状态机锁定位置、预警并启闭伤害。当前 Boss 本体额外使用 Enemy/V3 精细覆盖件、Enemy/V4 暴走覆盖件和 Enemy/V5 多部件覆盖件；液压冲锤、磁钳夹击和侧向泄压电弧预警复用 Effects/V5 电弧框，冲锤火花、核心光束、顶部落雷、终段核心脉冲和死亡破碎仍复用 Effects/V2/V5 与 Environment/V7/V10。本次 Boss 可读性优化只调整排序与运行时 alpha：攻击预警、电流、光束、落雷和脉冲提升到 Boss 前景，Boss 出招时本体短暂压暗，8 HP/5 HP 强制技能反馈复用核心灯、裂纹层和蒸汽脉冲。
 
 ## Boss Visual Refinement V3
 
@@ -60,7 +60,7 @@ Boss 遭遇新增的入口锁和过载电弧都不新增资源：`BossArena_Entr
 
 ## Boss Multipart Refinement V5
 
-`Assets/Art/Generated/Enemies/V5/` 新增 7 张透明 PNG，不参与碰撞，不改变 Boss 血量、招式伤害、门逻辑或 HUD 接口。它们由 `RepairStationBoss2D` 驱动 idle、受击、液压冲锤、磁钳夹击、P3 暴走和死亡淡出；真正的攻击命中区由独立 `DamageableHurtbox2D` 逻辑盒控制。
+`Assets/Art/Generated/Enemies/V5/` 新增 7 张透明 PNG，不参与碰撞，不改变 Boss 血量、招式伤害、门逻辑或 HUD 接口。它们由 `RepairStationBoss2D` 驱动 idle、受击、液压冲锤、磁钳夹击、侧向泄压电弧、P3 暴走和死亡淡出；真正的攻击命中区由独立 `DamageableHurtbox2D` 逻辑盒控制。
 
 | File | Scene Usage |
 | --- | --- |

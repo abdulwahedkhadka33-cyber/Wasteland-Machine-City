@@ -19,7 +19,17 @@ public class BossDamageHitbox2D : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Damage(other);
+    }
+
     private void OnTriggerStay2D(Collider2D other)
+    {
+        Damage(other);
+    }
+
+    private void Damage(Collider2D other)
     {
         if (owner != null)
         {

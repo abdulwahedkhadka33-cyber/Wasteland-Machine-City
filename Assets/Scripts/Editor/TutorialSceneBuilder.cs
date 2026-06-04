@@ -3144,7 +3144,7 @@ public static class TutorialSceneBuilder
         collider.size = new Vector2(4.2f, 3.2f);
 
         Health health = boss.AddComponent<Health>();
-        SetInt(health, "maxHealth", 14);
+        SetInt(health, "maxHealth", 16);
         health.DisableOnDeath = false;
         boss.AddComponent<HitFlash2D>();
         RepairStationBoss2D bossAi = boss.AddComponent<RepairStationBoss2D>();
@@ -3178,12 +3178,11 @@ public static class TutorialSceneBuilder
 
         Transform armPivot = NewChild(boss.transform, name + "_ArmPivot").transform;
         armPivot.localPosition = new Vector3(-0.55f, 0.05f, 0f);
-        AddEnvironmentV7SpriteChild(armPivot, name + "_SweepArmVisual", "envv7_mechanical_arm.png", new Vector2(-1.55f, -0.15f), new Vector2(3.35f, 0.86f), Color.white, 22);
 
         BoxCollider2D sweep = NewChild(boss.transform, name + "_SweepHitbox").AddComponent<BoxCollider2D>();
-        sweep.transform.localPosition = new Vector3(-2.15f, -0.28f, 0f);
+        sweep.transform.localPosition = new Vector3(-2.25f, -0.82f, 0f);
         sweep.isTrigger = true;
-        sweep.size = new Vector2(3.8f, 1.0f);
+        sweep.size = new Vector2(3.05f, 0.78f);
         BossDamageHitbox2D sweepDamage = sweep.gameObject.AddComponent<BossDamageHitbox2D>();
 
         BoxCollider2D smash = NewChild(boss.transform, name + "_SmashHitbox").AddComponent<BoxCollider2D>();
@@ -3199,9 +3198,9 @@ public static class TutorialSceneBuilder
         BossDamageHitbox2D shockwaveDamage = shockwave.gameObject.AddComponent<BossDamageHitbox2D>();
 
         BoxCollider2D arcBurst = NewChild(boss.transform, name + "_ArcBurstHitbox").AddComponent<BoxCollider2D>();
-        arcBurst.transform.localPosition = new Vector3(0f, -1.26f, 0f);
+        arcBurst.transform.localPosition = new Vector3(0f, -0.94f, 0f);
         arcBurst.isTrigger = true;
-        arcBurst.size = new Vector2(2.45f, 1.12f);
+        arcBurst.size = new Vector2(2.9f, 1.35f);
         BossDamageHitbox2D arcBurstDamage = arcBurst.gameObject.AddComponent<BossDamageHitbox2D>();
 
         BoxCollider2D coreBeam = NewChild(boss.transform, name + "_CoreBeamHitbox").AddComponent<BoxCollider2D>();
@@ -3254,29 +3253,29 @@ public static class TutorialSceneBuilder
         hydraulicRam.size = new Vector2(2.2f, 1.05f);
         BossDamageHitbox2D hydraulicRamDamage = hydraulicRam.gameObject.AddComponent<BossDamageHitbox2D>();
 
-        SpriteRenderer smashWarning = AddEffectsV2SpriteChild(boss.transform, name + "_SmashWarning_Dust", "fxv2_boss_smash_dust.png", new Vector2(-1.05f, -1.48f), new Vector2(3.2f, 0.78f), new Color(1f, 0.7f, 0.18f, 0f), 20).GetComponent<SpriteRenderer>();
-        SpriteRenderer magneticClampWarning = AddEffectsV5SpriteChild(boss.transform, name + "_MagneticClampWarning", "fxv5_electric_spark_frame.png", new Vector2(-1.72f, -0.44f), new Vector2(2.15f, 1.1f), new Color(1f, 0.7f, 0.18f, 0f), 25).GetComponent<SpriteRenderer>();
-        SpriteRenderer hydraulicRamWarning = AddEffectsV5SpriteChild(boss.transform, name + "_HydraulicRamWarning", "fxv5_electric_spark_frame.png", new Vector2(-2.05f, -0.74f), new Vector2(2.35f, 1.0f), new Color(1f, 0.68f, 0.16f, 0f), 25).GetComponent<SpriteRenderer>();
-        SpriteRenderer hydraulicRamImpactVisual = AddEffectsV2SpriteChild(boss.transform, name + "_HydraulicRamImpactSparks", "fxv2_spark_shower.png", new Vector2(-2.05f, -0.68f), new Vector2(2.25f, 0.58f), new Color(1f, 0.72f, 0.22f, 0f), 26).GetComponent<SpriteRenderer>();
-        SpriteRenderer sweepTrailVisual = AddEffectsV5SpriteChild(boss.transform, name + "_SweepTrail_ElectricDrag", "fxv5_electric_spark_frame.png", new Vector2(-1.55f, -0.24f), new Vector2(2.6f, 0.42f), new Color(1f, 0.66f, 0.2f, 0f), 23).GetComponent<SpriteRenderer>();
-        SpriteRenderer smashDustRingVisual = AddEffectsV2SpriteChild(boss.transform, name + "_SmashDustRing", "fxv2_boss_smash_dust.png", new Vector2(-1.05f, -1.36f), new Vector2(3.6f, 0.95f), new Color(1f, 0.62f, 0.16f, 0f), 21).GetComponent<SpriteRenderer>();
-        SpriteRenderer shockwaveVisual = AddEffectsV5SpriteChild(boss.transform, name + "_ShockwaveVisual", "fxv5_electric_spark_frame.png", new Vector2(-2.0f, -1.22f), new Vector2(2.2f, 0.42f), new Color(0.52f, 0.92f, 1f, 0f), 21).GetComponent<SpriteRenderer>();
-        SpriteRenderer shockwaveSparkTrail = AddEffectsV2SpriteChild(boss.transform, name + "_ShockwaveSparkTrail", "fxv2_electric_floor_03.png", new Vector2(-2.0f, -1.22f), new Vector2(2.6f, 0.46f), new Color(0.48f, 0.96f, 1f, 0f), 22).GetComponent<SpriteRenderer>();
-        SpriteRenderer arcBurstWarning = AddEffectsV5SpriteChild(boss.transform, name + "_ArcBurstWarning", "fxv5_electric_spark_frame.png", new Vector2(0f, -1.42f), new Vector2(2.65f, 0.48f), new Color(0.45f, 0.96f, 1f, 0f), 22).GetComponent<SpriteRenderer>();
-        SpriteRenderer arcBurstVisual = AddEffectsV2SpriteChild(boss.transform, name + "_ArcBurstVisual", "fxv2_electric_floor_02.png", new Vector2(0f, -1.36f), new Vector2(2.35f, 0.66f), new Color(0.58f, 0.96f, 1f, 0f), 23).GetComponent<SpriteRenderer>();
-        SpriteRenderer coreBeamWarning = AddEffectsV2SpriteChild(boss.transform, name + "_CoreBeamWarningScan", "fxv2_scan_beam.png", new Vector2(-3.35f, -0.72f), new Vector2(4.2f, 0.24f), new Color(1f, 0.28f, 0.12f, 0f), 24).GetComponent<SpriteRenderer>();
-        SpriteRenderer coreBeamVisual = AddEffectsV2SpriteChild(boss.transform, name + "_CoreBeamVisual", "fxv2_electric_floor_01.png", new Vector2(-3.35f, -0.62f), new Vector2(4.35f, 0.46f), new Color(0.5f, 0.95f, 1f, 0f), 25).GetComponent<SpriteRenderer>();
+        SpriteRenderer smashWarning = AddEffectsV2SpriteChild(boss.transform, name + "_SmashWarning_Dust", "fxv2_boss_smash_dust.png", new Vector2(-1.05f, -1.48f), new Vector2(3.2f, 0.78f), new Color(1f, 0.7f, 0.18f, 0f), 34).GetComponent<SpriteRenderer>();
+        SpriteRenderer magneticClampWarning = AddEffectsV5SpriteChild(boss.transform, name + "_MagneticClampWarning", "fxv5_electric_spark_frame.png", new Vector2(-1.72f, -0.44f), new Vector2(2.15f, 1.1f), new Color(1f, 0.7f, 0.18f, 0f), 35).GetComponent<SpriteRenderer>();
+        SpriteRenderer hydraulicRamWarning = AddEffectsV5SpriteChild(boss.transform, name + "_HydraulicRamWarning", "fxv5_electric_spark_frame.png", new Vector2(-2.05f, -0.74f), new Vector2(2.35f, 1.0f), new Color(1f, 0.68f, 0.16f, 0f), 35).GetComponent<SpriteRenderer>();
+        SpriteRenderer hydraulicRamImpactVisual = AddEffectsV2SpriteChild(boss.transform, name + "_HydraulicRamImpactSparks", "fxv2_spark_shower.png", new Vector2(-2.05f, -0.68f), new Vector2(2.25f, 0.58f), new Color(1f, 0.72f, 0.22f, 0f), 37).GetComponent<SpriteRenderer>();
+        SpriteRenderer sweepTrailVisual = AddEffectsV5SpriteChild(boss.transform, name + "_SweepTrail_ElectricDrag", "fxv5_electric_spark_frame.png", new Vector2(-2.25f, -0.84f), new Vector2(3.05f, 0.72f), new Color(1f, 0.66f, 0.2f, 0f), 35).GetComponent<SpriteRenderer>();
+        SpriteRenderer smashDustRingVisual = AddEffectsV2SpriteChild(boss.transform, name + "_SmashDustRing", "fxv2_boss_smash_dust.png", new Vector2(-1.05f, -1.36f), new Vector2(3.6f, 0.95f), new Color(1f, 0.62f, 0.16f, 0f), 34).GetComponent<SpriteRenderer>();
+        SpriteRenderer shockwaveVisual = AddEffectsV5SpriteChild(boss.transform, name + "_ShockwaveVisual", "fxv5_electric_spark_frame.png", new Vector2(-2.0f, -1.22f), new Vector2(2.2f, 0.42f), new Color(0.52f, 0.92f, 1f, 0f), 34).GetComponent<SpriteRenderer>();
+        SpriteRenderer shockwaveSparkTrail = AddEffectsV2SpriteChild(boss.transform, name + "_ShockwaveSparkTrail", "fxv2_electric_floor_03.png", new Vector2(-2.0f, -1.22f), new Vector2(2.6f, 0.46f), new Color(0.48f, 0.96f, 1f, 0f), 35).GetComponent<SpriteRenderer>();
+        SpriteRenderer arcBurstWarning = AddEffectsV5SpriteChild(boss.transform, name + "_ArcBurstWarning", "fxv5_electric_spark_frame.png", new Vector2(0f, -1.42f), new Vector2(3.1f, 0.62f), new Color(0.45f, 0.96f, 1f, 0f), 35).GetComponent<SpriteRenderer>();
+        SpriteRenderer arcBurstVisual = AddEffectsV2SpriteChild(boss.transform, name + "_ArcBurstVisual", "fxv2_electric_floor_02.png", new Vector2(0f, -1.36f), new Vector2(2.95f, 0.88f), new Color(0.58f, 0.96f, 1f, 0f), 36).GetComponent<SpriteRenderer>();
+        SpriteRenderer coreBeamWarning = AddEffectsV2SpriteChild(boss.transform, name + "_CoreBeamWarningScan", "fxv2_scan_beam.png", new Vector2(-3.35f, -0.72f), new Vector2(4.2f, 0.24f), new Color(1f, 0.28f, 0.12f, 0f), 35).GetComponent<SpriteRenderer>();
+        SpriteRenderer coreBeamVisual = AddEffectsV2SpriteChild(boss.transform, name + "_CoreBeamVisual", "fxv2_electric_floor_01.png", new Vector2(-3.35f, -0.62f), new Vector2(4.35f, 0.46f), new Color(0.5f, 0.95f, 1f, 0f), 36).GetComponent<SpriteRenderer>();
         SpriteRenderer[] ceilingWarnings = new SpriteRenderer[3];
         SpriteRenderer[] ceilingVisuals = new SpriteRenderer[3];
         for (int i = 0; i < ceilingSparkX.Length; i++)
         {
-            ceilingWarnings[i] = AddEffectsV2SpriteChild(boss.transform, name + "_CeilingSparkWarning_" + ceilingSparkSuffixes[i], "fxv2_scan_beam.png", new Vector2(ceilingSparkX[i], 0.22f), new Vector2(0.3f, 3.8f), new Color(1f, 0.34f, 0.1f, 0f), 24).GetComponent<SpriteRenderer>();
-            ceilingVisuals[i] = AddEffectsV5SpriteChild(boss.transform, name + "_CeilingSparkVisual_" + ceilingSparkSuffixes[i], "fxv5_electric_spark_frame.png", new Vector2(ceilingSparkX[i], -0.95f), new Vector2(0.75f, 1.2f), new Color(0.52f, 0.95f, 1f, 0f), 26).GetComponent<SpriteRenderer>();
+            ceilingWarnings[i] = AddEffectsV2SpriteChild(boss.transform, name + "_CeilingSparkWarning_" + ceilingSparkSuffixes[i], "fxv2_scan_beam.png", new Vector2(ceilingSparkX[i], 0.22f), new Vector2(0.3f, 3.8f), new Color(1f, 0.34f, 0.1f, 0f), 35).GetComponent<SpriteRenderer>();
+            ceilingVisuals[i] = AddEffectsV5SpriteChild(boss.transform, name + "_CeilingSparkVisual_" + ceilingSparkSuffixes[i], "fxv5_electric_spark_frame.png", new Vector2(ceilingSparkX[i], -0.95f), new Vector2(0.75f, 1.2f), new Color(0.52f, 0.95f, 1f, 0f), 37).GetComponent<SpriteRenderer>();
         }
-        SpriteRenderer finalPulseWarning = AddEffectsV5SpriteChild(boss.transform, name + "_FinalPulseWarning", "fxv5_electric_spark_frame.png", new Vector2(0f, -1.24f), new Vector2(6.2f, 0.5f), new Color(1f, 0.22f, 0.08f, 0f), 24).GetComponent<SpriteRenderer>();
-        SpriteRenderer finalPulseLeftVisual = AddEffectsV2SpriteChild(boss.transform, name + "_FinalPulseLeftVisual", "fxv2_electric_floor_03.png", new Vector2(-3.1f, -1.18f), new Vector2(3.9f, 0.48f), new Color(0.48f, 0.96f, 1f, 0f), 26).GetComponent<SpriteRenderer>();
-        SpriteRenderer finalPulseRightVisual = AddEffectsV2SpriteChild(boss.transform, name + "_FinalPulseRightVisual", "fxv2_electric_floor_03.png", new Vector2(3.1f, -1.18f), new Vector2(3.9f, 0.48f), new Color(0.48f, 0.96f, 1f, 0f), 26).GetComponent<SpriteRenderer>();
-        SpriteRenderer hitSparkVisual = AddEffectsV2SpriteChild(boss.transform, name + "_HitSpark", "fxv2_spark_shower.png", new Vector2(-0.42f, 0.78f), new Vector2(1.25f, 0.72f), new Color(1f, 0.66f, 0.24f, 0f), 27).GetComponent<SpriteRenderer>();
+        SpriteRenderer finalPulseWarning = AddEffectsV5SpriteChild(boss.transform, name + "_FinalPulseWarning", "fxv5_electric_spark_frame.png", new Vector2(0f, -1.24f), new Vector2(6.2f, 0.5f), new Color(1f, 0.22f, 0.08f, 0f), 35).GetComponent<SpriteRenderer>();
+        SpriteRenderer finalPulseLeftVisual = AddEffectsV2SpriteChild(boss.transform, name + "_FinalPulseLeftVisual", "fxv2_electric_floor_03.png", new Vector2(-3.1f, -1.18f), new Vector2(3.9f, 0.48f), new Color(0.48f, 0.96f, 1f, 0f), 37).GetComponent<SpriteRenderer>();
+        SpriteRenderer finalPulseRightVisual = AddEffectsV2SpriteChild(boss.transform, name + "_FinalPulseRightVisual", "fxv2_electric_floor_03.png", new Vector2(3.1f, -1.18f), new Vector2(3.9f, 0.48f), new Color(0.48f, 0.96f, 1f, 0f), 37).GetComponent<SpriteRenderer>();
+        SpriteRenderer hitSparkVisual = AddEffectsV2SpriteChild(boss.transform, name + "_HitSpark", "fxv2_spark_shower.png", new Vector2(-0.42f, 0.78f), new Vector2(1.25f, 0.72f), new Color(1f, 0.66f, 0.24f, 0f), 38).GetComponent<SpriteRenderer>();
         SpriteRenderer phaseSteamBoost = AddEffectsV2SpriteChild(boss.transform, name + "_PhaseSteamBoost", "fxv2_steam_puff.png", new Vector2(0f, 1.3f), new Vector2(2.85f, 2.15f), new Color(0.82f, 0.76f, 0.66f, 0f), 25).GetComponent<SpriteRenderer>();
         SpriteRenderer steamA = AddEffectsV2SpriteChild(boss.transform, name + "_SteamPuff_A", "fxv2_steam_puff.png", new Vector2(-1.6f, 1.7f), new Vector2(0.9f, 0.9f), new Color(0.82f, 0.74f, 0.62f, 0.1f), 23).GetComponent<SpriteRenderer>();
         SpriteRenderer steamB = AddEffectsV2SpriteChild(boss.transform, name + "_SteamPuff_B", "fxv2_steam_puff.png", new Vector2(1.15f, 1.45f), new Vector2(1.05f, 1.0f), new Color(0.82f, 0.74f, 0.62f, 0.08f), 23).GetComponent<SpriteRenderer>();
@@ -3385,9 +3384,19 @@ public static class TutorialSceneBuilder
         SetFloat(bossAi, "closePressureTriggerSeconds", 0.7f);
         SetFloat(bossAi, "phaseTwoHealthRatio", 0.5f);
         SetFloat(bossAi, "deathShowSeconds", 1.8f);
-        SetInt(bossAi, "lowHealthSummonThreshold", 7);
-        SetInt(bossAi, "finalPhaseHealthThreshold", 4);
-        SetVector2(bossAi, "sweepHitboxOffset", new Vector2(-2.15f, -0.28f));
+        SetInt(bossAi, "lowHealthSummonThreshold", 8);
+        SetInt(bossAi, "finalPhaseHealthThreshold", 5);
+        SetFloat(bossAi, "attackReadabilityBodyAlpha", 0.46f);
+        SetFloat(bossAi, "attackReadabilityWindupAlpha", 0.62f);
+        SetFloat(bossAi, "showcaseGateWindupCap", 0.68f);
+        SetFloat(bossAi, "showcaseGateRecoverCap", 0.24f);
+        SetFloat(bossAi, "showcaseGateHintCooldown", 1.2f);
+        SetFloat(bossAi, "phaseTwoRecoverMultiplier", 0.92f);
+        SetFloat(bossAi, "phaseThreeRecoverMultiplier", 0.86f);
+        SetFloat(bossAi, "phaseTwoHeavyActionPenalty", 14f);
+        SetFloat(bossAi, "phaseThreeHeavyActionPenalty", 12f);
+        SetFloat(bossAi, "phaseThreeComboPenalty", 16f);
+        SetVector2(bossAi, "sweepHitboxOffset", new Vector2(-2.25f, -0.82f));
         SetVector2(bossAi, "smashHitboxOffset", new Vector2(-1.05f, -1.25f));
         SetVector2(bossAi, "smashWarningOffset", new Vector2(-1.05f, -1.48f));
         SetVector2(bossAi, "shockwaveHitboxStartOffset", new Vector2(-2.15f, -1.25f));
@@ -3396,6 +3405,7 @@ public static class TutorialSceneBuilder
         SetVector2(bossAi, "shockwaveVisualEndOffset", new Vector2(-4.65f, -1.22f));
         SetVector2(bossAi, "arcBurstLocalXRange", new Vector2(-7.2f, 7.2f));
         SetFloat(bossAi, "arcBurstGroundY", -1.36f);
+        SetFloat(bossAi, "arcBurstHitboxVerticalOffset", 0.42f);
         SetVector2(bossAi, "coreBeamHitboxOffset", new Vector2(-3.35f, -0.68f));
         SetVector2(bossAi, "coreBeamVisualOffset", new Vector2(-3.35f, -0.62f));
         SetVector2(bossAi, "ceilingSparkLocalXRange", new Vector2(-6.4f, 6.4f));
@@ -3430,10 +3440,10 @@ public static class TutorialSceneBuilder
         root.transform.position = bossPosition;
         int hurtboxLayer = LayerMask.NameToLayer("TransparentFX");
         root.layer = hurtboxLayer >= 0 ? hurtboxLayer : 0;
-        CreateBossDamageableHurtbox(root.transform, name + "_Hurtbox_Body", new Vector2(0f, -0.18f), new Vector2(3.35f, 2.35f), ownerHealth);
-        CreateBossDamageableHurtbox(root.transform, name + "_Hurtbox_Core", new Vector2(0f, 0.5f), new Vector2(1.72f, 1.45f), ownerHealth);
-        CreateBossDamageableHurtbox(root.transform, name + "_Hurtbox_LeftShoulder", new Vector2(-1.35f, 0.62f), new Vector2(1.32f, 1.28f), ownerHealth);
-        CreateBossDamageableHurtbox(root.transform, name + "_Hurtbox_RightShoulder", new Vector2(1.35f, 0.62f), new Vector2(1.32f, 1.28f), ownerHealth);
+        CreateBossDamageableHurtbox(root.transform, name + "_Hurtbox_Body", new Vector2(0f, -0.18f), new Vector2(4.25f, 2.65f), ownerHealth);
+        CreateBossDamageableHurtbox(root.transform, name + "_Hurtbox_Core", new Vector2(0f, 0.5f), new Vector2(1.95f, 1.6f), ownerHealth);
+        CreateBossDamageableHurtbox(root.transform, name + "_Hurtbox_LeftShoulder", new Vector2(-1.35f, 0.62f), new Vector2(1.55f, 1.42f), ownerHealth);
+        CreateBossDamageableHurtbox(root.transform, name + "_Hurtbox_RightShoulder", new Vector2(1.35f, 0.62f), new Vector2(1.55f, 1.42f), ownerHealth);
     }
 
     private static void CreateBossDamageableHurtbox(Transform parent, string name, Vector2 localPosition, Vector2 size, Health ownerHealth)
