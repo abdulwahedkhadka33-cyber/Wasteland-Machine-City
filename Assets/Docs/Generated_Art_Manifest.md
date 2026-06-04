@@ -73,7 +73,7 @@ Boss 遭遇新增的入口锁和过载电弧都不新增资源：`BossArena_Entr
 
 ## Spawn Intro Awakening
 
-`SpawnIntro_AwakeningPolish` 是出生维修台叙事苏醒层，不新增 PNG、不参与碰撞，只复用 Environment/V7、Effects/V2 和 Effects/V5 资源。`PlayerSpawnIntro2D` 在场景开始时临时锁定输入和相机约 10 秒：先黑屏显示 A-07 故障日志，再慢速扫过废弃维修站，最后回到维修台苏醒；按方向键 / Space / J / E 可跳过，结束后恢复正常跟随，不影响检查点复活。
+`SpawnIntro_AwakeningPolish` 是出生维修台叙事苏醒层，不新增 PNG、不参与碰撞，只复用 Environment/V7、Effects/V2 和 Effects/V5 资源。`PlayerSpawnIntro2D` 在场景开始时临时锁定输入和相机约 10 秒：先用居中琥珀单色工业启动终端逐行显示 A-07 故障日志，再慢速扫过废弃维修站，最后回到维修台苏醒；按方向键 / Space / J / E 可跳过，结束后恢复正常跟随，不影响检查点复活。
 
 | Scene Object | Source Set | Purpose |
 | --- | --- | --- |

@@ -2605,8 +2605,8 @@ public static class TutorialSceneBuilder
         SetFloat(intro, "introSeconds", 10f);
         SetBool(intro, "allowSkip", true);
         SetBool(intro, "narrativeIntroEnabled", true);
-        SetFloat(intro, "terminalLogSeconds", 2f);
-        SetFloat(intro, "environmentScanSeconds", 4f);
+        SetFloat(intro, "terminalLogSeconds", 2.8f);
+        SetFloat(intro, "environmentScanSeconds", 3.2f);
         SetFloat(intro, "awakeningSeconds", 4f);
         SetString(intro, "narrativeHeader", "A-07 // 离线重启");
         SetString(intro, "narrativeLineA", "系统恢复中...");

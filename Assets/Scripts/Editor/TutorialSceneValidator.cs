@@ -1963,8 +1963,8 @@ public static class TutorialSceneValidator
         RequireSerializedFloat<PlayerSpawnIntro2D>("SpawnIntro_AwakeningPolish", "introSeconds", 10f);
         RequireSerializedBool<PlayerSpawnIntro2D>("SpawnIntro_AwakeningPolish", "allowSkip", true);
         RequireSerializedBool<PlayerSpawnIntro2D>("SpawnIntro_AwakeningPolish", "narrativeIntroEnabled", true);
-        RequireSerializedFloat<PlayerSpawnIntro2D>("SpawnIntro_AwakeningPolish", "terminalLogSeconds", 2f);
-        RequireSerializedFloat<PlayerSpawnIntro2D>("SpawnIntro_AwakeningPolish", "environmentScanSeconds", 4f);
+        RequireSerializedFloat<PlayerSpawnIntro2D>("SpawnIntro_AwakeningPolish", "terminalLogSeconds", 2.8f);
+        RequireSerializedFloat<PlayerSpawnIntro2D>("SpawnIntro_AwakeningPolish", "environmentScanSeconds", 3.2f);
         RequireSerializedFloat<PlayerSpawnIntro2D>("SpawnIntro_AwakeningPolish", "awakeningSeconds", 4f);
         RequireSerializedString<PlayerSpawnIntro2D>("SpawnIntro_AwakeningPolish", "narrativeHeader", "A-07 // 离线重启");
         RequireSerializedString<PlayerSpawnIntro2D>("SpawnIntro_AwakeningPolish", "narrativeLineB", "记忆核心缺失");
