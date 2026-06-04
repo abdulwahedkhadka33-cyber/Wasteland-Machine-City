@@ -29,6 +29,7 @@ public static class TutorialSceneValidator
     private const string EnemyV2Path = "Assets/Art/Generated/Enemies/V2";
     private const string EnemyV3Path = "Assets/Art/Generated/Enemies/V3";
     private const string EnemyV4Path = "Assets/Art/Generated/Enemies/V4";
+    private const string EnemyV5Path = "Assets/Art/Generated/Enemies/V5";
     private const string EnvironmentV5Path = "Assets/Art/Generated/Environment/V5";
     private const string ProvidedEnvironmentV2Path = "Assets/Art/Provided/Environment/V2";
     private const string ProvidedEnvironmentV3Path = "Assets/Art/Provided/Environment/V3";
@@ -283,6 +284,17 @@ public static class TutorialSceneValidator
         "bossv4_guardian_overload_overlay.png",
     };
 
+    private static readonly string[] EnemyV5SpriteFiles =
+    {
+        "bossv5_core_module.png",
+        "bossv5_left_shoulder.png",
+        "bossv5_right_shoulder.png",
+        "bossv5_left_magnetic_clamp.png",
+        "bossv5_right_magnetic_clamp.png",
+        "bossv5_pipe_bundle.png",
+        "bossv5_overload_cracks.png",
+    };
+
     private static readonly (string Name, Vector2 Position, Vector2 Size)[] PlatformExpectations =
     {
         ("Floor_AwakeningBench", new Vector2(9f, -3.1f), new Vector2(18f, 1.2f)),
@@ -476,6 +488,13 @@ public static class TutorialSceneValidator
         {
             throw new Exception("RepairStationBoss2D must expose BeginEncounter(Transform).");
         }
+
+        if (typeof(DamageableHurtbox2D).GetProperty("OwnerHealth") == null)
+        {
+            throw new Exception("DamageableHurtbox2D must expose OwnerHealth for explicit attack target resolution.");
+        }
+
+        RequirePrivateMethod<PlayerController2D>("ResolveAttackTargetHealth");
     }
 
     private static void ForbidLegacyRootsAndSprites()
@@ -651,6 +670,11 @@ public static class TutorialSceneValidator
         foreach (string fileName in EnemyV4SpriteFiles)
         {
             RequireGeneratedSpriteImportSettings($"{EnemyV4Path}/{fileName}", 256, 4096, FilterMode.Bilinear, "Enemy/V4 boss overload overlay");
+        }
+
+        foreach (string fileName in EnemyV5SpriteFiles)
+        {
+            RequireGeneratedSpriteImportSettings($"{EnemyV5Path}/{fileName}", 256, 4096, FilterMode.Bilinear, "Enemy/V5 boss multipart sprite");
         }
     }
 
@@ -1630,9 +1654,26 @@ public static class TutorialSceneValidator
         {
             throw new Exception("Boss V4 overload assembly must not add Collider2D components.");
         }
+        GameObject bossV5Assembly = RequireObject("Boss_RepairStationGuardian_V5MultipartAssembly");
+        if (bossV5Assembly.GetComponentsInChildren<Collider2D>(true).Length > 0)
+        {
+            throw new Exception("Boss V5 multipart assembly must not add Collider2D components.");
+        }
+
+        GameObject bossObject = RequireObject("Boss_RepairStationGuardian");
+        Health bossHealth = bossObject.GetComponent<Health>();
+        RequireBossDamageableHurtboxes(bossObject, bossHealth);
+        RequireBossDamageHitboxesNotDamageable();
 
         RequireSpritePathPrefix("Boss_RepairStationGuardian_V3RefinedOverlay", EnemyV3Path);
         RequireSpritePathPrefix("Boss_RepairStationGuardian_V4OverloadOverlay", EnemyV4Path);
+        RequireSpritePathPrefix("Boss_RepairStationGuardian_V5CoreModule", EnemyV5Path);
+        RequireSpritePathPrefix("Boss_RepairStationGuardian_V5LeftShoulder", EnemyV5Path);
+        RequireSpritePathPrefix("Boss_RepairStationGuardian_V5RightShoulder", EnemyV5Path);
+        RequireSpritePathPrefix("Boss_RepairStationGuardian_V5LeftMagneticClamp", EnemyV5Path);
+        RequireSpritePathPrefix("Boss_RepairStationGuardian_V5RightMagneticClamp", EnemyV5Path);
+        RequireSpritePathPrefix("Boss_RepairStationGuardian_V5PipeBundle", EnemyV5Path);
+        RequireSpritePathPrefix("Boss_RepairStationGuardian_V5OverloadCracks", EnemyV5Path);
         RequireSpritePathPrefix("Boss_RepairStationGuardian_CoreLight_Red", EffectsV2Path);
         RequireSpritePathPrefix("Boss_RepairStationGuardian_CrackGlow_Overload", EnvironmentV10Path);
         RequireSpritePathPrefix("Boss_RepairStationGuardian_DeathCoreFlash", EffectsV2Path);
@@ -1642,6 +1683,9 @@ public static class TutorialSceneValidator
         RequireSpritePathPrefix("Boss_RepairStationGuardian_DeathFragment_C", EnvironmentV7Path);
         RequireSpritePathPrefix("Boss_RepairStationGuardian_SweepArmVisual", EnvironmentV7Path);
         RequireSpritePathPrefix("Boss_RepairStationGuardian_SmashWarning_Dust", EffectsV2Path);
+        RequireSpritePathPrefix("Boss_RepairStationGuardian_MagneticClampWarning", EffectsV5Path);
+        RequireSpritePathPrefix("Boss_RepairStationGuardian_HydraulicRamWarning", EffectsV5Path);
+        RequireSpritePathPrefix("Boss_RepairStationGuardian_HydraulicRamImpactSparks", EffectsV2Path);
         RequireSpritePathPrefix("Boss_RepairStationGuardian_SweepTrail_ElectricDrag", EffectsV5Path);
         RequireSpritePathPrefix("Boss_RepairStationGuardian_SmashDustRing", EffectsV2Path);
         RequireSpritePathPrefix("Boss_RepairStationGuardian_ShockwaveVisual", EffectsV5Path);
@@ -1669,11 +1713,23 @@ public static class TutorialSceneValidator
         RequireComponent<BossDamageHitbox2D>("Boss_RepairStationGuardian_CeilingSparkHitbox_C");
         RequireComponent<BossDamageHitbox2D>("Boss_RepairStationGuardian_FinalPulseHitbox_Left");
         RequireComponent<BossDamageHitbox2D>("Boss_RepairStationGuardian_FinalPulseHitbox_Right");
+        RequireComponent<BossDamageHitbox2D>("Boss_RepairStationGuardian_MagneticClampHitbox");
+        RequireComponent<BossDamageHitbox2D>("Boss_RepairStationGuardian_HydraulicRamHitbox");
         RequireSerializedObjectReference<RepairStationBoss2D>("Boss_RepairStationGuardian", "bodyRenderer");
         RequireSerializedObjectReference<RepairStationBoss2D>("Boss_RepairStationGuardian", "refinedOverlay");
         RequireSerializedObjectReference<RepairStationBoss2D>("Boss_RepairStationGuardian", "overloadOverlay");
+        RequireSerializedObjectReference<RepairStationBoss2D>("Boss_RepairStationGuardian", "v5Core");
+        RequireSerializedObjectReference<RepairStationBoss2D>("Boss_RepairStationGuardian", "v5LeftShoulder");
+        RequireSerializedObjectReference<RepairStationBoss2D>("Boss_RepairStationGuardian", "v5RightShoulder");
+        RequireSerializedObjectReference<RepairStationBoss2D>("Boss_RepairStationGuardian", "v5LeftClamp");
+        RequireSerializedObjectReference<RepairStationBoss2D>("Boss_RepairStationGuardian", "v5RightClamp");
+        RequireSerializedObjectReference<RepairStationBoss2D>("Boss_RepairStationGuardian", "v5PipeBundle");
+        RequireSerializedObjectReference<RepairStationBoss2D>("Boss_RepairStationGuardian", "v5OverloadCracks");
         RequireSerializedObjectReference<RepairStationBoss2D>("Boss_RepairStationGuardian", "coreLight");
         RequireSerializedObjectReference<RepairStationBoss2D>("Boss_RepairStationGuardian", "crackGlow");
+        RequireSerializedObjectReference<RepairStationBoss2D>("Boss_RepairStationGuardian", "magneticClampWarning");
+        RequireSerializedObjectReference<RepairStationBoss2D>("Boss_RepairStationGuardian", "hydraulicRamWarning");
+        RequireSerializedObjectReference<RepairStationBoss2D>("Boss_RepairStationGuardian", "hydraulicRamImpactVisual");
         RequireSerializedObjectReference<RepairStationBoss2D>("Boss_RepairStationGuardian", "shockwaveVisual");
         RequireSerializedObjectReference<RepairStationBoss2D>("Boss_RepairStationGuardian", "sweepTrailVisual");
         RequireSerializedObjectReference<RepairStationBoss2D>("Boss_RepairStationGuardian", "smashDustRingVisual");
@@ -1695,6 +1751,8 @@ public static class TutorialSceneValidator
         RequireSerializedObjectReference<RepairStationBoss2D>("Boss_RepairStationGuardian", "coreBeamHitbox");
         RequireSerializedObjectReference<RepairStationBoss2D>("Boss_RepairStationGuardian", "finalPulseLeftHitbox");
         RequireSerializedObjectReference<RepairStationBoss2D>("Boss_RepairStationGuardian", "finalPulseRightHitbox");
+        RequireSerializedObjectReference<RepairStationBoss2D>("Boss_RepairStationGuardian", "magneticClampHitbox");
+        RequireSerializedObjectReference<RepairStationBoss2D>("Boss_RepairStationGuardian", "hydraulicRamHitbox");
         RequireSerializedArrayMinimum<RepairStationBoss2D>("Boss_RepairStationGuardian", "ceilingSparkWarnings", 3);
         RequireSerializedArrayMinimum<RepairStationBoss2D>("Boss_RepairStationGuardian", "ceilingSparkVisuals", 3);
         RequireSerializedArrayMinimum<RepairStationBoss2D>("Boss_RepairStationGuardian", "ceilingSparkHitboxes", 3);
@@ -1704,6 +1762,9 @@ public static class TutorialSceneValidator
         RequireSerializedFloat<RepairStationBoss2D>("Boss_RepairStationGuardian", "actionSeconds", 0.76f);
         RequireSerializedFloat<RepairStationBoss2D>("Boss_RepairStationGuardian", "recoverSeconds", 0.55f);
         RequireSerializedFloat<RepairStationBoss2D>("Boss_RepairStationGuardian", "sweepRecoverSeconds", 0.55f);
+        RequireSerializedFloat<RepairStationBoss2D>("Boss_RepairStationGuardian", "hydraulicRamWindupSeconds", 0.7f);
+        RequireSerializedFloat<RepairStationBoss2D>("Boss_RepairStationGuardian", "hydraulicRamSeconds", 0.62f);
+        RequireSerializedFloat<RepairStationBoss2D>("Boss_RepairStationGuardian", "hydraulicRamRecoverSeconds", 0.72f);
         RequireSerializedFloat<RepairStationBoss2D>("Boss_RepairStationGuardian", "smashRecoverSeconds", 0.75f);
         RequireSerializedFloat<RepairStationBoss2D>("Boss_RepairStationGuardian", "shockwaveRecoverSeconds", 0.85f);
         RequireSerializedFloat<RepairStationBoss2D>("Boss_RepairStationGuardian", "shockwaveWindupSeconds", 0.72f);
@@ -1722,8 +1783,15 @@ public static class TutorialSceneValidator
         RequireSerializedFloat<RepairStationBoss2D>("Boss_RepairStationGuardian", "finalCorePulseRecoverSeconds", 0.95f);
         RequireSerializedFloat<RepairStationBoss2D>("Boss_RepairStationGuardian", "comboWindupSeconds", 0.72f);
         RequireSerializedFloat<RepairStationBoss2D>("Boss_RepairStationGuardian", "sweepShockComboSeconds", 1.48f);
+        RequireSerializedFloat<RepairStationBoss2D>("Boss_RepairStationGuardian", "hydraulicRamShockComboSeconds", 1.5f);
         RequireSerializedFloat<RepairStationBoss2D>("Boss_RepairStationGuardian", "smashArcComboSeconds", 1.56f);
         RequireSerializedFloat<RepairStationBoss2D>("Boss_RepairStationGuardian", "finalComboRecoverSeconds", 0.95f);
+        RequireSerializedFloat<RepairStationBoss2D>("Boss_RepairStationGuardian", "magneticClampWindupSeconds", 0.62f);
+        RequireSerializedFloat<RepairStationBoss2D>("Boss_RepairStationGuardian", "magneticClampSeconds", 0.58f);
+        RequireSerializedFloat<RepairStationBoss2D>("Boss_RepairStationGuardian", "magneticClampRecoverSeconds", 0.72f);
+        RequireSerializedFloat<RepairStationBoss2D>("Boss_RepairStationGuardian", "adaptiveCloseRange", 3f);
+        RequireSerializedFloat<RepairStationBoss2D>("Boss_RepairStationGuardian", "adaptiveFarRange", 7.4f);
+        RequireSerializedFloat<RepairStationBoss2D>("Boss_RepairStationGuardian", "closePressureTriggerSeconds", 0.7f);
         RequireSerializedFloat<RepairStationBoss2D>("Boss_RepairStationGuardian", "phaseTwoHealthRatio", 0.5f);
         RequireSerializedFloat<RepairStationBoss2D>("Boss_RepairStationGuardian", "deathShowSeconds", 1.8f);
         RequireSerializedInt<RepairStationBoss2D>("Boss_RepairStationGuardian", "lowHealthSummonThreshold", 7);
@@ -1741,6 +1809,11 @@ public static class TutorialSceneValidator
         RequireSerializedFloat<RepairStationBoss2D>("Boss_RepairStationGuardian", "ceilingSparkGroundY", -0.95f);
         RequireSerializedVector2(bossComponent, "finalPulseLeftHitboxOffset", new Vector2(-3.1f, -1.18f), "Boss_RepairStationGuardian.finalPulseLeftHitboxOffset");
         RequireSerializedVector2(bossComponent, "finalPulseRightHitboxOffset", new Vector2(3.1f, -1.18f), "Boss_RepairStationGuardian.finalPulseRightHitboxOffset");
+        RequireSerializedVector2(bossComponent, "magneticClampHitboxOffset", new Vector2(-1.72f, -0.34f), "Boss_RepairStationGuardian.magneticClampHitboxOffset");
+        RequireSerializedVector2(bossComponent, "magneticClampWarningOffset", new Vector2(-1.72f, -0.44f), "Boss_RepairStationGuardian.magneticClampWarningOffset");
+        RequireSerializedVector2(bossComponent, "hydraulicRamHitboxOffset", new Vector2(-2.05f, -0.72f), "Boss_RepairStationGuardian.hydraulicRamHitboxOffset");
+        RequireSerializedVector2(bossComponent, "hydraulicRamWarningOffset", new Vector2(-2.05f, -0.74f), "Boss_RepairStationGuardian.hydraulicRamWarningOffset");
+        RequireSerializedVector2(bossComponent, "hydraulicRamVisualOffset", new Vector2(-2.05f, -0.68f), "Boss_RepairStationGuardian.hydraulicRamVisualOffset");
 
         RequireComponent<BossEncounterController2D>("BossEncounter_StartTrigger");
         RequireNear(RequireObject("BossEncounter_StartTrigger").transform.position, new Vector2(129.35f, -1.35f), 0.1f, "boss encounter trigger position");
@@ -1832,8 +1905,88 @@ public static class TutorialSceneValidator
 
         RequireMinimum<TutorialTrigger>(8);
         RequireMinimum<Checkpoint2D>(3);
-        RequireMinimum<BossDamageHitbox2D>(8);
+        RequireMinimum<BossDamageHitbox2D>(12);
+        RequireMinimum<DamageableHurtbox2D>(4);
         RequireMinimum<BossEncounterController2D>(1);
+    }
+
+    private static void RequireBossDamageableHurtboxes(GameObject bossObject, Health bossHealth)
+    {
+        if (bossObject == null || bossHealth == null)
+        {
+            throw new Exception("Boss damageable hurtbox validation requires the boss object and Health component.");
+        }
+
+        GameObject root = RequireObject("Boss_RepairStationGuardian_DamageableHurtboxes");
+        if (root.transform.IsChildOf(bossObject.transform))
+        {
+            throw new Exception("Boss damageable hurtboxes must not be children of the boss Rigidbody hierarchy.");
+        }
+
+        if (root.GetComponent<Rigidbody2D>() != null || root.GetComponent<RepairStationBoss2D>() != null)
+        {
+            throw new Exception("Boss damageable hurtbox root must stay a passive trigger group.");
+        }
+
+        int hurtboxLayer = LayerMask.NameToLayer("TransparentFX");
+        if (hurtboxLayer >= 0 && root.layer != hurtboxLayer)
+        {
+            throw new Exception("Boss damageable hurtbox root must use TransparentFX so player ground checks do not read it as floor.");
+        }
+
+        RequireNear(root.transform.position, bossObject.transform.position, 0.01f, "boss hurtbox root position");
+        RequireBossDamageableHurtbox("Boss_RepairStationGuardian_Hurtbox_Body", bossHealth, new Vector2(0f, -0.18f), new Vector2(3.35f, 2.35f));
+        RequireBossDamageableHurtbox("Boss_RepairStationGuardian_Hurtbox_Core", bossHealth, new Vector2(0f, 0.5f), new Vector2(1.72f, 1.45f));
+        RequireBossDamageableHurtbox("Boss_RepairStationGuardian_Hurtbox_LeftShoulder", bossHealth, new Vector2(-1.35f, 0.62f), new Vector2(1.32f, 1.28f));
+        RequireBossDamageableHurtbox("Boss_RepairStationGuardian_Hurtbox_RightShoulder", bossHealth, new Vector2(1.35f, 0.62f), new Vector2(1.32f, 1.28f));
+    }
+
+    private static void RequireBossDamageableHurtbox(string objectName, Health bossHealth, Vector2 expectedLocalPosition, Vector2 expectedSize)
+    {
+        GameObject hurtboxObject = RequireObject(objectName);
+        if (hurtboxObject.GetComponent<BossDamageHitbox2D>() != null)
+        {
+            throw new Exception($"{objectName} must not include BossDamageHitbox2D.");
+        }
+
+        int hurtboxLayer = LayerMask.NameToLayer("TransparentFX");
+        if (hurtboxLayer >= 0 && hurtboxObject.layer != hurtboxLayer)
+        {
+            throw new Exception($"{objectName} must use TransparentFX so it stays out of player ground checks.");
+        }
+
+        DamageableHurtbox2D hurtbox = hurtboxObject.GetComponent<DamageableHurtbox2D>();
+        if (hurtbox == null)
+        {
+            throw new Exception($"{objectName} is missing DamageableHurtbox2D.");
+        }
+
+        BoxCollider2D collider = hurtboxObject.GetComponent<BoxCollider2D>();
+        if (collider == null || !collider.isTrigger)
+        {
+            throw new Exception($"{objectName} must use a trigger BoxCollider2D.");
+        }
+
+        RequireNear(hurtboxObject.transform.localPosition, expectedLocalPosition, 0.01f, $"{objectName} local position");
+        RequireNear(collider.size, expectedSize, 0.01f, $"{objectName} size");
+
+        SerializedObject serializedObject = new SerializedObject(hurtbox);
+        SerializedProperty ownerProperty = serializedObject.FindProperty("ownerHealth");
+        if (ownerProperty == null || ownerProperty.objectReferenceValue != bossHealth)
+        {
+            throw new Exception($"{objectName}.ownerHealth must explicitly reference Boss_RepairStationGuardian Health.");
+        }
+    }
+
+    private static void RequireBossDamageHitboxesNotDamageable()
+    {
+        foreach (BossDamageHitbox2D damageHitbox in UnityEngine.Object.FindObjectsOfType<BossDamageHitbox2D>(true))
+        {
+            if (damageHitbox.GetComponent<DamageableHurtbox2D>() != null)
+            {
+                throw new Exception($"{damageHitbox.name} must not also be a DamageableHurtbox2D.");
+            }
+        }
     }
 
     private static void RequirePlayerAndAnimationObjects()

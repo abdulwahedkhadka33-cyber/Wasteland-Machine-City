@@ -21,6 +21,7 @@
 - 敌人与 Boss：`Assets/Art/Generated/Enemies/V2/`
 - Boss 精细覆盖件：`Assets/Art/Generated/Enemies/V3/`
 - Boss 暴走覆盖件：`Assets/Art/Generated/Enemies/V4/`
+- Boss 多部件覆盖件：`Assets/Art/Generated/Enemies/V5/`
 
 当前道路精修仍只使用 V8/V10：V8 负责暗钢道路本体、琥珀可踩边线、前侧阴影和下方支架；V10 只做低透明接缝、铆钉、划痕、裂纹、油污和浅阴影补充，不新增道路 PNG。
 
@@ -35,7 +36,7 @@
 | `BG_SystemPolish_HazardAndInteract` | 电流、压缩机、电闸、终端和补给箱的低侵入色彩提示 |
 | `BG_SystemPolish_AtmosphereControl` | 顶部落尘、陷阱冷雾、Boss 热雾、蒸汽和顶部电弧 |
 
-Boss 遭遇新增的入口锁和过载电弧都不新增资源：`BossArena_EntryLock` 复用 V7 Boss 门、V7 警示灯和 Effects/V2 红色 halo；`Boss_RepairStationGuardian_ArcBurstWarning` / `Boss_RepairStationGuardian_ArcBurstVisual` 复用 Effects/V5 电弧框和 Effects/V2 电流地板图，运行时由 Boss 状态机锁定位置、预警并启闭伤害。当前 Boss 本体额外使用 Enemy/V3 精细覆盖件和 Enemy/V4 暴走覆盖件；核心光束、顶部落雷、终段核心脉冲和死亡破碎仍复用 Effects/V2/V5 与 Environment/V7/V10。
+Boss 遭遇新增的入口锁和过载电弧都不新增资源：`BossArena_EntryLock` 复用 V7 Boss 门、V7 警示灯和 Effects/V2 红色 halo；`Boss_RepairStationGuardian_ArcBurstWarning` / `Boss_RepairStationGuardian_ArcBurstVisual` 复用 Effects/V5 电弧框和 Effects/V2 电流地板图，运行时由 Boss 状态机锁定位置、预警并启闭伤害。当前 Boss 本体额外使用 Enemy/V3 精细覆盖件、Enemy/V4 暴走覆盖件和 Enemy/V5 多部件覆盖件；液压冲锤与磁钳夹击预警复用 Effects/V5 电弧框，冲锤火花、核心光束、顶部落雷、终段核心脉冲和死亡破碎仍复用 Effects/V2/V5 与 Environment/V7/V10。
 
 ## Boss Visual Refinement V3
 
@@ -55,7 +56,19 @@ Boss 遭遇新增的入口锁和过载电弧都不新增资源：`BossArena_Entr
 | --- | --- |
 | `bossv4_guardian_overload_overlay.png` | `Boss_RepairStationGuardian_V4OverloadOverlay`，只在 P3 核心暴走、受击高亮和死亡演出中显现，提供破损暗钢外甲、外露线缆、红热裂纹和焦黑边 |
 
-三阶段技能的视觉语言：终段核心脉冲使用红橙低位预警加两侧蓝白电流；横扫接冲击波使用琥珀拖影转蓝白地火；砸地接电弧先给尘圈再给蓝白电弧圈。
+三阶段技能的视觉语言：终段核心脉冲使用红橙低位预警加两侧蓝白电流；液压冲锤接冲击波使用琥珀前方预警与火花顶出，再转蓝白地火；砸地接电弧先给尘圈再给蓝白电弧圈。
+
+## Boss Multipart Refinement V5
+
+`Assets/Art/Generated/Enemies/V5/` 新增 7 张透明 PNG，不参与碰撞，不改变 Boss 血量、招式伤害、门逻辑或 HUD 接口。它们由 `RepairStationBoss2D` 驱动 idle、受击、液压冲锤、磁钳夹击、P3 暴走和死亡淡出；真正的攻击命中区由独立 `DamageableHurtbox2D` 逻辑盒控制。
+
+| File | Scene Usage |
+| --- | --- |
+| `bossv5_core_module.png` | `Boss_RepairStationGuardian_V5CoreModule`，琥珀/红热核心模块 |
+| `bossv5_left_shoulder.png` / `bossv5_right_shoulder.png` | `Boss_RepairStationGuardian_V5LeftShoulder` / `Boss_RepairStationGuardian_V5RightShoulder`，左右肩甲轻微错位摆动 |
+| `bossv5_left_magnetic_clamp.png` / `bossv5_right_magnetic_clamp.png` | `Boss_RepairStationGuardian_V5LeftMagneticClamp` / `Boss_RepairStationGuardian_V5RightMagneticClamp`，磁钳夹击招式伸缩部件 |
+| `bossv5_pipe_bundle.png` | `Boss_RepairStationGuardian_V5PipeBundle`，顶部管线层 |
+| `bossv5_overload_cracks.png` | `Boss_RepairStationGuardian_V5OverloadCracks`，P3 暴走和受击时显现的红热裂纹 |
 
 ## Gameplay Component Refinement V19
 

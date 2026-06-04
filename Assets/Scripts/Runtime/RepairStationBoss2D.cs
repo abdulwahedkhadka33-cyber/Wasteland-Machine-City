@@ -9,6 +9,7 @@ public class RepairStationBoss2D : MonoBehaviour
         Dormant,
         Intro,
         Windup,
+        HydraulicRam,
         Sweep,
         Smash,
         Summon,
@@ -18,7 +19,9 @@ public class RepairStationBoss2D : MonoBehaviour
         CeilingSparkRain,
         FinalCorePulse,
         SweepShockCombo,
+        HydraulicRamShockCombo,
         SmashArcCombo,
+        MagneticClamp,
         Recover
     }
 
@@ -27,10 +30,20 @@ public class RepairStationBoss2D : MonoBehaviour
     [SerializeField] private SpriteRenderer bodyRenderer;
     [SerializeField] private SpriteRenderer refinedOverlay;
     [SerializeField] private SpriteRenderer overloadOverlay;
+    [SerializeField] private SpriteRenderer v5Core;
+    [SerializeField] private SpriteRenderer v5LeftShoulder;
+    [SerializeField] private SpriteRenderer v5RightShoulder;
+    [SerializeField] private SpriteRenderer v5LeftClamp;
+    [SerializeField] private SpriteRenderer v5RightClamp;
+    [SerializeField] private SpriteRenderer v5PipeBundle;
+    [SerializeField] private SpriteRenderer v5OverloadCracks;
     [SerializeField] private SpriteRenderer eyeLight;
     [SerializeField] private SpriteRenderer coreLight;
     [SerializeField] private SpriteRenderer crackGlow;
     [SerializeField] private SpriteRenderer smashWarning;
+    [SerializeField] private SpriteRenderer magneticClampWarning;
+    [SerializeField] private SpriteRenderer hydraulicRamWarning;
+    [SerializeField] private SpriteRenderer hydraulicRamImpactVisual;
     [SerializeField] private SpriteRenderer sweepTrailVisual;
     [SerializeField] private SpriteRenderer smashDustRingVisual;
     [SerializeField] private SpriteRenderer shockwaveVisual;
@@ -60,6 +73,8 @@ public class RepairStationBoss2D : MonoBehaviour
     [SerializeField] private Collider2D[] ceilingSparkHitboxes;
     [SerializeField] private Collider2D finalPulseLeftHitbox;
     [SerializeField] private Collider2D finalPulseRightHitbox;
+    [SerializeField] private Collider2D magneticClampHitbox;
+    [SerializeField] private Collider2D hydraulicRamHitbox;
     [SerializeField] private GameObject minionPrefab;
     [SerializeField] private Transform summonPointA;
     [SerializeField] private Transform summonPointB;
@@ -68,6 +83,9 @@ public class RepairStationBoss2D : MonoBehaviour
     [SerializeField] private float actionSeconds = 0.75f;
     [SerializeField] private float recoverSeconds = 0.55f;
     [SerializeField] private float sweepRecoverSeconds = 0.55f;
+    [SerializeField] private float hydraulicRamWindupSeconds = 0.7f;
+    [SerializeField] private float hydraulicRamSeconds = 0.62f;
+    [SerializeField] private float hydraulicRamRecoverSeconds = 0.72f;
     [SerializeField] private float smashRecoverSeconds = 0.75f;
     [SerializeField] private float shockwaveRecoverSeconds = 0.85f;
     [SerializeField] private float shockwaveWindupSeconds = 0.72f;
@@ -86,8 +104,15 @@ public class RepairStationBoss2D : MonoBehaviour
     [SerializeField] private float finalCorePulseRecoverSeconds = 0.95f;
     [SerializeField] private float comboWindupSeconds = 0.72f;
     [SerializeField] private float sweepShockComboSeconds = 1.48f;
+    [SerializeField] private float hydraulicRamShockComboSeconds = 1.5f;
     [SerializeField] private float smashArcComboSeconds = 1.56f;
     [SerializeField] private float finalComboRecoverSeconds = 0.95f;
+    [SerializeField] private float magneticClampWindupSeconds = 0.62f;
+    [SerializeField] private float magneticClampSeconds = 0.58f;
+    [SerializeField] private float magneticClampRecoverSeconds = 0.72f;
+    [SerializeField] private float adaptiveCloseRange = 3f;
+    [SerializeField] private float adaptiveFarRange = 7.4f;
+    [SerializeField] private float closePressureTriggerSeconds = 0.7f;
     [SerializeField] private float phaseTwoHealthRatio = 0.5f;
     [SerializeField] private float deathShowSeconds = 1.8f;
     [SerializeField] private int contactDamage = 1;
@@ -108,11 +133,20 @@ public class RepairStationBoss2D : MonoBehaviour
     [SerializeField] private float ceilingSparkGroundY = -0.95f;
     [SerializeField] private Vector2 finalPulseLeftHitboxOffset = new Vector2(-3.1f, -1.18f);
     [SerializeField] private Vector2 finalPulseRightHitboxOffset = new Vector2(3.1f, -1.18f);
+    [SerializeField] private Vector2 magneticClampHitboxOffset = new Vector2(-1.72f, -0.34f);
+    [SerializeField] private Vector2 magneticClampWarningOffset = new Vector2(-1.72f, -0.44f);
+    [SerializeField] private Vector2 hydraulicRamHitboxOffset = new Vector2(-2.05f, -0.72f);
+    [SerializeField] private Vector2 hydraulicRamWarningOffset = new Vector2(-2.05f, -0.74f);
+    [SerializeField] private Vector2 hydraulicRamVisualOffset = new Vector2(-2.05f, -0.68f);
 
     private Health health;
     private Transform target;
+    private PlayerController2D targetPlayer;
+    private Rigidbody2D targetBody;
     private BossAction action = BossAction.Dormant;
     private BossAction queuedAction = BossAction.Sweep;
+    private BossAction lastChosenAction = BossAction.Dormant;
+    private BossAction secondLastChosenAction = BossAction.Dormant;
     private float actionStarted;
     private float currentRecoverSeconds;
     private float nextHitTime;
@@ -122,7 +156,12 @@ public class RepairStationBoss2D : MonoBehaviour
     private float armPivotBaseX = -0.55f;
     private float arcBurstLocalX;
     private float ceilingSparkCenterLocalX;
+    private float closePressureSeconds;
+    private float farPressureSeconds;
+    private float jumpPressureSeconds;
     private int actionIndex;
+    private int lastHeavyActionIndex = -99;
+    private int lastComboActionIndex = -99;
     private int spawnedMinions;
     private int lastObservedHealth = -1;
     private bool encounterStarted;
@@ -134,7 +173,20 @@ public class RepairStationBoss2D : MonoBehaviour
     private bool coreBeamHintShown;
     private bool ceilingSparkHintShown;
     private bool finalPulseHintShown;
+    private bool magneticClampHintShown;
+    private bool hydraulicRamHintShown;
     private bool dead;
+    private Vector3 v5CoreBasePosition;
+    private Vector3 v5LeftShoulderBasePosition;
+    private Vector3 v5RightShoulderBasePosition;
+    private Vector3 v5LeftClampBasePosition;
+    private Vector3 v5RightClampBasePosition;
+    private Vector3 v5PipeBundleBasePosition;
+    private Vector3 v5CoreBaseScale = Vector3.one;
+    private Quaternion v5LeftShoulderBaseRotation = Quaternion.identity;
+    private Quaternion v5RightShoulderBaseRotation = Quaternion.identity;
+    private Quaternion v5LeftClampBaseRotation = Quaternion.identity;
+    private Quaternion v5RightClampBaseRotation = Quaternion.identity;
     private Vector3[] deathFragmentBasePositions;
     private Quaternion[] deathFragmentBaseRotations;
 
@@ -154,6 +206,8 @@ public class RepairStationBoss2D : MonoBehaviour
 
         SetHitboxes(false, false, false);
         SetSmashWarningAlpha(0f);
+        SetMagneticClampWarningAlpha(0f);
+        SetHydraulicRamAlpha(0f, 0f);
         SetShockwaveAlpha(0f);
         SetArcBurstWarningAlpha(0f);
         SetArcBurstVisualAlpha(0f);
@@ -168,9 +222,11 @@ public class RepairStationBoss2D : MonoBehaviour
         SetRendererAlpha(crackGlow, 0.04f);
         SetRendererAlpha(coreLight, 0.22f);
         SetRendererAlpha(overloadOverlay, 0f);
+        SetRendererAlpha(v5OverloadCracks, 0f);
         SetRendererAlpha(deathCoreFlash, 0f);
         SetRendererAlpha(deathDustVeil, 0f);
         SetRendererAlpha(deathSparkBurst, 0f);
+        CacheMultipartBossParts();
         CacheDeathFragments();
         ApplyDirectionalSetup(BossAction.Sweep);
         BeginAction(BossAction.Dormant);
@@ -201,6 +257,7 @@ public class RepairStationBoss2D : MonoBehaviour
         }
 
         AnimateIdle();
+        AnimateMultipartBoss();
         AnimateSteam();
         UpdateHitFeedback();
 
@@ -208,6 +265,8 @@ public class RepairStationBoss2D : MonoBehaviour
         {
             SetHitboxes(false, false, false);
             SetSmashWarningAlpha(0f);
+            SetMagneticClampWarningAlpha(0f);
+            SetHydraulicRamAlpha(0f, 0f);
             SetShockwaveAlpha(0f);
             SetArcBurstWarningAlpha(0f);
             SetArcBurstVisualAlpha(0f);
@@ -219,6 +278,7 @@ public class RepairStationBoss2D : MonoBehaviour
             return;
         }
 
+        SamplePlayerPressure();
         UpdatePhaseTwo();
         UpdatePhaseThree();
         float elapsed = Time.time - actionStarted;
@@ -230,6 +290,7 @@ public class RepairStationBoss2D : MonoBehaviour
             case BossAction.Intro:
                 SetHitboxes(false, false, false);
                 SetSmashWarningAlpha(0f);
+                SetHydraulicRamAlpha(0f, 0f);
                 SetShockwaveAlpha(0f);
                 SetCoreBeamAlpha(0f, 0f);
                 SetCeilingSparkAlpha(0f, 0f);
@@ -248,9 +309,18 @@ public class RepairStationBoss2D : MonoBehaviour
                     BeginAction(queuedAction);
                 }
                 break;
+            case BossAction.HydraulicRam:
+                AnimateHydraulicRam(elapsed);
+                if (elapsed >= hydraulicRamSeconds)
+                {
+                    BeginRecover(hydraulicRamRecoverSeconds);
+                }
+                break;
             case BossAction.Sweep:
                 ApplyDirectionalSetup(BossAction.Sweep);
                 SetSmashWarningAlpha(0f);
+                SetMagneticClampWarningAlpha(0f);
+                SetHydraulicRamAlpha(0f, 0f);
                 SetShockwaveAlpha(0f);
                 SetCoreBeamAlpha(0f, 0f);
                 SetCeilingSparkAlpha(0f, 0f);
@@ -267,6 +337,8 @@ public class RepairStationBoss2D : MonoBehaviour
             case BossAction.Smash:
                 ApplyDirectionalSetup(BossAction.Smash);
                 SetHitboxes(false, elapsed > actionSeconds * 0.42f && elapsed <= actionSeconds * 0.78f, false);
+                SetMagneticClampWarningAlpha(0f);
+                SetHydraulicRamAlpha(0f, 0f);
                 SetShockwaveAlpha(0f);
                 SetCoreBeamAlpha(0f, 0f);
                 SetCeilingSparkAlpha(0f, 0f);
@@ -316,9 +388,23 @@ public class RepairStationBoss2D : MonoBehaviour
                     BeginRecover(finalCorePulseRecoverSeconds);
                 }
                 break;
+            case BossAction.MagneticClamp:
+                AnimateMagneticClamp(elapsed);
+                if (elapsed >= magneticClampSeconds)
+                {
+                    BeginRecover(magneticClampRecoverSeconds);
+                }
+                break;
             case BossAction.SweepShockCombo:
                 AnimateSweepShockCombo(elapsed);
                 if (elapsed >= sweepShockComboSeconds)
+                {
+                    BeginRecover(finalComboRecoverSeconds);
+                }
+                break;
+            case BossAction.HydraulicRamShockCombo:
+                AnimateHydraulicRamShockCombo(elapsed);
+                if (elapsed >= hydraulicRamShockComboSeconds)
                 {
                     BeginRecover(finalComboRecoverSeconds);
                 }
@@ -332,6 +418,8 @@ public class RepairStationBoss2D : MonoBehaviour
                 break;
             case BossAction.Summon:
                 SetSmashWarningAlpha(0f);
+                SetMagneticClampWarningAlpha(0f);
+                SetHydraulicRamAlpha(0f, 0f);
                 SetShockwaveAlpha(0f);
                 SetArcBurstWarningAlpha(0f);
                 SetArcBurstVisualAlpha(0f);
@@ -353,6 +441,8 @@ public class RepairStationBoss2D : MonoBehaviour
             case BossAction.Recover:
                 SetHitboxes(false, false, false);
                 SetSmashWarningAlpha(0f);
+                SetMagneticClampWarningAlpha(0f);
+                SetHydraulicRamAlpha(0f, 0f);
                 SetShockwaveAlpha(0f);
                 SetArcBurstWarningAlpha(0f);
                 SetArcBurstVisualAlpha(0f);
@@ -385,6 +475,8 @@ public class RepairStationBoss2D : MonoBehaviour
         }
 
         target = player;
+        targetPlayer = player != null ? player.GetComponent<PlayerController2D>() : null;
+        targetBody = player != null ? player.GetComponent<Rigidbody2D>() : null;
         if (encounterStarted)
         {
             return;
@@ -392,6 +484,13 @@ public class RepairStationBoss2D : MonoBehaviour
 
         encounterStarted = true;
         actionIndex = 0;
+        lastChosenAction = BossAction.Dormant;
+        secondLastChosenAction = BossAction.Dormant;
+        lastHeavyActionIndex = -99;
+        lastComboActionIndex = -99;
+        closePressureSeconds = 0f;
+        farPressureSeconds = 0f;
+        jumpPressureSeconds = 0f;
         LockAttackDirection();
         BeginAction(BossAction.Intro);
     }
@@ -425,42 +524,202 @@ public class RepairStationBoss2D : MonoBehaviour
         UpdatePhaseThree();
         if (phaseTwo && spawnedMinions == 0)
         {
+            RecordChosenAction(BossAction.Summon);
             return BossAction.Summon;
         }
 
-        if (phaseThree)
-        {
-            switch (actionIndex % 3)
+        BossAction chosen = ChooseAdaptiveAction();
+        RecordChosenAction(chosen);
+        return chosen;
+    }
+
+    private BossAction ChooseAdaptiveAction()
+    {
+        BossAction[] candidates = phaseThree
+            ? new[]
             {
-                case 0:
-                    return BossAction.FinalCorePulse;
-                case 1:
-                    return BossAction.SweepShockCombo;
-                default:
-                    return BossAction.SmashArcCombo;
+                BossAction.MagneticClamp,
+                BossAction.FinalCorePulse,
+                BossAction.HydraulicRamShockCombo,
+                BossAction.SmashArcCombo,
+                BossAction.CeilingSparkRain,
+                BossAction.CoreBeam,
+                BossAction.HydraulicRam,
+                BossAction.Sweep,
+            }
+            : phaseTwo
+                ? new[]
+                {
+                    BossAction.HydraulicRam,
+                    BossAction.Smash,
+                    BossAction.MagneticClamp,
+                    BossAction.Shockwave,
+                    BossAction.ArcBurst,
+                    BossAction.CoreBeam,
+                    BossAction.CeilingSparkRain,
+                    BossAction.Sweep,
+                }
+                : new[]
+                {
+                    BossAction.HydraulicRam,
+                    BossAction.Smash,
+                    BossAction.MagneticClamp,
+                    BossAction.Sweep,
+                };
+
+        BossAction bestAction = candidates[0];
+        float bestScore = -9999f;
+        for (int i = 0; i < candidates.Length; i++)
+        {
+            BossAction candidate = candidates[i];
+            float score = ScoreAction(candidate) + i * 0.025f;
+            if (candidate == lastChosenAction || candidate == secondLastChosenAction)
+            {
+                score -= 100f;
+            }
+
+            if (IsHeavyAction(candidate) && actionIndex - lastHeavyActionIndex <= 1)
+            {
+                score -= 18f;
+            }
+
+            if (IsPhaseThreeCombo(candidate) && actionIndex - lastComboActionIndex <= 2)
+            {
+                score -= 22f;
+            }
+
+            if (score > bestScore)
+            {
+                bestScore = score;
+                bestAction = candidate;
             }
         }
 
-        if (phaseTwo)
+        return bestAction;
+    }
+
+    private float ScoreAction(BossAction candidate)
+    {
+        float distance = GetTargetHorizontalDistance();
+        bool close = closePressureSeconds >= closePressureTriggerSeconds || distance <= adaptiveCloseRange * 0.86f;
+        bool far = farPressureSeconds >= 0.55f || distance >= adaptiveFarRange;
+        bool airborne = targetPlayer != null && (!targetPlayer.IsGrounded || targetPlayer.RecentlyJumped);
+        bool attackingClose = targetPlayer != null && targetPlayer.IsAttacking && distance <= adaptiveCloseRange + 0.75f;
+        float verticalVelocity = targetBody != null ? targetBody.velocity.y : 0f;
+        bool verticalCommitment = Mathf.Abs(verticalVelocity) > 2.1f;
+
+        switch (candidate)
         {
-            switch (actionIndex % 6)
-            {
-                case 0:
-                    return BossAction.Shockwave;
-                case 1:
-                    return BossAction.Sweep;
-                case 2:
-                    return BossAction.CoreBeam;
-                case 3:
-                    return BossAction.Smash;
-                case 4:
-                    return BossAction.CeilingSparkRain;
-                default:
-                    return BossAction.ArcBurst;
-            }
+            case BossAction.MagneticClamp:
+                return 1.35f
+                    + Mathf.Clamp(closePressureSeconds, 0f, 1.5f) * (phaseThree ? 7.4f : 5.8f)
+                    + (close ? 4f : 0f)
+                    + (attackingClose ? 3.4f : 0f)
+                    - (far ? 3.2f : 0f);
+            case BossAction.HydraulicRam:
+                return 4.45f
+                    + (distance <= adaptiveCloseRange + 2.4f ? 2.1f : 0f)
+                    + (attackingClose ? 1.15f : 0f)
+                    + (phaseThree ? 0.35f : 0f)
+                    - (far ? 2.75f : 0f)
+                    - (airborne ? 0.45f : 0f);
+            case BossAction.Sweep:
+                return 0.45f
+                    + (close ? 0.35f : 0f)
+                    + (actionIndex % 5 == 0 ? 0.9f : 0f)
+                    - (phaseThree ? 0.35f : 0f);
+            case BossAction.Smash:
+                return 3.4f + (distance <= adaptiveCloseRange + 1.8f ? 1.25f : 0f) + (airborne ? -0.7f : 0.2f);
+            case BossAction.Shockwave:
+                return 2.7f + Mathf.Clamp(farPressureSeconds, 0f, 1.5f) * 3.7f + (far ? 2.1f : 0f);
+            case BossAction.ArcBurst:
+                return 2.6f + (distance > adaptiveCloseRange && distance < adaptiveFarRange ? 1.6f : 0f) + (close ? 0.7f : 0f);
+            case BossAction.CoreBeam:
+                return 2.2f + Mathf.Clamp(farPressureSeconds, 0f, 1.5f) * 3.1f + (far ? 2.2f : 0f) + (airborne ? -0.8f : 0f);
+            case BossAction.CeilingSparkRain:
+                return 2.15f + Mathf.Clamp(jumpPressureSeconds, 0f, 1.4f) * 4.2f + (airborne ? 2.8f : 0f) + (verticalCommitment ? 1.1f : 0f);
+            case BossAction.FinalCorePulse:
+                return 2.9f + Mathf.Clamp(jumpPressureSeconds, 0f, 1.4f) * 2.9f + (airborne ? 1.8f : 0f) + (close ? 0.8f : 0f);
+            case BossAction.SweepShockCombo:
+                return 0.4f + (actionIndex % 6 == 0 ? 0.65f : 0f);
+            case BossAction.HydraulicRamShockCombo:
+                return 2.7f + (distance <= adaptiveCloseRange + 2.8f ? 2.15f : 0f) + (attackingClose ? 1.05f : 0f) + (far ? 0.7f : 0f);
+            case BossAction.SmashArcCombo:
+                return 2.45f + (distance <= adaptiveCloseRange + 2.2f ? 1.8f : 0f) + (attackingClose ? 1.4f : 0f);
+            default:
+                return 0f;
+        }
+    }
+
+    private void RecordChosenAction(BossAction chosen)
+    {
+        secondLastChosenAction = lastChosenAction;
+        lastChosenAction = chosen;
+        if (IsHeavyAction(chosen))
+        {
+            lastHeavyActionIndex = actionIndex;
         }
 
-        return actionIndex % 2 == 0 ? BossAction.Smash : BossAction.Sweep;
+        if (IsPhaseThreeCombo(chosen))
+        {
+            lastComboActionIndex = actionIndex;
+        }
+    }
+
+    private void SamplePlayerPressure()
+    {
+        if (target == null)
+        {
+            closePressureSeconds = 0f;
+            farPressureSeconds = 0f;
+            jumpPressureSeconds = 0f;
+            return;
+        }
+
+        float deltaTime = Mathf.Max(0f, Time.deltaTime);
+        float distance = GetTargetHorizontalDistance();
+        bool close = distance <= adaptiveCloseRange;
+        bool far = distance >= adaptiveFarRange;
+        bool attackingClose = targetPlayer != null && targetPlayer.IsAttacking && distance <= adaptiveCloseRange + 0.75f;
+        bool jumping = targetPlayer != null && (!targetPlayer.IsGrounded || targetPlayer.RecentlyJumped);
+        bool verticalCommitment = targetBody != null && Mathf.Abs(targetBody.velocity.y) > 2.1f;
+
+        closePressureSeconds = Mathf.Clamp(
+            closePressureSeconds + (close ? deltaTime : -deltaTime * 1.35f) + (attackingClose ? deltaTime * 1.35f : 0f),
+            0f,
+            2f);
+        farPressureSeconds = Mathf.Clamp(
+            farPressureSeconds + (far ? deltaTime : -deltaTime * 1.25f),
+            0f,
+            2f);
+        jumpPressureSeconds = Mathf.Clamp(
+            jumpPressureSeconds + (jumping || verticalCommitment ? deltaTime : -deltaTime * 1.45f),
+            0f,
+            1.6f);
+    }
+
+    private float GetTargetHorizontalDistance()
+    {
+        return target != null ? Mathf.Abs(target.position.x - transform.position.x) : adaptiveFarRange;
+    }
+
+    private static bool IsHeavyAction(BossAction bossAction)
+    {
+        return bossAction == BossAction.Shockwave
+            || bossAction == BossAction.ArcBurst
+            || bossAction == BossAction.CoreBeam
+            || bossAction == BossAction.CeilingSparkRain
+            || bossAction == BossAction.FinalCorePulse
+            || bossAction == BossAction.SweepShockCombo
+            || bossAction == BossAction.HydraulicRamShockCombo
+            || bossAction == BossAction.SmashArcCombo;
+    }
+
+    private static bool IsPhaseThreeCombo(BossAction bossAction)
+    {
+        return bossAction == BossAction.SweepShockCombo
+            || bossAction == BossAction.HydraulicRamShockCombo
+            || bossAction == BossAction.SmashArcCombo;
     }
 
     private void BeginWindup(BossAction nextAction)
@@ -482,6 +741,14 @@ public class RepairStationBoss2D : MonoBehaviour
         else if (nextAction == BossAction.FinalCorePulse)
         {
             ApplyFinalPulsePositions();
+        }
+        else if (nextAction == BossAction.MagneticClamp)
+        {
+            ApplyMagneticClampPosition();
+        }
+        else if (nextAction == BossAction.HydraulicRam || nextAction == BossAction.HydraulicRamShockCombo)
+        {
+            ApplyHydraulicRamPosition();
         }
 
         ApplyDirectionalSetup(nextAction);
@@ -543,6 +810,162 @@ public class RepairStationBoss2D : MonoBehaviour
         bodyVisual.localPosition = new Vector3(Mathf.Sin(Time.time * 72f) * hitShake * 0.06f, -hitShake * 0.025f, 0f);
     }
 
+    private void CacheMultipartBossParts()
+    {
+        if (v5Core != null)
+        {
+            v5CoreBasePosition = v5Core.transform.localPosition;
+            v5CoreBaseScale = v5Core.transform.localScale;
+        }
+
+        if (v5LeftShoulder != null)
+        {
+            v5LeftShoulderBasePosition = v5LeftShoulder.transform.localPosition;
+            v5LeftShoulderBaseRotation = v5LeftShoulder.transform.localRotation;
+        }
+
+        if (v5RightShoulder != null)
+        {
+            v5RightShoulderBasePosition = v5RightShoulder.transform.localPosition;
+            v5RightShoulderBaseRotation = v5RightShoulder.transform.localRotation;
+        }
+
+        if (v5LeftClamp != null)
+        {
+            v5LeftClampBasePosition = v5LeftClamp.transform.localPosition;
+            v5LeftClampBaseRotation = v5LeftClamp.transform.localRotation;
+        }
+
+        if (v5RightClamp != null)
+        {
+            v5RightClampBasePosition = v5RightClamp.transform.localPosition;
+            v5RightClampBaseRotation = v5RightClamp.transform.localRotation;
+        }
+
+        if (v5PipeBundle != null)
+        {
+            v5PipeBundleBasePosition = v5PipeBundle.transform.localPosition;
+        }
+    }
+
+    private void AnimateMultipartBoss()
+    {
+        float hitShake = Mathf.Clamp01((hitFeedbackUntil - Time.time) / 0.18f);
+        float overload = phaseThree ? 1f : phaseTwo ? 0.45f : 0f;
+        float pulse = Mathf.Sin(Time.time * (phaseThree ? 5.4f : 2.8f));
+
+        if (v5Core != null)
+        {
+            v5Core.transform.localPosition = v5CoreBasePosition + new Vector3(0f, pulse * 0.015f, 0f);
+            float scale = 1f + Mathf.Abs(pulse) * (0.018f + overload * 0.014f) + hitShake * 0.05f;
+            v5Core.transform.localScale = new Vector3(v5CoreBaseScale.x * scale, v5CoreBaseScale.y * scale, v5CoreBaseScale.z);
+            SetRendererAlpha(v5Core, 0.58f + overload * 0.18f + hitShake * 0.16f);
+        }
+
+        AnimateV5Panel(v5LeftShoulder, v5LeftShoulderBasePosition, v5LeftShoulderBaseRotation, -1f, pulse, hitShake);
+        AnimateV5Panel(v5RightShoulder, v5RightShoulderBasePosition, v5RightShoulderBaseRotation, 1f, pulse, hitShake);
+
+        if (v5PipeBundle != null)
+        {
+            v5PipeBundle.transform.localPosition = v5PipeBundleBasePosition + new Vector3(Mathf.Sin(Time.time * 1.7f) * 0.025f, pulse * 0.012f, 0f);
+            SetRendererAlpha(v5PipeBundle, 0.74f);
+        }
+
+        if (action != BossAction.MagneticClamp && !(action == BossAction.Windup && queuedAction == BossAction.MagneticClamp))
+        {
+            AnimateClampParts(0f, 0f);
+        }
+
+        SetRendererAlpha(v5OverloadCracks, phaseThree ? 0.38f + Mathf.PingPong(Time.time * 4.7f, 0.22f) : hitShake * 0.22f);
+    }
+
+    private void AnimateV5Panel(SpriteRenderer renderer, Vector3 basePosition, Quaternion baseRotation, float side, float pulse, float hitShake)
+    {
+        if (renderer == null)
+        {
+            return;
+        }
+
+        renderer.transform.localPosition = basePosition + new Vector3(side * hitShake * 0.035f, pulse * 0.018f, 0f);
+        renderer.transform.localRotation = baseRotation * Quaternion.Euler(0f, 0f, side * (pulse * 1.8f + hitShake * 5f));
+        SetRendererAlpha(renderer, 0.86f);
+    }
+
+    private void AnimateClampParts(float warningT, float strikeT)
+    {
+        float side = attackDirection >= 0f ? 1f : -1f;
+        float wind = Smooth01(Mathf.Clamp01(warningT));
+        float strike = Mathf.Sin(Mathf.Clamp01(strikeT) * Mathf.PI);
+        float reach = wind * 0.38f + strike * 0.42f;
+        float bite = strike * 18f;
+
+        if (v5LeftClamp != null)
+        {
+            float activeSide = side < 0f ? 1f : 0.32f;
+            v5LeftClamp.transform.localPosition = v5LeftClampBasePosition + new Vector3(-reach * activeSide, -strike * 0.04f, 0f);
+            v5LeftClamp.transform.localRotation = v5LeftClampBaseRotation * Quaternion.Euler(0f, 0f, -bite * activeSide + Mathf.Sin(Time.time * 2.2f) * 1.5f);
+            SetRendererAlpha(v5LeftClamp, 0.88f);
+        }
+
+        if (v5RightClamp != null)
+        {
+            float activeSide = side > 0f ? 1f : 0.32f;
+            v5RightClamp.transform.localPosition = v5RightClampBasePosition + new Vector3(reach * activeSide, -strike * 0.04f, 0f);
+            v5RightClamp.transform.localRotation = v5RightClampBaseRotation * Quaternion.Euler(0f, 0f, bite * activeSide + Mathf.Sin(Time.time * 2.2f + 0.6f) * 1.5f);
+            SetRendererAlpha(v5RightClamp, 0.88f);
+        }
+    }
+
+    private void AnimateHydraulicRamParts(float chargeT, float thrustT)
+    {
+        float side = attackDirection >= 0f ? 1f : -1f;
+        float charge = Smooth01(Mathf.Clamp01(chargeT));
+        float thrust = Smooth01(Mathf.Clamp01(thrustT));
+        float ramPulse = Mathf.Sin(thrust * Mathf.PI);
+
+        AnimateHydraulicRamShoulder(v5LeftShoulder, v5LeftShoulderBasePosition, v5LeftShoulderBaseRotation, -1f, side, charge, ramPulse);
+        AnimateHydraulicRamShoulder(v5RightShoulder, v5RightShoulderBasePosition, v5RightShoulderBaseRotation, 1f, side, charge, ramPulse);
+        AnimateHydraulicRamClamp(v5LeftClamp, v5LeftClampBasePosition, v5LeftClampBaseRotation, -1f, side, charge, ramPulse);
+        AnimateHydraulicRamClamp(v5RightClamp, v5RightClampBasePosition, v5RightClampBaseRotation, 1f, side, charge, ramPulse);
+
+        if (v5Core != null)
+        {
+            float corePulse = 1f + charge * 0.035f + ramPulse * 0.055f;
+            v5Core.transform.localScale = new Vector3(v5CoreBaseScale.x * corePulse, v5CoreBaseScale.y * corePulse, v5CoreBaseScale.z);
+            SetRendererAlpha(v5Core, 0.7f + ramPulse * 0.18f);
+        }
+    }
+
+    private void AnimateHydraulicRamShoulder(SpriteRenderer renderer, Vector3 basePosition, Quaternion baseRotation, float sideSign, float activeSide, float charge, float ramPulse)
+    {
+        if (renderer == null)
+        {
+            return;
+        }
+
+        bool active = Mathf.Sign(sideSign) == Mathf.Sign(activeSide);
+        float inward = active ? -0.18f * charge : -0.05f * charge;
+        float outward = active ? 0.24f * ramPulse : -0.03f * ramPulse;
+        renderer.transform.localPosition = basePosition + new Vector3(sideSign * (inward + outward), -charge * 0.025f + ramPulse * 0.025f, 0f);
+        renderer.transform.localRotation = baseRotation * Quaternion.Euler(0f, 0f, sideSign * (-charge * 5.5f + ramPulse * 4.5f));
+        SetRendererAlpha(renderer, active ? 0.95f : 0.82f);
+    }
+
+    private void AnimateHydraulicRamClamp(SpriteRenderer renderer, Vector3 basePosition, Quaternion baseRotation, float sideSign, float activeSide, float charge, float ramPulse)
+    {
+        if (renderer == null)
+        {
+            return;
+        }
+
+        bool active = Mathf.Sign(sideSign) == Mathf.Sign(activeSide);
+        float inward = active ? -0.32f * charge : -0.08f * charge;
+        float outward = active ? 0.78f * ramPulse : -0.04f * ramPulse;
+        renderer.transform.localPosition = basePosition + new Vector3(sideSign * (inward + outward), -charge * 0.035f + ramPulse * 0.03f, 0f);
+        renderer.transform.localRotation = baseRotation * Quaternion.Euler(0f, 0f, sideSign * (-charge * 11f + ramPulse * 7f));
+        SetRendererAlpha(renderer, active ? 0.98f : 0.76f);
+    }
+
     private void AnimateArm(float angle)
     {
         if (armPivot != null)
@@ -599,6 +1022,25 @@ public class RepairStationBoss2D : MonoBehaviour
         color.a = Mathf.Clamp01(alpha);
         smashWarning.color = color;
         smashWarning.enabled = alpha > 0.01f;
+    }
+
+    private void SetMagneticClampWarningAlpha(float alpha)
+    {
+        if (magneticClampWarning == null)
+        {
+            return;
+        }
+
+        Color color = magneticClampWarning.color;
+        color.a = Mathf.Clamp01(alpha);
+        magneticClampWarning.color = color;
+        magneticClampWarning.enabled = alpha > 0.01f;
+    }
+
+    private void SetHydraulicRamAlpha(float warningAlpha, float impactAlpha)
+    {
+        SetRendererAlpha(hydraulicRamWarning, warningAlpha);
+        SetRendererAlpha(hydraulicRamImpactVisual, impactAlpha);
     }
 
     private void SetShockwaveAlpha(float alpha)
@@ -736,7 +1178,7 @@ public class RepairStationBoss2D : MonoBehaviour
         }
     }
 
-    private void SetHitboxes(bool sweep, bool smash, bool shockwave, bool arcBurst = false, bool coreBeam = false, bool ceilingSpark = false, bool finalPulse = false)
+    private void SetHitboxes(bool sweep, bool smash, bool shockwave, bool arcBurst = false, bool coreBeam = false, bool ceilingSpark = false, bool finalPulse = false, bool magneticClamp = false, bool hydraulicRam = false)
     {
         if (sweepHitbox != null)
         {
@@ -783,12 +1225,32 @@ public class RepairStationBoss2D : MonoBehaviour
         {
             finalPulseRightHitbox.enabled = finalPulse;
         }
+
+        if (magneticClampHitbox != null)
+        {
+            magneticClampHitbox.enabled = magneticClamp;
+        }
+
+        if (hydraulicRamHitbox != null)
+        {
+            hydraulicRamHitbox.enabled = hydraulicRam;
+        }
     }
 
     private void AnimateWindup(float elapsed)
     {
         ApplyDirectionalSetup(queuedAction);
         SetHitboxes(false, false, false);
+        if (queuedAction != BossAction.MagneticClamp)
+        {
+            SetMagneticClampWarningAlpha(0f);
+        }
+
+        if (queuedAction != BossAction.HydraulicRam && queuedAction != BossAction.HydraulicRamShockCombo)
+        {
+            SetHydraulicRamAlpha(0f, 0f);
+        }
+
         SetShockwaveAlpha(queuedAction == BossAction.Shockwave ? 0.15f + Mathf.PingPong(Time.time * 9f, 0.2f) : 0f);
         SetArcBurstVisualAlpha(0f);
         SetCoreBeamAlpha(0f, 0f);
@@ -800,6 +1262,23 @@ public class RepairStationBoss2D : MonoBehaviour
 
         switch (queuedAction)
         {
+            case BossAction.HydraulicRam:
+                ApplyHydraulicRamPosition();
+                SetSmashWarningAlpha(0f);
+                SetShockwaveAlpha(0f);
+                SetArcBurstWarningAlpha(0f);
+                SetCoreBeamAlpha(0f, 0f);
+                SetCeilingSparkAlpha(0f, 0f);
+                SetFinalPulseAlpha(0f, 0f);
+                SetHydraulicRamAlpha(0.22f + t * 0.58f + Mathf.PingPong(Time.time * 11f, 0.14f), 0f);
+                AnimateArm(Mathf.Lerp(0f, -24f, Smooth01(t)) + Mathf.Sin(Time.time * 12f) * 2f);
+                AnimateHydraulicRamParts(t, 0f);
+                if (!hydraulicRamHintShown && t > 0.35f)
+                {
+                    hydraulicRamHintShown = true;
+                    LevelObjectiveUI.Instance?.ShowHint("液压冲锤：看框后闪开。", 2.4f);
+                }
+                break;
             case BossAction.Sweep:
                 SetSmashWarningAlpha(0f);
                 AnimateArm(Mathf.Lerp(0f, -78f, Smooth01(t)));
@@ -881,6 +1360,19 @@ public class RepairStationBoss2D : MonoBehaviour
                 SetShockwaveAlpha(t > 0.52f ? 0.12f + (t - 0.52f) * 0.42f : 0f);
                 AnimateArm(Mathf.Lerp(0f, -84f, Smooth01(t)));
                 break;
+            case BossAction.HydraulicRamShockCombo:
+                ApplyHydraulicRamPosition();
+                SetSmashWarningAlpha(0f);
+                SetArcBurstWarningAlpha(0f);
+                SetCoreBeamAlpha(0f, 0f);
+                SetCeilingSparkAlpha(0f, 0f);
+                SetFinalPulseAlpha(0f, 0f);
+                SetHydraulicRamAlpha(0.24f + t * 0.58f + Mathf.PingPong(Time.time * 12f, 0.14f), 0f);
+                SetShockwaveAlpha(t > 0.56f ? 0.1f + (t - 0.56f) * 0.42f : 0f);
+                SetRendererAlpha(shockwaveSparkTrail, t > 0.5f ? 0.1f + (t - 0.5f) * 0.28f : 0f);
+                AnimateArm(Mathf.Lerp(0f, -30f, Smooth01(t)) + Mathf.Sin(Time.time * 14f) * 2.5f);
+                AnimateHydraulicRamParts(t, 0f);
+                break;
             case BossAction.SmashArcCombo:
                 ApplyArcBurstPosition();
                 SetShockwaveAlpha(0f);
@@ -890,6 +1382,23 @@ public class RepairStationBoss2D : MonoBehaviour
                 SetSmashWarningAlpha(0.18f + t * 0.5f + Mathf.PingPong(Time.time * 9f, 0.12f));
                 SetArcBurstWarningAlpha(t > 0.45f ? 0.12f + (t - 0.45f) * 0.6f : 0f);
                 AnimateArm(Mathf.Lerp(0f, -82f, Smooth01(t)));
+                break;
+            case BossAction.MagneticClamp:
+                ApplyMagneticClampPosition();
+                SetSmashWarningAlpha(0f);
+                SetShockwaveAlpha(0f);
+                SetArcBurstWarningAlpha(0f);
+                SetCoreBeamAlpha(0f, 0f);
+                SetCeilingSparkAlpha(0f, 0f);
+                SetFinalPulseAlpha(0f, 0f);
+                SetMagneticClampWarningAlpha(0.24f + t * 0.58f + Mathf.PingPong(Time.time * 11f, 0.16f));
+                AnimateArm(Mathf.Lerp(0f, -54f, Smooth01(t)) + Mathf.Sin(Time.time * 15f) * 3f);
+                AnimateClampParts(t, 0f);
+                if (!magneticClampHintShown && t > 0.35f)
+                {
+                    magneticClampHintShown = true;
+                    LevelObjectiveUI.Instance?.ShowHint("磁钳锁定：后撤再反击。", 2.4f);
+                }
                 break;
             case BossAction.Summon:
                 SetSmashWarningAlpha(0f);
@@ -1041,6 +1550,62 @@ public class RepairStationBoss2D : MonoBehaviour
         }
     }
 
+    private void AnimateMagneticClamp(float elapsed)
+    {
+        ApplyDirectionalSetup(BossAction.MagneticClamp);
+        float t = Mathf.Clamp01(elapsed / Mathf.Max(0.01f, magneticClampSeconds));
+        bool active = t >= 0.18f && t <= 0.66f;
+        SetHitboxes(false, false, false, false, false, false, false, active);
+        SetSmashWarningAlpha(0f);
+        SetShockwaveAlpha(0f);
+        SetArcBurstWarningAlpha(0f);
+        SetArcBurstVisualAlpha(0f);
+        SetCoreBeamAlpha(0f, 0f);
+        SetCeilingSparkAlpha(0f, 0f);
+        SetFinalPulseAlpha(0f, 0f);
+        SetEyeAlpha(active ? 1f : 0.78f + Mathf.PingPong(Time.time * 12f, 0.16f));
+        AnimateArm(Mathf.Lerp(-54f, 18f, Smooth01(t)));
+        AnimateClampParts(1f, t);
+
+        float warningAlpha = active ? Mathf.Lerp(0.54f, 0.08f, Smooth01(t)) : 0.62f;
+        SetMagneticClampWarningAlpha(warningAlpha);
+        if (magneticClampWarning != null)
+        {
+            magneticClampWarning.transform.localScale = new Vector3(2.15f + Mathf.Sin(t * Mathf.PI) * 0.35f, 1.1f + Mathf.Sin(t * Mathf.PI) * 0.18f, 1f);
+        }
+    }
+
+    private void AnimateHydraulicRam(float elapsed)
+    {
+        ApplyDirectionalSetup(BossAction.HydraulicRam);
+        float t = Mathf.Clamp01(elapsed / Mathf.Max(0.01f, hydraulicRamSeconds));
+        bool active = t >= 0.22f && t <= 0.62f;
+        SetHitboxes(false, false, false, false, false, false, false, false, active);
+        SetSmashWarningAlpha(0f);
+        SetMagneticClampWarningAlpha(0f);
+        SetShockwaveAlpha(0f);
+        SetArcBurstWarningAlpha(0f);
+        SetArcBurstVisualAlpha(0f);
+        SetCoreBeamAlpha(0f, 0f);
+        SetCeilingSparkAlpha(0f, 0f);
+        SetFinalPulseAlpha(0f, 0f);
+        SetEyeAlpha(active ? 1f : 0.82f + Mathf.PingPong(Time.time * 13f, 0.14f));
+        AnimateArm(Mathf.Lerp(-24f, 18f, Smooth01(t)) + Mathf.Sin(Time.time * 16f) * (active ? 3f : 1.5f));
+        AnimateHydraulicRamParts(1f, t);
+
+        float impactPulse = Mathf.Sin(t * Mathf.PI);
+        SetHydraulicRamAlpha(active ? Mathf.Lerp(0.58f, 0.08f, Smooth01(t)) : 0.62f, active ? 0.32f + impactPulse * 0.5f : 0.08f);
+        if (hydraulicRamWarning != null)
+        {
+            hydraulicRamWarning.transform.localScale = new Vector3(2.35f + impactPulse * 0.25f, 1.0f + impactPulse * 0.12f, 1f);
+        }
+
+        if (hydraulicRamImpactVisual != null)
+        {
+            hydraulicRamImpactVisual.transform.localScale = new Vector3(2.25f + impactPulse * 0.72f, 0.58f + impactPulse * 0.22f, 1f);
+        }
+    }
+
     private void AnimateSweepShockCombo(float elapsed)
     {
         ApplyDirectionalSetup(BossAction.SweepShockCombo);
@@ -1081,6 +1646,73 @@ public class RepairStationBoss2D : MonoBehaviour
             shockwaveSparkTrail.transform.localPosition = DirectedOffset(Vector2.Lerp(shockwaveVisualStartOffset, shockwaveVisualEndOffset, Smooth01(shockT)));
             shockwaveSparkTrail.transform.localScale = new Vector3(2.75f + shockT * 1.8f, 0.48f + Mathf.Sin(shockT * Mathf.PI) * 0.24f, 1f);
             SetRendererAlpha(shockwaveSparkTrail, shockActive ? 0.24f + Mathf.Sin(shockT * Mathf.PI) * 0.4f : 0.08f);
+        }
+
+        if (shockwaveHitbox != null)
+        {
+            shockwaveHitbox.transform.localPosition = DirectedOffset(Vector2.Lerp(shockwaveHitboxStartOffset, shockwaveHitboxEndOffset, Smooth01(shockT)));
+        }
+    }
+
+    private void AnimateHydraulicRamShockCombo(float elapsed)
+    {
+        ApplyDirectionalSetup(BossAction.HydraulicRamShockCombo);
+        ApplyHydraulicRamPosition();
+        float t = Mathf.Clamp01(elapsed / Mathf.Max(0.01f, hydraulicRamShockComboSeconds));
+        float ramT = Mathf.Clamp01(elapsed / 0.62f);
+        float shockT = Mathf.Clamp01((elapsed - 0.68f) / Mathf.Max(0.01f, hydraulicRamShockComboSeconds - 0.68f));
+        bool ramActive = ramT >= 0.22f && ramT <= 0.62f;
+        bool shockActive = shockT >= 0.16f && shockT <= 0.78f;
+        SetHitboxes(false, false, shockActive, false, false, false, false, false, ramActive);
+        SetSmashWarningAlpha(0f);
+        SetMagneticClampWarningAlpha(0f);
+        SetArcBurstWarningAlpha(0f);
+        SetArcBurstVisualAlpha(0f);
+        SetCoreBeamAlpha(0f, 0f);
+        SetCeilingSparkAlpha(0f, 0f);
+        SetFinalPulseAlpha(0f, 0f);
+        SetEyeAlpha(ramActive || shockActive ? 1f : 0.84f + Mathf.PingPong(Time.time * 15f, 0.14f));
+
+        if (elapsed < 0.66f)
+        {
+            float ramPulse = Mathf.Sin(ramT * Mathf.PI);
+            AnimateArm(Mathf.Lerp(-28f, 20f, Smooth01(ramT)) + Mathf.Sin(Time.time * 16f) * 2.5f);
+            AnimateHydraulicRamParts(1f, ramT);
+            SetHydraulicRamAlpha(ramActive ? Mathf.Lerp(0.58f, 0.1f, Smooth01(ramT)) : 0.62f, ramActive ? 0.34f + ramPulse * 0.5f : 0.08f);
+            SetShockwaveAlpha(0f);
+            SetRendererAlpha(shockwaveSparkTrail, 0f);
+        }
+        else
+        {
+            AnimateArm(Mathf.Lerp(-30f, 24f, Smooth01(shockT)));
+            AnimateHydraulicRamParts(0.35f, 0f);
+            SetHydraulicRamAlpha(Mathf.Lerp(0.22f, 0f, Smooth01(shockT)), 0f);
+            SetShockwaveAlpha(shockActive ? 0.38f + Mathf.Sin(shockT * Mathf.PI) * 0.5f : 0.18f);
+            SetRendererAlpha(shockwaveSparkTrail, shockActive ? 0.24f + Mathf.Sin(shockT * Mathf.PI) * 0.4f : 0.08f);
+        }
+
+        if (hydraulicRamWarning != null)
+        {
+            float ramPulse = Mathf.Sin(ramT * Mathf.PI);
+            hydraulicRamWarning.transform.localScale = new Vector3(2.35f + ramPulse * 0.25f, 1.0f + ramPulse * 0.12f, 1f);
+        }
+
+        if (hydraulicRamImpactVisual != null)
+        {
+            float ramPulse = Mathf.Sin(ramT * Mathf.PI);
+            hydraulicRamImpactVisual.transform.localScale = new Vector3(2.25f + ramPulse * 0.72f, 0.58f + ramPulse * 0.22f, 1f);
+        }
+
+        if (shockwaveVisual != null)
+        {
+            shockwaveVisual.transform.localPosition = DirectedOffset(Vector2.Lerp(shockwaveVisualStartOffset, shockwaveVisualEndOffset, Smooth01(shockT)));
+            shockwaveVisual.transform.localScale = new Vector3(2.35f + shockT * 1.75f, 0.45f + Mathf.Sin(shockT * Mathf.PI) * 0.2f, 1f);
+        }
+
+        if (shockwaveSparkTrail != null)
+        {
+            shockwaveSparkTrail.transform.localPosition = DirectedOffset(Vector2.Lerp(shockwaveVisualStartOffset, shockwaveVisualEndOffset, Smooth01(shockT)));
+            shockwaveSparkTrail.transform.localScale = new Vector3(2.75f + shockT * 1.8f, 0.48f + Mathf.Sin(shockT * Mathf.PI) * 0.24f, 1f);
         }
 
         if (shockwaveHitbox != null)
@@ -1152,6 +1784,18 @@ public class RepairStationBoss2D : MonoBehaviour
             smashWarning.transform.localPosition = DirectedOffset(smashWarningOffset);
         }
 
+        if (magneticClampWarning != null)
+        {
+            magneticClampWarning.transform.localPosition = DirectedOffset(magneticClampWarningOffset);
+        }
+
+        if (magneticClampHitbox != null)
+        {
+            magneticClampHitbox.transform.localPosition = DirectedOffset(magneticClampHitboxOffset);
+        }
+
+        ApplyHydraulicRamPosition();
+
         if (sweepTrailVisual != null)
         {
             sweepTrailVisual.transform.localPosition = DirectedOffset(new Vector2(-1.55f, -0.24f));
@@ -1162,7 +1806,7 @@ public class RepairStationBoss2D : MonoBehaviour
             smashDustRingVisual.transform.localPosition = DirectedOffset(new Vector2(smashWarningOffset.x, -1.36f));
         }
 
-        if ((nextAction == BossAction.Shockwave || nextAction == BossAction.SweepShockCombo) && shockwaveHitbox != null)
+        if ((nextAction == BossAction.Shockwave || nextAction == BossAction.SweepShockCombo || nextAction == BossAction.HydraulicRamShockCombo) && shockwaveHitbox != null)
         {
             shockwaveHitbox.transform.localPosition = DirectedOffset(shockwaveHitboxStartOffset);
         }
@@ -1186,6 +1830,14 @@ public class RepairStationBoss2D : MonoBehaviour
         else if (nextAction == BossAction.FinalCorePulse)
         {
             ApplyFinalPulsePositions();
+        }
+        else if (nextAction == BossAction.MagneticClamp)
+        {
+            ApplyMagneticClampPosition();
+        }
+        else if (nextAction == BossAction.HydraulicRam || nextAction == BossAction.HydraulicRamShockCombo)
+        {
+            ApplyHydraulicRamPosition();
         }
     }
 
@@ -1232,6 +1884,42 @@ public class RepairStationBoss2D : MonoBehaviour
         float maxX = Mathf.Max(ceilingSparkLocalXRange.x, ceilingSparkLocalXRange.y);
         ceilingSparkCenterLocalX = Mathf.Clamp(localTargetX, minX, maxX);
         ApplyCeilingSparkPositions();
+    }
+
+    private void ApplyMagneticClampPosition()
+    {
+        Vector3 warningPosition = DirectedOffset(magneticClampWarningOffset);
+        Vector3 hitboxPosition = DirectedOffset(magneticClampHitboxOffset);
+        if (magneticClampWarning != null)
+        {
+            magneticClampWarning.transform.localPosition = warningPosition;
+        }
+
+        if (magneticClampHitbox != null)
+        {
+            magneticClampHitbox.transform.localPosition = hitboxPosition;
+        }
+    }
+
+    private void ApplyHydraulicRamPosition()
+    {
+        Vector3 warningPosition = DirectedOffset(hydraulicRamWarningOffset);
+        Vector3 hitboxPosition = DirectedOffset(hydraulicRamHitboxOffset);
+        Vector3 visualPosition = DirectedOffset(hydraulicRamVisualOffset);
+        if (hydraulicRamWarning != null)
+        {
+            hydraulicRamWarning.transform.localPosition = warningPosition;
+        }
+
+        if (hydraulicRamImpactVisual != null)
+        {
+            hydraulicRamImpactVisual.transform.localPosition = visualPosition;
+        }
+
+        if (hydraulicRamHitbox != null)
+        {
+            hydraulicRamHitbox.transform.localPosition = hitboxPosition;
+        }
     }
 
     private void ApplyArcBurstPosition()
@@ -1358,7 +2046,17 @@ public class RepairStationBoss2D : MonoBehaviour
             return finalCorePulseWindupSeconds;
         }
 
-        if (bossAction == BossAction.SweepShockCombo || bossAction == BossAction.SmashArcCombo)
+        if (bossAction == BossAction.MagneticClamp)
+        {
+            return magneticClampWindupSeconds;
+        }
+
+        if (bossAction == BossAction.HydraulicRam)
+        {
+            return hydraulicRamWindupSeconds;
+        }
+
+        if (bossAction == BossAction.SweepShockCombo || bossAction == BossAction.HydraulicRamShockCombo || bossAction == BossAction.SmashArcCombo)
         {
             return comboWindupSeconds;
         }
@@ -1481,6 +2179,8 @@ public class RepairStationBoss2D : MonoBehaviour
         deathStartedAt = Time.time;
         SetHitboxes(false, false, false);
         SetSmashWarningAlpha(0f);
+        SetMagneticClampWarningAlpha(0f);
+        SetHydraulicRamAlpha(0f, 0f);
         SetShockwaveAlpha(0f);
         SetArcBurstWarningAlpha(0f);
         SetArcBurstVisualAlpha(0f);

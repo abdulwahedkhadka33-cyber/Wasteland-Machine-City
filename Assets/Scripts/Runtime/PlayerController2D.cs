@@ -392,7 +392,7 @@ public class PlayerController2D : MonoBehaviour
                 continue;
             }
 
-            Health targetHealth = hit.GetComponentInParent<Health>();
+            Health targetHealth = ResolveAttackTargetHealth(hit);
             if (targetHealth == null || targetHealth.IsDead || targetHealth == health || damagedThisAttack.Contains(targetHealth))
             {
                 continue;
@@ -408,7 +408,7 @@ public class PlayerController2D : MonoBehaviour
             if (damaged)
             {
                 damagedThisAttack.Add(targetHealth);
-                ShowHitSpark(targetHealth.transform.position, stage);
+                ShowHitSpark(hit.bounds.center, stage);
             }
 
             if (damaged && targetHealth.IsDead)
@@ -416,6 +416,27 @@ public class PlayerController2D : MonoBehaviour
                 chipInventory?.NotifyEnemyKilled();
             }
         }
+    }
+
+    private Health ResolveAttackTargetHealth(Collider2D hit)
+    {
+        if (hit.GetComponentInParent<BossDamageHitbox2D>() != null)
+        {
+            return null;
+        }
+
+        DamageableHurtbox2D hurtbox = hit.GetComponentInParent<DamageableHurtbox2D>();
+        if (hurtbox != null)
+        {
+            return hurtbox.OwnerHealth;
+        }
+
+        if (hit.GetComponentInParent<RepairStationBoss2D>() != null)
+        {
+            return null;
+        }
+
+        return hit.GetComponentInParent<Health>();
     }
 
     private void ShowHitSpark(Vector3 targetPosition, AttackStage stage)

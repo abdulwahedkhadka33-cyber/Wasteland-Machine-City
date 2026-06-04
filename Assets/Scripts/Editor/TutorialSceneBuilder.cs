@@ -44,6 +44,7 @@ public static class TutorialSceneBuilder
     private const string GeneratedEnemiesV2Path = "Assets/Art/Generated/Enemies/V2";
     private const string GeneratedEnemiesV3Path = "Assets/Art/Generated/Enemies/V3";
     private const string GeneratedEnemiesV4Path = "Assets/Art/Generated/Enemies/V4";
+    private const string GeneratedEnemiesV5Path = "Assets/Art/Generated/Enemies/V5";
     private const string ProvidedEnvironmentPath = "Assets/Art/Provided/Environment";
     private const string ProvidedEnvironmentV1Path = "Assets/Art/Provided/Environment/V1";
     private const string ProvidedEnvironmentV2Path = "Assets/Art/Provided/Environment/V2";
@@ -79,6 +80,7 @@ public static class TutorialSceneBuilder
     private const int EnemyV2PixelsPerUnit = 256;
     private const int EnemyV3PixelsPerUnit = 256;
     private const int EnemyV4PixelsPerUnit = 256;
+    private const int EnemyV5PixelsPerUnit = 256;
     private const float BackgroundV6MinX = -12f;
     private const float BackgroundV6CenterY = 0.7f;
     private const float BackgroundV6ChunkWorldWidth = 42.666667f;
@@ -501,6 +503,17 @@ public static class TutorialSceneBuilder
         "bossv4_guardian_overload_overlay.png",
     };
 
+    private static readonly string[] EnemyV5SpriteFiles =
+    {
+        "bossv5_core_module.png",
+        "bossv5_left_shoulder.png",
+        "bossv5_right_shoulder.png",
+        "bossv5_left_magnetic_clamp.png",
+        "bossv5_right_magnetic_clamp.png",
+        "bossv5_pipe_bundle.png",
+        "bossv5_overload_cracks.png",
+    };
+
     [MenuItem("Tools/Wasteland Mech City/Build Tutorial Scene")]
     public static void BuildTutorialScene()
     {
@@ -651,6 +664,11 @@ public static class TutorialSceneBuilder
             ConfigureImportedSprite(enemyV4Path, EnemyV4PixelsPerUnit, 4096, FilterMode.Bilinear);
         }
 
+        foreach (string enemyV5Path in GetEnemyV5SpritePaths())
+        {
+            ConfigureImportedSprite(enemyV5Path, EnemyV5PixelsPerUnit, 4096, FilterMode.Bilinear);
+        }
+
         foreach (string robotPartPath in GetRobotPartPaths())
         {
             ConfigureImportedSprite(robotPartPath, 512);
@@ -727,6 +745,7 @@ public static class TutorialSceneBuilder
         EnsureFolder(GeneratedEnemiesV2Path);
         EnsureFolder(GeneratedEnemiesV3Path);
         EnsureFolder(GeneratedEnemiesV4Path);
+        EnsureFolder(GeneratedEnemiesV5Path);
         EnsureFolder("Assets/Art/Provided");
         EnsureFolder("Assets/Art/Provided/Environment");
         EnsureFolder(ProvidedEnvironmentPath);
@@ -3145,6 +3164,17 @@ public static class TutorialSceneBuilder
             out SpriteRenderer deathSparkBurst,
             out SpriteRenderer[] deathFragments);
         SpriteRenderer overloadOverlay = CreateBossOverloadVisualV4(boss.transform, name);
+        CreateBossMultipartVisualV5(
+            boss.transform,
+            name,
+            out SpriteRenderer v5Core,
+            out SpriteRenderer v5LeftShoulder,
+            out SpriteRenderer v5RightShoulder,
+            out SpriteRenderer v5LeftClamp,
+            out SpriteRenderer v5RightClamp,
+            out SpriteRenderer v5PipeBundle,
+            out SpriteRenderer v5OverloadCracks);
+        CreateBossDamageableHurtboxes(parent, name, boss.transform.position, health);
 
         Transform armPivot = NewChild(boss.transform, name + "_ArmPivot").transform;
         armPivot.localPosition = new Vector3(-0.55f, 0.05f, 0f);
@@ -3210,7 +3240,24 @@ public static class TutorialSceneBuilder
         finalPulseRight.size = new Vector2(4.15f, 0.68f);
         BossDamageHitbox2D finalPulseRightDamage = finalPulseRight.gameObject.AddComponent<BossDamageHitbox2D>();
 
+        BoxCollider2D magneticClamp = NewChild(boss.transform, name + "_MagneticClampHitbox").AddComponent<BoxCollider2D>();
+        magneticClamp.transform.localPosition = new Vector3(-1.72f, -0.34f, 0f);
+        magneticClamp.isTrigger = true;
+        magneticClamp.enabled = false;
+        magneticClamp.size = new Vector2(2.35f, 1.55f);
+        BossDamageHitbox2D magneticClampDamage = magneticClamp.gameObject.AddComponent<BossDamageHitbox2D>();
+
+        BoxCollider2D hydraulicRam = NewChild(boss.transform, name + "_HydraulicRamHitbox").AddComponent<BoxCollider2D>();
+        hydraulicRam.transform.localPosition = new Vector3(-2.05f, -0.72f, 0f);
+        hydraulicRam.isTrigger = true;
+        hydraulicRam.enabled = false;
+        hydraulicRam.size = new Vector2(2.2f, 1.05f);
+        BossDamageHitbox2D hydraulicRamDamage = hydraulicRam.gameObject.AddComponent<BossDamageHitbox2D>();
+
         SpriteRenderer smashWarning = AddEffectsV2SpriteChild(boss.transform, name + "_SmashWarning_Dust", "fxv2_boss_smash_dust.png", new Vector2(-1.05f, -1.48f), new Vector2(3.2f, 0.78f), new Color(1f, 0.7f, 0.18f, 0f), 20).GetComponent<SpriteRenderer>();
+        SpriteRenderer magneticClampWarning = AddEffectsV5SpriteChild(boss.transform, name + "_MagneticClampWarning", "fxv5_electric_spark_frame.png", new Vector2(-1.72f, -0.44f), new Vector2(2.15f, 1.1f), new Color(1f, 0.7f, 0.18f, 0f), 25).GetComponent<SpriteRenderer>();
+        SpriteRenderer hydraulicRamWarning = AddEffectsV5SpriteChild(boss.transform, name + "_HydraulicRamWarning", "fxv5_electric_spark_frame.png", new Vector2(-2.05f, -0.74f), new Vector2(2.35f, 1.0f), new Color(1f, 0.68f, 0.16f, 0f), 25).GetComponent<SpriteRenderer>();
+        SpriteRenderer hydraulicRamImpactVisual = AddEffectsV2SpriteChild(boss.transform, name + "_HydraulicRamImpactSparks", "fxv2_spark_shower.png", new Vector2(-2.05f, -0.68f), new Vector2(2.25f, 0.58f), new Color(1f, 0.72f, 0.22f, 0f), 26).GetComponent<SpriteRenderer>();
         SpriteRenderer sweepTrailVisual = AddEffectsV5SpriteChild(boss.transform, name + "_SweepTrail_ElectricDrag", "fxv5_electric_spark_frame.png", new Vector2(-1.55f, -0.24f), new Vector2(2.6f, 0.42f), new Color(1f, 0.66f, 0.2f, 0f), 23).GetComponent<SpriteRenderer>();
         SpriteRenderer smashDustRingVisual = AddEffectsV2SpriteChild(boss.transform, name + "_SmashDustRing", "fxv2_boss_smash_dust.png", new Vector2(-1.05f, -1.36f), new Vector2(3.6f, 0.95f), new Color(1f, 0.62f, 0.16f, 0f), 21).GetComponent<SpriteRenderer>();
         SpriteRenderer shockwaveVisual = AddEffectsV5SpriteChild(boss.transform, name + "_ShockwaveVisual", "fxv5_electric_spark_frame.png", new Vector2(-2.0f, -1.22f), new Vector2(2.2f, 0.42f), new Color(0.52f, 0.92f, 1f, 0f), 21).GetComponent<SpriteRenderer>();
@@ -3253,10 +3300,20 @@ public static class TutorialSceneBuilder
         SetObject(bossAi, "bodyRenderer", bodyRenderer);
         SetObject(bossAi, "refinedOverlay", refinedOverlay);
         SetObject(bossAi, "overloadOverlay", overloadOverlay);
+        SetObject(bossAi, "v5Core", v5Core);
+        SetObject(bossAi, "v5LeftShoulder", v5LeftShoulder);
+        SetObject(bossAi, "v5RightShoulder", v5RightShoulder);
+        SetObject(bossAi, "v5LeftClamp", v5LeftClamp);
+        SetObject(bossAi, "v5RightClamp", v5RightClamp);
+        SetObject(bossAi, "v5PipeBundle", v5PipeBundle);
+        SetObject(bossAi, "v5OverloadCracks", v5OverloadCracks);
         SetObject(bossAi, "eyeLight", eye.GetComponent<SpriteRenderer>());
         SetObject(bossAi, "coreLight", coreLight);
         SetObject(bossAi, "crackGlow", crackGlow);
         SetObject(bossAi, "smashWarning", smashWarning);
+        SetObject(bossAi, "magneticClampWarning", magneticClampWarning);
+        SetObject(bossAi, "hydraulicRamWarning", hydraulicRamWarning);
+        SetObject(bossAi, "hydraulicRamImpactVisual", hydraulicRamImpactVisual);
         SetObject(bossAi, "sweepTrailVisual", sweepTrailVisual);
         SetObject(bossAi, "smashDustRingVisual", smashDustRingVisual);
         SetObject(bossAi, "shockwaveVisual", shockwaveVisual);
@@ -3286,6 +3343,8 @@ public static class TutorialSceneBuilder
         SetObjectArray(bossAi, "ceilingSparkHitboxes", ceilingSparkHitboxes);
         SetObject(bossAi, "finalPulseLeftHitbox", finalPulseLeft);
         SetObject(bossAi, "finalPulseRightHitbox", finalPulseRight);
+        SetObject(bossAi, "magneticClampHitbox", magneticClamp);
+        SetObject(bossAi, "hydraulicRamHitbox", hydraulicRam);
         SetObject(bossAi, "minionPrefab", minionPrefab);
         SetObject(bossAi, "summonPointA", summonA);
         SetObject(bossAi, "summonPointB", summonB);
@@ -3294,6 +3353,9 @@ public static class TutorialSceneBuilder
         SetFloat(bossAi, "actionSeconds", 0.76f);
         SetFloat(bossAi, "recoverSeconds", 0.55f);
         SetFloat(bossAi, "sweepRecoverSeconds", 0.55f);
+        SetFloat(bossAi, "hydraulicRamWindupSeconds", 0.7f);
+        SetFloat(bossAi, "hydraulicRamSeconds", 0.62f);
+        SetFloat(bossAi, "hydraulicRamRecoverSeconds", 0.72f);
         SetFloat(bossAi, "smashRecoverSeconds", 0.75f);
         SetFloat(bossAi, "shockwaveRecoverSeconds", 0.85f);
         SetFloat(bossAi, "shockwaveWindupSeconds", 0.72f);
@@ -3312,8 +3374,15 @@ public static class TutorialSceneBuilder
         SetFloat(bossAi, "finalCorePulseRecoverSeconds", 0.95f);
         SetFloat(bossAi, "comboWindupSeconds", 0.72f);
         SetFloat(bossAi, "sweepShockComboSeconds", 1.48f);
+        SetFloat(bossAi, "hydraulicRamShockComboSeconds", 1.5f);
         SetFloat(bossAi, "smashArcComboSeconds", 1.56f);
         SetFloat(bossAi, "finalComboRecoverSeconds", 0.95f);
+        SetFloat(bossAi, "magneticClampWindupSeconds", 0.62f);
+        SetFloat(bossAi, "magneticClampSeconds", 0.58f);
+        SetFloat(bossAi, "magneticClampRecoverSeconds", 0.72f);
+        SetFloat(bossAi, "adaptiveCloseRange", 3f);
+        SetFloat(bossAi, "adaptiveFarRange", 7.4f);
+        SetFloat(bossAi, "closePressureTriggerSeconds", 0.7f);
         SetFloat(bossAi, "phaseTwoHealthRatio", 0.5f);
         SetFloat(bossAi, "deathShowSeconds", 1.8f);
         SetInt(bossAi, "lowHealthSummonThreshold", 7);
@@ -3333,6 +3402,11 @@ public static class TutorialSceneBuilder
         SetFloat(bossAi, "ceilingSparkGroundY", -0.95f);
         SetVector2(bossAi, "finalPulseLeftHitboxOffset", new Vector2(-3.1f, -1.18f));
         SetVector2(bossAi, "finalPulseRightHitboxOffset", new Vector2(3.1f, -1.18f));
+        SetVector2(bossAi, "magneticClampHitboxOffset", new Vector2(-1.72f, -0.34f));
+        SetVector2(bossAi, "magneticClampWarningOffset", new Vector2(-1.72f, -0.44f));
+        SetVector2(bossAi, "hydraulicRamHitboxOffset", new Vector2(-2.05f, -0.72f));
+        SetVector2(bossAi, "hydraulicRamWarningOffset", new Vector2(-2.05f, -0.74f));
+        SetVector2(bossAi, "hydraulicRamVisualOffset", new Vector2(-2.05f, -0.68f));
         SetObject(sweepDamage, "owner", bossAi);
         SetObject(smashDamage, "owner", bossAi);
         SetObject(shockwaveDamage, "owner", bossAi);
@@ -3344,8 +3418,33 @@ public static class TutorialSceneBuilder
         }
         SetObject(finalPulseLeftDamage, "owner", bossAi);
         SetObject(finalPulseRightDamage, "owner", bossAi);
+        SetObject(magneticClampDamage, "owner", bossAi);
+        SetObject(hydraulicRamDamage, "owner", bossAi);
 
         return health;
+    }
+
+    private static void CreateBossDamageableHurtboxes(Transform parent, string name, Vector3 bossPosition, Health ownerHealth)
+    {
+        GameObject root = NewChild(parent, name + "_DamageableHurtboxes");
+        root.transform.position = bossPosition;
+        int hurtboxLayer = LayerMask.NameToLayer("TransparentFX");
+        root.layer = hurtboxLayer >= 0 ? hurtboxLayer : 0;
+        CreateBossDamageableHurtbox(root.transform, name + "_Hurtbox_Body", new Vector2(0f, -0.18f), new Vector2(3.35f, 2.35f), ownerHealth);
+        CreateBossDamageableHurtbox(root.transform, name + "_Hurtbox_Core", new Vector2(0f, 0.5f), new Vector2(1.72f, 1.45f), ownerHealth);
+        CreateBossDamageableHurtbox(root.transform, name + "_Hurtbox_LeftShoulder", new Vector2(-1.35f, 0.62f), new Vector2(1.32f, 1.28f), ownerHealth);
+        CreateBossDamageableHurtbox(root.transform, name + "_Hurtbox_RightShoulder", new Vector2(1.35f, 0.62f), new Vector2(1.32f, 1.28f), ownerHealth);
+    }
+
+    private static void CreateBossDamageableHurtbox(Transform parent, string name, Vector2 localPosition, Vector2 size, Health ownerHealth)
+    {
+        BoxCollider2D collider = NewChild(parent, name).AddComponent<BoxCollider2D>();
+        collider.gameObject.layer = parent.gameObject.layer;
+        collider.transform.localPosition = new Vector3(localPosition.x, localPosition.y, 0f);
+        collider.isTrigger = true;
+        collider.size = size;
+        DamageableHurtbox2D hurtbox = collider.gameObject.AddComponent<DamageableHurtbox2D>();
+        SetObject(hurtbox, "ownerHealth", ownerHealth);
     }
 
     private static void CreateBossVisualRefinementV3(
@@ -3393,6 +3492,27 @@ public static class TutorialSceneBuilder
             new Vector2(6.05f, 4.78f),
             new Color(1f, 0.92f, 0.82f, 0f),
             27).GetComponent<SpriteRenderer>();
+    }
+
+    private static void CreateBossMultipartVisualV5(
+        Transform parent,
+        string name,
+        out SpriteRenderer core,
+        out SpriteRenderer leftShoulder,
+        out SpriteRenderer rightShoulder,
+        out SpriteRenderer leftClamp,
+        out SpriteRenderer rightClamp,
+        out SpriteRenderer pipeBundle,
+        out SpriteRenderer overloadCracks)
+    {
+        GameObject root = NewChild(parent, name + "_V5MultipartAssembly");
+        pipeBundle = AddEnemyV5SpriteChild(root.transform, name + "_V5PipeBundle", "bossv5_pipe_bundle.png", new Vector2(0f, 0.92f), new Vector2(4.9f, 2.15f), new Color(0.92f, 0.86f, 0.76f, 0.74f), 20).GetComponent<SpriteRenderer>();
+        leftShoulder = AddEnemyV5SpriteChild(root.transform, name + "_V5LeftShoulder", "bossv5_left_shoulder.png", new Vector2(-1.32f, 0.58f), new Vector2(1.5f, 1.55f), new Color(0.96f, 0.88f, 0.74f, 0.88f), 22).GetComponent<SpriteRenderer>();
+        rightShoulder = AddEnemyV5SpriteChild(root.transform, name + "_V5RightShoulder", "bossv5_right_shoulder.png", new Vector2(1.32f, 0.58f), new Vector2(1.5f, 1.55f), new Color(0.96f, 0.88f, 0.74f, 0.88f), 22).GetComponent<SpriteRenderer>();
+        leftClamp = AddEnemyV5SpriteChild(root.transform, name + "_V5LeftMagneticClamp", "bossv5_left_magnetic_clamp.png", new Vector2(-2.05f, -0.2f), new Vector2(1.95f, 1.2f), new Color(0.96f, 0.82f, 0.58f, 0.88f), 24).GetComponent<SpriteRenderer>();
+        rightClamp = AddEnemyV5SpriteChild(root.transform, name + "_V5RightMagneticClamp", "bossv5_right_magnetic_clamp.png", new Vector2(2.05f, -0.2f), new Vector2(1.95f, 1.2f), new Color(0.96f, 0.82f, 0.58f, 0.88f), 24).GetComponent<SpriteRenderer>();
+        core = AddEnemyV5SpriteChild(root.transform, name + "_V5CoreModule", "bossv5_core_module.png", new Vector2(0f, 0.44f), new Vector2(1.5f, 1.35f), new Color(1f, 0.92f, 0.76f, 0.72f), 26).GetComponent<SpriteRenderer>();
+        overloadCracks = AddEnemyV5SpriteChild(root.transform, name + "_V5OverloadCracks", "bossv5_overload_cracks.png", new Vector2(0f, 0.36f), new Vector2(4.4f, 2.7f), new Color(1f, 0.38f, 0.12f, 0f), 28).GetComponent<SpriteRenderer>();
     }
 
     private static void CreateBossEncounter(Transform parent, Health bossHealth)
@@ -4823,6 +4943,38 @@ public static class TutorialSceneBuilder
         return spriteObject;
     }
 
+    private static GameObject AddEnemyV5SpriteChild(Transform parent, string name, string fileName, Vector2 localPosition, Vector2 targetSize, Color color, int order)
+    {
+        GameObject spriteObject = NewChild(parent, name);
+        spriteObject.transform.localPosition = new Vector3(localPosition.x, localPosition.y, 0f);
+
+        SpriteRenderer renderer = spriteObject.AddComponent<SpriteRenderer>();
+        renderer.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(GetEnemyV5SpritePath(fileName));
+        renderer.color = color;
+        renderer.sortingOrder = order;
+
+        if (renderer.sprite == null)
+        {
+            Debug.LogWarning($"Missing V5 enemy sprite: {GetEnemyV5SpritePath(fileName)}");
+            renderer.sprite = whiteSprite;
+            renderer.color = Color.magenta;
+            spriteObject.transform.localScale = new Vector3(targetSize.x, targetSize.y, 1f);
+            return spriteObject;
+        }
+
+        Vector2 spriteSize = renderer.sprite.bounds.size;
+        if (spriteSize.x <= 0f || spriteSize.y <= 0f)
+        {
+            spriteObject.transform.localScale = Vector3.one;
+        }
+        else
+        {
+            spriteObject.transform.localScale = new Vector3(targetSize.x / spriteSize.x, targetSize.y / spriteSize.y, 1f);
+        }
+
+        return spriteObject;
+    }
+
     private static GameObject AddRobotSpritePart(Transform parent, string name, string fileName, Vector2 localPosition, float targetSize, bool targetSizeIsWidth, int order)
     {
         GameObject part = NewChild(parent, name);
@@ -5367,6 +5519,17 @@ public static class TutorialSceneBuilder
         return paths;
     }
 
+    private static string[] GetEnemyV5SpritePaths()
+    {
+        string[] paths = new string[EnemyV5SpriteFiles.Length];
+        for (int i = 0; i < EnemyV5SpriteFiles.Length; i++)
+        {
+            paths[i] = GetEnemyV5SpritePath(EnemyV5SpriteFiles[i]);
+        }
+
+        return paths;
+    }
+
     private static string GetEnvironmentSpritePath(string fileName)
     {
         return $"{GeneratedEnvironmentV1Path}/{fileName}";
@@ -5480,6 +5643,11 @@ public static class TutorialSceneBuilder
     private static string GetEnemyV4SpritePath(string fileName)
     {
         return $"{GeneratedEnemiesV4Path}/{fileName}";
+    }
+
+    private static string GetEnemyV5SpritePath(string fileName)
+    {
+        return $"{GeneratedEnemiesV5Path}/{fileName}";
     }
 
     private static string GetProvidedEnvironmentSpritePath(string fileName)

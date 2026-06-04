@@ -28,7 +28,7 @@
 - HUD 已改为废土工业终端界面：目标固定左上安全区，耐久、提示、交互和 Boss 血条使用小字号、暗钢锈铁面板、角部铆钉、琥珀/青绿/红蓝状态灯、机械分段条、轻量扫描线和受击闪烁，确保 1280x720 到 1920x1080 下不越界、不遮挡关键动作。
 - 出生点新增约 10 秒电影感叙事片头：先用居中琥珀单色工业启动终端逐行显示 A-07 故障日志，再慢速扫过废弃维修站，最后回到维修台播放更完整的扫描光、暖 halo、蒸汽、火花与主角起身动作；按方向键 / Space / J / E 可跳过。
 - Boss 遭遇由 `BossEncounter_StartTrigger` 启动：入口锁闭、顶部 Boss 血条显示、镜头临时收紧；Boss 死亡后入口锁解除并继续让 `Door_BossExit_MechCity` 自动打开。
-- 「维修站守卫者」为 14 耐久三阶段教学压轴战：P1 横扫/砸地，P2 半血过载并只召唤一次 2 台 1 耐久小维修机，P3 低血核心暴走并加入双向核心脉冲、横扫接冲击波、砸地接电弧连携；每招仍只造成 1 点伤害，死亡时破碎、爆火花、散件飞出并在烟雾中消失。
+- 「维修站守卫者」为 14 耐久三阶段教学压轴战：Boss 会根据玩家贴脸贪刀、远距离拖延和频繁跳跃自适应选招；液压冲锤成为主要近中距离攻击，磁钳夹击反制近身贪刀，P2/P3 仍保留小维修机、冲击波、电弧、核心光束、落雷、核心脉冲和终段连携；每招仍只造成 1 点伤害，死亡时破碎、爆火花、散件飞出并在烟雾中消失。
 - 两个可读终端用于交代启动日志和芯片说明。
 - 背景层包含低雾、尘埃、灯光闪烁、蒸汽、齿轮、电弧、前景剪影和系统可读性美化层。
 
@@ -77,7 +77,7 @@ Assets/Scenes/Tutorial_01_AwakeningCorridor.unity
 4. 第一个敌人区：用 J 击败巡逻维修机器人，理解近战攻击范围和敌人接触伤害。
 5. 机关机械厅：观察蓝色电流地板与红灯压缩机的节奏。
 6. 充电存档点：按 E 充能并记录检查点。
-7. Boss 维修大厅：进入后锁门、显示 Boss 血条，练习读横扫、砸地、冲击波、过载电弧、核心光束、落雷和终段连携，并在收招时反击。
+7. Boss 维修大厅：进入后锁门、显示 Boss 血条，练习读液压冲锤、砸地、磁钳夹击、稀有横扫、冲击波、过载电弧、核心光束、落雷和终段连携，并在收招时反击。
 8. 机械城入口门：Boss 死亡后出口门自动开启，教学段完成。
 
 ## 项目结构
@@ -120,8 +120,9 @@ ProjectSettings/
 | `HazardRespawn2D.cs` | 油坑/断层复活触发 |
 | `LoreTerminal.cs` | 可读终端交互 |
 | `BossEncounterController2D.cs` | Boss 厅触发、入口锁、Boss 血条和临时镜头边界 |
-| `RepairStationBoss2D.cs` | 维修站守卫者状态机、阶段、召唤、方向化 hitbox 和过载技能 |
+| `RepairStationBoss2D.cs` | 维修站守卫者自适应状态机、阶段、召唤、方向化 hitbox、液压冲锤、磁钳夹击和过载技能 |
 | `BossDamageHitbox2D.cs` | Boss 招式伤害转发 |
+| `DamageableHurtbox2D.cs` | 独立可受击 hurtbox，避免 Boss 招式伤害盒被玩家误伤 |
 | `LevelObjectiveUI.cs` | 目标、耐久、Boss 血条、提示文本 HUD |
 | `CameraFollow2D.cs` | 横版相机跟随与 Boss 临时边界 |
 | `PlayerRobotVisualAnimator2D.cs` | 主角部件动画 |
@@ -141,7 +142,7 @@ ProjectSettings/
 - 组件精细化覆盖件：`Assets/Art/Generated/Environment/V19/` 包含终端屏幕、控制/门锁板和状态核心三张透明 PNG，由 `*_PolishRefined` 视觉节点复用。
 - 组件特效增强：`*_FXPolish` 复用 Effects/V2/V5 与 Environment/V7 素材，为 Boss 入口锁、出口门、记录点和箭头提供低侵入状态灯、扫描线、halo 和火花。
 - Boss 门精细覆盖件：`Assets/Art/Generated/Environment/V20/` 包含入口锁门和出口门两张透明 PNG，仅用于 Boss 战门体美术层。
-- Boss 精细覆盖件：V3 外甲 `Assets/Art/Generated/Enemies/V3/bossv3_guardian_refined_overlay.png` 叠加在原 V2 Boss 身体上；V4 暴走层 `Assets/Art/Generated/Enemies/V4/bossv4_guardian_overload_overlay.png` 只在 P3、受击高亮和死亡演出中显现。技能特效与死亡碎片继续复用现有 Effects/V2/V5 和 Environment/V7/V10。
+- Boss 精细覆盖件：V3 外甲 `Assets/Art/Generated/Enemies/V3/bossv3_guardian_refined_overlay.png` 叠加在原 V2 Boss 身体上；V4 暴走层 `Assets/Art/Generated/Enemies/V4/bossv4_guardian_overload_overlay.png` 只在 P3、受击高亮和死亡演出中显现；V5 多部件层 `Assets/Art/Generated/Enemies/V5/` 提供核心、肩甲、磁钳、管线和裂纹层，由 Boss 状态机驱动液压冲锤、磁钳夹击、受击和暴走反馈。技能特效与死亡碎片继续复用现有 Effects/V2/V5 和 Environment/V7/V10。
 - 跳跃路段背景层：`JumpRoute_BackgroundPolish_BrokenPlatforms` 复用机械墙、破窗、支架、halo、油雾、蒸汽、电弧、扫描光和高处链条，强化截图位置的平台后景和右侧跳跃路线。
 - 复活美化层：`RespawnPolish_Runtime` 和 `RespawnPoint_Polish_*` 复用 halo、scan、steam、spark、dust 素材，负责失败点闪烁、检查点重组和检查点激活脉冲。
 
