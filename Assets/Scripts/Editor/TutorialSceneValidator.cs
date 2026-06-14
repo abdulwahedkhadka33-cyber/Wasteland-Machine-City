@@ -9,6 +9,8 @@ using UnityEngine;
 public static class TutorialSceneValidator
 {
     private const string ScenePath = "Assets/Scenes/Tutorial_01_AwakeningCorridor.unity";
+    private const string Level02ScenePath = "Assets/Scenes/Level_02_PlatformRoad.unity";
+    private const string Level02SceneName = "Level_02_PlatformRoad";
     private const string BackgroundV7Path = "Assets/Art/Generated/Backgrounds/V7";
     private const string BackgroundV8Path = "Assets/Art/Generated/Backgrounds/V8";
     private const string BackgroundV15Path = "Assets/Art/Generated/Backgrounds/V15";
@@ -364,13 +366,47 @@ public static class TutorialSceneValidator
             throw new Exception("RepairChip.asset is missing or incorrectly configured.");
         }
 
-        bool sceneInBuild = EditorBuildSettings.scenes.Any(scene => scene.path == ScenePath && scene.enabled);
-        if (!sceneInBuild)
-        {
-            throw new Exception($"{ScenePath} is not enabled in Build Settings.");
-        }
+        RequirePlayableScenesInBuildSettings();
 
         Debug.Log("Tutorial scene validation passed.");
+    }
+
+    [MenuItem("Tools/Wasteland Mech City/Validate Level 02 Platform Road")]
+    public static void ValidateLevel02PlatformRoad()
+    {
+        if (EditorApplication.isPlayingOrWillChangePlaymode)
+        {
+            EditorApplication.isPlaying = false;
+            EditorApplication.delayCall += ValidateLevel02PlatformRoad;
+            Debug.Log("Exiting Play Mode before validating level 02.");
+            return;
+        }
+
+        if (!File.Exists(Level02ScenePath))
+        {
+            throw new Exception($"Missing level 02 scene: {Level02ScenePath}");
+        }
+
+        EditorSceneManager.OpenScene(Level02ScenePath);
+
+        RequireLevel02CoreObjects();
+        RequireLevel02Layout();
+        RequirePlayableScenesInBuildSettings();
+
+        Debug.Log("Level 02 platform road validation passed.");
+    }
+
+    private static void RequirePlayableScenesInBuildSettings()
+    {
+        string[] expectedPaths = { ScenePath, Level02ScenePath };
+        EditorBuildSettingsScene[] scenes = EditorBuildSettings.scenes;
+        for (int i = 0; i < expectedPaths.Length; i++)
+        {
+            if (scenes.Length <= i || scenes[i].path != expectedPaths[i] || !scenes[i].enabled)
+            {
+                throw new Exception($"{expectedPaths[i]} must be enabled in Build Settings at index {i}.");
+            }
+        }
     }
 
     private static void RequireCoreObjects()
@@ -412,6 +448,56 @@ public static class TutorialSceneValidator
         RequireHudIndustrialTerminal();
         RequireComponent<CameraFollow2D>("Main Camera");
         RequireRuntimeBossApis();
+    }
+
+    private static void RequireLevel02CoreObjects()
+    {
+        RequireObject(Level02SceneName);
+        RequireComponent<PlayerController2D>("Player_SmallAmnesiacRobot");
+        RequireComponent<Health>("Player_SmallAmnesiacRobot");
+        RequireComponent<PlayerRobotVisualAnimator2D>("Player_SmallAmnesiacRobot");
+        RequireComponent<CameraFollow2D>("Main Camera");
+        RequireComponent<LevelObjectiveUI>("OnGUI_Level02HUD");
+        RequireObject("BG_Level02_FarMachines");
+        RequireObject("BG_Level02_MidSystems");
+        RequireObject("BG_Level02_NearSafeDecor");
+        RequireObject("Section_01_PlatformRoadChallenge");
+        RequireObject("Details_Level02_Start");
+        RequireObject("Details_Level02_Gap");
+        RequireObject("Details_Level02_EndStopper");
+    }
+
+    private static void RequireLevel02Layout()
+    {
+        RequireNear(RequireObject("Player_SmallAmnesiacRobot").transform.position, new Vector2(2.5f, -1.85f), 0.05f, "level 02 player spawn");
+        CameraFollow2D follow = RequireObject("Main Camera").GetComponent<CameraFollow2D>();
+        RequireSerializedVector2(follow, "minBounds", new Vector2(-4f, -5.4f), "level 02 camera min bounds");
+        RequireSerializedVector2(follow, "maxBounds", new Vector2(46f, 6.8f), "level 02 camera max bounds");
+        RequireSerializedFloat<CameraFollow2D>("Main Camera", "horizontalLookahead", 1.05f);
+
+        RequirePlatformCollider("Level02_Floor_StartRoad", new Vector2(7.5f, -3.05f), new Vector2(15f, 1.1f));
+        RequirePlatformCollider("Level02_Jump_RaisedDeck", new Vector2(21.5f, -2.08f), new Vector2(4.3f, 0.56f));
+        RequirePlatformCollider("Level02_Floor_LandingRoad", new Vector2(33f, -3.05f), new Vector2(14f, 1.1f));
+        RequirePlatformCollider("Level02_LowObstacle_EndStep", new Vector2(36.8f, -2.19f), new Vector2(1.35f, 0.82f));
+        RequirePlatformCollider("Level02_TemporaryEndStopper", new Vector2(40.45f, -1.46f), new Vector2(0.46f, 3.2f));
+
+        RequireComponent<Checkpoint2D>("Level02_Checkpoint_Start");
+        RequireNear(RequireObject("Level02_Checkpoint_Start").transform.position, new Vector2(2.5f, -1.85f), 0.05f, "level 02 checkpoint");
+        RequireComponent<HazardRespawn2D>("Level02_FallReturnZone");
+        RequireNear(RequireObject("Level02_FallReturnZone").transform.position, new Vector2(21f, -6.1f), 0.05f, "level 02 fall return zone");
+        BoxCollider2D fallZone = RequireObject("Level02_FallReturnZone").GetComponent<BoxCollider2D>();
+        if (fallZone == null || !fallZone.isTrigger)
+        {
+            throw new Exception("Level02_FallReturnZone must be a trigger collider.");
+        }
+
+        RequireNear(fallZone.size, new Vector2(54f, 1f), 0.05f, "level 02 fall return zone size");
+
+        RequireComponent<TutorialTrigger>("L02_T01_PlatformRoad_Start");
+        RequireComponent<TutorialTrigger>("L02_T02_PlatformRoad_Gap");
+        RequireComponent<TutorialTrigger>("L02_T03_PlatformRoad_End");
+        RequireMinimum<TutorialTrigger>(3);
+        RequireMinimum<Checkpoint2D>(1);
     }
 
     private static void RequireHudIndustrialTerminal()
@@ -1986,7 +2072,19 @@ public static class TutorialSceneValidator
         RequireNear(RequireObject("Door_BossExit_MechCity").transform.position, new Vector2(159.5f, -1.15f), 0.2f, "boss exit door position");
 
         RequireObject("ExitGoal_MechCityEntrance");
+        RequireComponent<SceneExitGoal>("ExitGoal_MechCityEntrance");
         RequireNear(RequireObject("ExitGoal_MechCityEntrance").transform.position, new Vector2(172f, -1.6f), 0.2f, "exit goal position");
+        RequireSerializedString<SceneExitGoal>("ExitGoal_MechCityEntrance", "nextSceneName", Level02SceneName);
+        RequireSerializedFloat<SceneExitGoal>("ExitGoal_MechCityEntrance", "transitionDelaySeconds", 1.35f);
+        RequireSerializedObjectReference<SceneExitGoal>("ExitGoal_MechCityEntrance", "transitionEffectRoot");
+        RequireSerializedObjectReference<SceneExitGoal>("ExitGoal_MechCityEntrance", "swirlTransform");
+        RequireSerializedArrayMinimum<SceneExitGoal>("ExitGoal_MechCityEntrance", "transitionRenderers", 8);
+        RequireObject("ExitGoal_MechCityEntrance_PortalTransitionFX");
+        RequireObject("ExitGoal_MechCityEntrance_PortalSwirlPivot");
+        RequireSpritePathPrefix("ExitGoal_MechCityEntrance_PortalHalo", EffectsV5Path);
+        RequireSpritePathPrefix("ExitGoal_MechCityEntrance_PortalSparkRing", EffectsV5Path);
+        RequireSpritePathPrefix("ExitGoal_MechCityEntrance_PortalScanBeam", EffectsV2Path);
+        RequireSpritePathPrefix("ExitGoal_MechCityEntrance_PortalSparkShower", EffectsV2Path);
         RequireArrowFXPolish("Wall_Arrow_Right_GeneratedSign", new Vector2(25.85f, -1.1f));
         RequireArrowFXPolish("MechCity_Entrance_SignPlate", new Vector2(164.8f, -0.55f));
 
@@ -2895,6 +2993,19 @@ public static class TutorialSceneValidator
     private static void RequireNear(Vector3 actual, Vector2 expected, float tolerance, string label)
     {
         RequireNear(new Vector2(actual.x, actual.y), expected, tolerance, label);
+    }
+
+    private static void RequirePlatformCollider(string objectName, Vector2 expectedPosition, Vector2 expectedSize)
+    {
+        GameObject platform = RequireObject(objectName);
+        RequireNear(platform.transform.position, expectedPosition, 0.05f, objectName + " position");
+        BoxCollider2D collider = platform.GetComponent<BoxCollider2D>();
+        if (collider == null || collider.isTrigger)
+        {
+            throw new Exception($"{objectName} must have a solid BoxCollider2D.");
+        }
+
+        RequireNear(collider.size, expectedSize, 0.05f, objectName + " collider size");
     }
 
     private static void RequireNear(Vector2 actual, Vector2 expected, float tolerance, string label)

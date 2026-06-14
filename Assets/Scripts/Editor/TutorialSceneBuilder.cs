@@ -8,6 +8,8 @@ using UnityEngine.SceneManagement;
 public static class TutorialSceneBuilder
 {
     private const string ScenePath = "Assets/Scenes/Tutorial_01_AwakeningCorridor.unity";
+    private const string Level02ScenePath = "Assets/Scenes/Level_02_PlatformRoad.unity";
+    private const string Level02SceneName = "Level_02_PlatformRoad";
     private const string GeneratedArtPath = "Assets/Art/Generated";
     private const string GeneratedBackgroundPath = "Assets/Art/Generated/Backgrounds";
     private const string GeneratedBackgroundV2Path = "Assets/Art/Generated/Backgrounds/V2";
@@ -705,11 +707,99 @@ public static class TutorialSceneBuilder
         Selection.activeObject = player;
         EditorSceneManager.MarkSceneDirty(scene);
         EditorSceneManager.SaveScene(scene, ScenePath);
-        EditorBuildSettings.scenes = new[] { new EditorBuildSettingsScene(ScenePath, true) };
+        UpdatePlayableSceneBuildSettings();
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
 
         Debug.Log($"Built playable tutorial scene at {ScenePath}");
+    }
+
+    [MenuItem("Tools/Wasteland Mech City/Build Level 02 Platform Road")]
+    public static void BuildLevel02PlatformRoad()
+    {
+        if (EditorApplication.isPlayingOrWillChangePlaymode)
+        {
+            EditorApplication.isPlaying = false;
+            EditorApplication.delayCall += BuildLevel02PlatformRoad;
+            Debug.Log("Exiting Play Mode before rebuilding level 02.");
+            return;
+        }
+
+        PrepareLevel02Assets();
+
+        Scene scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
+        scene.name = Level02SceneName;
+
+        GameObject roots = new GameObject(Level02SceneName);
+        GameObject backgroundRoot = NewChild(roots.transform, "00_Background");
+        GameObject geometryRoot = NewChild(roots.transform, "01_Level_Geometry");
+        GameObject gameplayRoot = NewChild(roots.transform, "02_Gameplay");
+        GameObject tutorialRoot = NewChild(roots.transform, "03_Tutorial_Triggers");
+        GameObject uiRoot = NewChild(roots.transform, "04_UI");
+        GameObject detailRoot = NewChild(roots.transform, "05_Environmental_Details");
+
+        GameObject player = CreatePlayer(gameplayRoot.transform);
+        player.transform.position = new Vector3(2.5f, -1.85f, 0f);
+        CreateCamera(player.transform);
+        ConfigureLevel02Camera();
+        CreateLightingMood();
+        CreateLevel02Background(backgroundRoot.transform);
+        CreateLevel02Geometry(geometryRoot.transform);
+        CreateLevel02Gameplay(gameplayRoot.transform);
+        CreateLevel02TutorialTriggers(tutorialRoot.transform);
+        CreateLevel02EnvironmentalDetails(detailRoot.transform);
+        CreateLevel02Ui(uiRoot.transform);
+
+        Selection.activeObject = player;
+        EditorSceneManager.MarkSceneDirty(scene);
+        EditorSceneManager.SaveScene(scene, Level02ScenePath);
+        UpdatePlayableSceneBuildSettings();
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
+
+        Debug.Log($"Built playable level 02 scene at {Level02ScenePath}");
+    }
+
+    [MenuItem("Tools/Wasteland Mech City/Build All Playable Scenes")]
+    public static void BuildAllPlayableScenes()
+    {
+        if (EditorApplication.isPlayingOrWillChangePlaymode)
+        {
+            EditorApplication.isPlaying = false;
+            EditorApplication.delayCall += BuildAllPlayableScenes;
+            Debug.Log("Exiting Play Mode before rebuilding playable scenes.");
+            return;
+        }
+
+        BuildTutorialScene();
+        BuildLevel02PlatformRoad();
+        UpdatePlayableSceneBuildSettings();
+    }
+
+    private static void UpdatePlayableSceneBuildSettings()
+    {
+        ImportSceneAssetIfPresent(ScenePath);
+        ImportSceneAssetIfPresent(Level02ScenePath);
+        EditorBuildSettings.scenes = new[]
+        {
+            CreateBuildSettingsScene(ScenePath),
+            CreateBuildSettingsScene(Level02ScenePath),
+        };
+    }
+
+    private static void ImportSceneAssetIfPresent(string scenePath)
+    {
+        if (File.Exists(scenePath))
+        {
+            AssetDatabase.ImportAsset(scenePath);
+        }
+    }
+
+    private static EditorBuildSettingsScene CreateBuildSettingsScene(string scenePath)
+    {
+        EditorBuildSettingsScene scene = new EditorBuildSettingsScene(scenePath, true);
+        scene.guid = AssetDatabase.GUIDFromAssetPath(scenePath);
+        return scene;
     }
 
     private static void EnsureProjectFolders()
@@ -760,6 +850,74 @@ public static class TutorialSceneBuilder
         EnsureFolder("Assets/Scenes");
         EnsureFolder("Assets/Settings");
         EnsureFolder("Assets/Docs");
+    }
+
+    private static void PrepareLevel02Assets()
+    {
+        EnsureProjectFolders();
+        ConfigureBuiltIn2DRenderer();
+
+        foreach (string robotPartPath in GetRobotPartPaths())
+        {
+            ConfigureImportedSprite(robotPartPath, 512);
+        }
+
+        foreach (string environmentPath in GetEnvironmentSpritePaths())
+        {
+            ConfigureImportedSprite(environmentPath, EnvironmentPixelsPerUnit, 2048);
+        }
+
+        foreach (string environmentV7Path in GetEnvironmentV7SpritePaths())
+        {
+            ConfigureImportedSprite(environmentV7Path, EnvironmentV7PixelsPerUnit, 4096, FilterMode.Bilinear);
+        }
+
+        foreach (string environmentV8Path in GetEnvironmentV8SpritePaths())
+        {
+            ConfigureImportedSprite(environmentV8Path, EnvironmentV8PixelsPerUnit, 4096, FilterMode.Bilinear);
+        }
+
+        foreach (string environmentV9Path in GetEnvironmentV9SpritePaths())
+        {
+            ConfigureImportedSprite(environmentV9Path, EnvironmentV9PixelsPerUnit, 4096, FilterMode.Bilinear);
+        }
+
+        foreach (string environmentV10Path in GetEnvironmentV10SpritePaths())
+        {
+            ConfigureImportedSprite(environmentV10Path, EnvironmentV10PixelsPerUnit, 4096, FilterMode.Bilinear);
+        }
+
+        foreach (string environmentV11Path in GetEnvironmentV11SpritePaths())
+        {
+            ConfigureImportedSprite(environmentV11Path, EnvironmentV11PixelsPerUnit, 4096, FilterMode.Bilinear);
+        }
+
+        foreach (string providedEnvironmentV4Path in GetProvidedEnvironmentV4SpritePaths())
+        {
+            ConfigureImportedSprite(providedEnvironmentV4Path, ProvidedEnvironmentV4PixelsPerUnit, 4096, FilterMode.Bilinear);
+        }
+
+        foreach (string effectV1Path in GetEffectsV1SpritePaths())
+        {
+            ConfigureImportedSprite(effectV1Path, EffectsV1PixelsPerUnit, 4096, FilterMode.Bilinear);
+        }
+
+        foreach (string effectV2Path in GetEffectsV2SpritePaths())
+        {
+            ConfigureImportedSprite(effectV2Path, EffectsV2PixelsPerUnit, 4096, FilterMode.Bilinear);
+        }
+
+        foreach (string effectV5Path in GetEffectsV5SpritePaths())
+        {
+            ConfigureImportedSprite(effectV5Path, EffectsV5PixelsPerUnit, 4096, FilterMode.Bilinear);
+        }
+
+        foreach (string effectV7Path in GetEffectsV7SpritePaths())
+        {
+            ConfigureImportedSprite(effectV7Path, EffectsV7PixelsPerUnit, 4096, FilterMode.Bilinear);
+        }
+
+        whiteSprite = GetOrCreateSolidSprite("white_pixel", Color.white);
     }
 
     private static void ConfigureBuiltIn2DRenderer()
@@ -936,6 +1094,30 @@ public static class TutorialSceneBuilder
         SetFloat(follow, "horizontalLookahead", 1.15f);
         SetFloat(follow, "maxLookaheadSpeed", 7.2f);
         SetFloat(follow, "lookaheadSmoothTime", 0.24f);
+    }
+
+    private static void ConfigureLevel02Camera()
+    {
+        Camera mainCamera = Camera.main;
+        if (mainCamera == null)
+        {
+            return;
+        }
+
+        mainCamera.transform.position = new Vector3(5f, -0.2f, -10f);
+        mainCamera.backgroundColor = new Color(0.035f, 0.042f, 0.038f);
+        CameraFollow2D follow = mainCamera.GetComponent<CameraFollow2D>();
+        if (follow == null)
+        {
+            return;
+        }
+
+        SetVector2(follow, "offset", new Vector2(2.15f, 0.75f));
+        SetVector2(follow, "minBounds", new Vector2(-4f, -5.4f));
+        SetVector2(follow, "maxBounds", new Vector2(46f, 6.8f));
+        SetFloat(follow, "verticalDeadZone", 1.3f);
+        SetFloat(follow, "verticalFollowStrength", 0.28f);
+        SetFloat(follow, "horizontalLookahead", 1.05f);
     }
 
     private static void CreateLightingMood()
@@ -2480,6 +2662,82 @@ public static class TutorialSceneBuilder
         AddArrowFXPolish(section8.transform, "MechCity_Entrance_SignPlate", new Vector2(164.8f, -0.55f), new Vector2(1.75f, 0.7f), new Color(0.52f, 1f, 0.82f, 0.18f));
     }
 
+    private static void CreateLevel02Background(Transform parent)
+    {
+        AddEnvironmentV8SpriteChild(parent, "Level02_Backdrop_SootGreen", "envv8_service_panel_dim.png", new Vector2(21f, 0.35f), new Vector2(58f, 12.5f), new Color(0.08f, 0.12f, 0.1f, 0.92f), -160);
+
+        GameObject farRoot = NewChild(parent, "BG_Level02_FarMachines");
+        AddProvidedEnvironmentV4SpriteChild(farRoot.transform, "Level02_FarMachineFrame_A", "large_machine_frame_v4.png", new Vector2(10.5f, 1.35f), new Vector2(7.8f, 4.5f), new Color(0.44f, 0.56f, 0.48f, 0.18f), -130);
+        AddProvidedEnvironmentV4SpriteChild(farRoot.transform, "Level02_FarGearWall_B", "large_gear_wall_v4.png", new Vector2(29.6f, 1.2f), new Vector2(8.2f, 4.8f), new Color(0.48f, 0.55f, 0.44f, 0.16f), -132);
+        AddEffectsV5SpriteChild(farRoot.transform, "Level02_FarDustMotes", "fxv5_fine_dust_motes.png", new Vector2(21f, 0.9f), new Vector2(46f, 9.5f), new Color(0.72f, 0.78f, 0.55f, 0.07f), -118).AddComponent<AmbientDrift2D>();
+
+        GameObject midRoot = NewChild(parent, "BG_Level02_MidSystems");
+        AddEnvironmentV8SpriteChild(midRoot.transform, "Level02_MidTopPipe", "envv8_top_pipe_soft.png", new Vector2(21f, 2.45f), new Vector2(39f, 0.74f), new Color(0.68f, 0.66f, 0.52f, 0.24f), -48);
+        GameObject fan = AddEnvironmentV9SpriteChild(midRoot.transform, "Level02_MidSlowFan", "envv9_ventilation_fan.png", new Vector2(13.4f, 1.1f), new Vector2(1.7f, 1.7f), new Color(0.58f, 0.68f, 0.54f, 0.24f), -58);
+        SimpleRotator2D fanRotator = fan.AddComponent<SimpleRotator2D>();
+        SetFloat(fanRotator, "degreesPerSecond", 11f);
+        AddEffectsV2SpriteChild(midRoot.transform, "Level02_MidScanBeam_Gap", "fxv2_scan_beam.png", new Vector2(16.9f, -0.55f), new Vector2(0.5f, 2.8f), new Color(0.4f, 0.94f, 1f, 0.16f), -20).AddComponent<LoopingBackgroundMotion2D>();
+        AddEffectsV5SpriteChild(midRoot.transform, "Level02_MidSoftHalo_End", "fxv5_lamp_halo_amber.png", new Vector2(39.2f, -0.35f), new Vector2(3.6f, 2.4f), new Color(0.42f, 1f, 0.76f, 0.1f), -26).AddComponent<SpriteFlicker2D>();
+
+        GameObject nearRoot = NewChild(parent, "BG_Level02_NearSafeDecor");
+        GameObject rail = AddProvidedEnvironmentV4SpriteChild(nearRoot.transform, "Level02_NearOverheadRail", "large_overhead_crane_rail_v4.png", new Vector2(24f, 3.45f), new Vector2(28f, 1.65f), new Color(0.72f, 0.62f, 0.44f, 0.34f), 14);
+        rail.transform.localRotation = Quaternion.Euler(0f, 0f, -0.18f);
+        GameObject hook = AddProvidedEnvironmentV4SpriteChild(nearRoot.transform, "Level02_NearSwayHook_High", "large_crane_hook_v4.png", new Vector2(36.4f, 2.58f), new Vector2(0.95f, 2.3f), new Color(0.74f, 0.63f, 0.46f, 0.4f), 15);
+        AddSway(hook, 1.8f, 6.4f, new Vector2(0.014f, 0.005f));
+        AddEffectsV5SpriteChild(nearRoot.transform, "Level02_GapLowFog", "fxv5_fall_fog_plume.png", new Vector2(17.2f, -4.5f), new Vector2(8.0f, 1.8f), new Color(0.42f, 0.62f, 0.52f, 0.22f), 18).AddComponent<AmbientDrift2D>();
+    }
+
+    private static void CreateLevel02Geometry(Transform parent)
+    {
+        GameObject section = NewChild(parent, "Section_01_PlatformRoadChallenge");
+        AddPlatform(section.transform, "Level02_Floor_StartRoad", new Vector2(7.5f, -3.05f), new Vector2(15f, 1.1f), PlatformVisualType.MainFloor, true, true);
+        AddPlatform(section.transform, "Level02_Jump_RaisedDeck", new Vector2(21.5f, -2.08f), new Vector2(4.3f, 0.56f), PlatformVisualType.ThinFloatingDeck);
+        AddPlatform(section.transform, "Level02_Floor_LandingRoad", new Vector2(33f, -3.05f), new Vector2(14f, 1.1f), PlatformVisualType.MainFloor, true, true);
+        AddPlatform(section.transform, "Level02_LowObstacle_EndStep", new Vector2(36.8f, -2.19f), new Vector2(1.35f, 0.82f), PlatformVisualType.LowObstacle);
+        GameObject stopper = NewChild(section.transform, "Level02_TemporaryEndStopper");
+        stopper.transform.position = new Vector3(40.45f, -1.46f, 0f);
+        BoxCollider2D stopperCollider = stopper.AddComponent<BoxCollider2D>();
+        stopperCollider.size = new Vector2(0.46f, 3.2f);
+        AddEnvironmentV8SpriteChild(stopper.transform, "Level02_TemporaryEndStopper_Visual", "envv8_service_panel_dim.png", Vector2.zero, new Vector2(0.72f, 3.35f), new Color(0.34f, 0.48f, 0.38f, 0.9f), 18);
+        AddEffectsV2SpriteChild(stopper.transform, "Level02_TemporaryEndStopper_CyanStrip", "fxv2_scan_beam.png", new Vector2(-0.22f, 1.22f), new Vector2(0.16f, 1.7f), new Color(0.38f, 1f, 0.82f, 0.38f), 19);
+    }
+
+    private static void CreateLevel02Gameplay(Transform parent)
+    {
+        CreateCheckpoint(parent, "Level02_Checkpoint_Start", new Vector2(2.5f, -1.85f));
+        CreateFallDeathZone(parent, "Level02_FallReturnZone", new Vector2(21f, -6.1f), new Vector2(54f, 1f));
+    }
+
+    private static void CreateLevel02TutorialTriggers(Transform parent)
+    {
+        AddTutorialTrigger(parent, "L02_T01_PlatformRoad_Start", new Vector2(3.2f, -1.45f), new Vector2(3.2f, 3.1f), "平台道路样段：向右前进。", "穿过平台道路");
+        AddTutorialTrigger(parent, "L02_T02_PlatformRoad_Gap", new Vector2(14.2f, -1.45f), new Vector2(2.8f, 3.1f), "短断层，跳到抬高平台。", "通过断层");
+        AddTutorialTrigger(parent, "L02_T03_PlatformRoad_End", new Vector2(38.5f, -1.45f), new Vector2(3.2f, 3.1f), "第二关道路样段完成。", "等待下一段制作");
+    }
+
+    private static void CreateLevel02EnvironmentalDetails(Transform parent)
+    {
+        GameObject start = NewChild(parent, "Details_Level02_Start");
+        AddEffectsV5SpriteChild(start.transform, "Level02_StartSpawnHalo", "fxv5_lamp_halo_amber.png", new Vector2(2.5f, -2.1f), new Vector2(2.4f, 0.68f), new Color(0.46f, 1f, 0.82f, 0.24f), 17).AddComponent<SpriteFlicker2D>();
+        AddEnvironmentV7SpriteChild(start.transform, "Level02_StartArrowSign", "envv7_sign_arrow.png", new Vector2(5.7f, -0.9f), new Vector2(1.55f, 0.58f), new Color(0.76f, 1f, 0.78f, 0.76f), 16);
+        AddArrowFXPolish(start.transform, "Level02_StartArrowSign", new Vector2(5.7f, -0.9f), new Vector2(1.55f, 0.58f), new Color(0.52f, 1f, 0.82f, 0.18f));
+
+        GameObject gap = NewChild(parent, "Details_Level02_Gap");
+        AddEffectsV2SpriteChild(gap.transform, "Level02_GapScanLine", "fxv2_scan_beam.png", new Vector2(17f, -1.1f), new Vector2(0.35f, 2.15f), new Color(0.52f, 0.95f, 1f, 0.22f), 16).AddComponent<LoopingBackgroundMotion2D>();
+        AddEnvironmentV11SpriteChild(gap.transform, "Level02_GapHangingCable", "envv11_broken_cable_bundle.png", new Vector2(18.2f, 0.85f), new Vector2(0.74f, 1.4f), new Color(0.72f, 0.78f, 0.66f, 0.32f), -34).AddComponent<SwayingDecor2D>();
+
+        GameObject end = NewChild(parent, "Details_Level02_EndStopper");
+        AddEffectsV5SpriteChild(end.transform, "Level02_EndStopperGlow", "fxv5_lamp_halo_amber.png", new Vector2(40.1f, -0.6f), new Vector2(2.2f, 2.8f), new Color(0.42f, 1f, 0.78f, 0.18f), 17).AddComponent<SpriteFlicker2D>();
+        AddEnvironmentV7SpriteChild(end.transform, "Level02_EndWarningLamp", "envv7_indicator_lamp_amber.png", new Vector2(39.92f, 0.8f), new Vector2(0.18f, 0.18f), new Color(0.5f, 1f, 0.78f, 0.84f), 20).AddComponent<SpriteFlicker2D>();
+    }
+
+    private static void CreateLevel02Ui(Transform parent)
+    {
+        GameObject hud = NewChild(parent, "OnGUI_Level02HUD");
+        LevelObjectiveUI ui = hud.AddComponent<LevelObjectiveUI>();
+        SetString(ui, "objectiveText", "穿过平台道路");
+    }
+
     private static GameObject CreateEnvironmentalDetails(Transform parent)
     {
         GameObject awakening = NewChild(parent, "Details_01_AwakeningBench");
@@ -2681,9 +2939,43 @@ public static class TutorialSceneBuilder
         BoxCollider2D exitTrigger = exit.AddComponent<BoxCollider2D>();
         exitTrigger.isTrigger = true;
         exitTrigger.size = new Vector2(1.5f, 3f);
-        exit.AddComponent<SceneExitGoal>();
+        SceneExitGoal exitGoal = exit.AddComponent<SceneExitGoal>();
+        CreateExitPortalTransition(exit.transform, exitGoal);
 
         return bossHealth;
+    }
+
+    private static void CreateExitPortalTransition(Transform parent, SceneExitGoal exitGoal)
+    {
+        GameObject root = NewChild(parent, "ExitGoal_MechCityEntrance_PortalTransitionFX");
+        root.transform.localPosition = new Vector3(0f, 0.62f, 0f);
+
+        GameObject swirl = NewChild(root.transform, "ExitGoal_MechCityEntrance_PortalSwirlPivot");
+        SpriteRenderer halo = AddEffectsV5SpriteChild(swirl.transform, "ExitGoal_MechCityEntrance_PortalHalo", "fxv5_lamp_halo_amber.png", Vector2.zero, new Vector2(2.8f, 2.8f), new Color(0.42f, 1f, 0.78f, 0.42f), 36).GetComponent<SpriteRenderer>();
+        SpriteRenderer spark = AddEffectsV5SpriteChild(swirl.transform, "ExitGoal_MechCityEntrance_PortalSparkRing", "fxv5_electric_spark_frame.png", new Vector2(0.08f, 0.02f), new Vector2(1.7f, 1.0f), new Color(0.52f, 0.96f, 1f, 0.62f), 39).GetComponent<SpriteRenderer>();
+        SpriteRenderer dust = AddEffectsV5SpriteChild(root.transform, "ExitGoal_MechCityEntrance_PortalDust", "fxv5_fine_dust_motes.png", Vector2.zero, new Vector2(3.2f, 2.8f), new Color(0.72f, 1f, 0.82f, 0.18f), 35).GetComponent<SpriteRenderer>();
+        SpriteRenderer scan = AddEffectsV2SpriteChild(root.transform, "ExitGoal_MechCityEntrance_PortalScanBeam", "fxv2_scan_beam.png", new Vector2(0f, 0.02f), new Vector2(0.62f, 3.1f), new Color(0.52f, 0.95f, 1f, 0.42f), 40).GetComponent<SpriteRenderer>();
+        SpriteRenderer shower = AddEffectsV2SpriteChild(root.transform, "ExitGoal_MechCityEntrance_PortalSparkShower", "fxv2_spark_shower.png", new Vector2(0.18f, 0.1f), new Vector2(0.95f, 1.2f), new Color(0.5f, 1f, 0.84f, 0.36f), 41).GetComponent<SpriteRenderer>();
+
+        GameObject slashAObject = AddEffectsV2SpriteChild(swirl.transform, "ExitGoal_MechCityEntrance_PortalSlash_A", "fxv2_scan_beam.png", new Vector2(0f, 0.38f), new Vector2(0.12f, 2.35f), new Color(0.52f, 1f, 0.86f, 0.32f), 38);
+        SpriteRenderer slashA = slashAObject.GetComponent<SpriteRenderer>();
+        slashAObject.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
+        GameObject slashB = AddEffectsV2SpriteChild(swirl.transform, "ExitGoal_MechCityEntrance_PortalSlash_B", "fxv2_scan_beam.png", new Vector2(0f, -0.38f), new Vector2(0.12f, 2.35f), new Color(0.52f, 1f, 0.86f, 0.28f), 38);
+        SpriteRenderer slashBRenderer = slashB.GetComponent<SpriteRenderer>();
+        slashB.transform.localRotation = Quaternion.Euler(0f, 0f, 114f);
+        GameObject slashC = AddEffectsV2SpriteChild(swirl.transform, "ExitGoal_MechCityEntrance_PortalSlash_C", "fxv2_scan_beam.png", new Vector2(0.28f, 0f), new Vector2(0.12f, 2.25f), new Color(0.42f, 0.92f, 1f, 0.24f), 38);
+        SpriteRenderer slashCRenderer = slashC.GetComponent<SpriteRenderer>();
+        slashC.transform.localRotation = Quaternion.Euler(0f, 0f, -18f);
+
+        SetString(exitGoal, "nextSceneName", Level02SceneName);
+        SetFloat(exitGoal, "transitionDelaySeconds", 1.35f);
+        SetObject(exitGoal, "transitionEffectRoot", root);
+        SetObject(exitGoal, "swirlTransform", swirl.transform);
+        SetObjectArray(exitGoal, "transitionRenderers", new Object[] { halo, spark, dust, scan, shower, slashA, slashBRenderer, slashCRenderer });
+        SetString(exitGoal, "objectiveText", "进入平台道路");
+        SetString(exitGoal, "hintMessage", "传送门启动，前往平台道路。");
+
+        root.SetActive(false);
     }
 
     private static void CreateRespawnPolish(Transform parent, GameObject player)
